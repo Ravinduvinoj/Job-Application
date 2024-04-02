@@ -2,12 +2,11 @@
 .dash-ul {
     background-color: #c4ebc6;
     width: auto;
-
     top: 15px;
     margin-left: 90px;
     list-style-type: none;
     border-radius: 8px;
-    
+    overflow: hidden;
 
 }
 
