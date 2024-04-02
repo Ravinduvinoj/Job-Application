@@ -1,0 +1,123 @@
+.sidenav {
+    
+    background: #0c6B37;
+    transition: all 0.4s ease;
+    position: fixed;
+    z-index: 1;
+    top: 0px;
+    width : 100px;
+    height: 100vh;
+    box-shadow: 5px 0 10px 0 #7a8a81;
+
+    .logo-container {
+        display: flex;
+        align-items: center;
+        padding: 25px 25px 0 25px;
+        width: max-content;
+
+
+
+        .logo {
+             background: rgb(211, 208, 208);
+             text-align: center;
+             width: 50px;
+             min-width: 50px;
+             border-radius: 0.313rem;
+             padding: 0.5rem;
+             font-size: 22px;
+             font-weight: 900;
+             cursor: pointer;
+             border: none;
+        }
+
+        .logo-text {
+          /* width: max-content;*/
+             margin-left: 20px;
+             font-size: 25px;
+             font-weight: 550;
+             color: #fff;
+        }
+
+        .btn-close {
+             margin-left: auto;
+             cursor: pointer;
+             width: 2rem;
+             height: 2rem;
+             border-radius: 50%;
+             background-color: transparent;
+             border: none;
+
+             .fa-times {
+                  color: #fff;
+                  font-size: 22px;
+                  padding-left: 35px;
+                  transition:  0.5s ;
+             }
+        }
+   }
+}
+
+.sidenav-collapsed {
+    width: 300px;
+}
+
+.sidenav-nav {
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100% - 3.65rem);
+    cursor: pointer;
+
+}
+
+.sidenav-nav-item {
+    width: 100%;
+    margin-bottom: 0.625rem;
+}
+
+.sidenav-nav-link {
+    display: flex;
+    align-items: center;
+    height: 3rem;
+    color: #f3f3f3;
+    text-decoration: none;
+    border-radius: 0.625rem;
+    transition: color .9s ease;
+
+}
+
+.sidenav-link-icon {
+    font-size: 22px;
+    width: 2rem;
+    min-width: 2rem;
+    margin: 0 14px;
+    text-align: center;
+}
+
+.sidenav-link-text {
+    font-size: 18px;
+    margin-left: 30px;
+    
+    text-align: center;
+    width: min-content;
+    white-space: nowrap;
+
+}
+
+/*hover in side*/
+.sidenav-nav-item:hover {
+    .sidenav-nav-link {
+         background-color: #fff;
+         color: #000;
+    }
+}
+.active {
+    background-color: #ffffffbe;
+    .sidenav-link-icon,
+    .sidenav-link-text{
+        color: #000;
+    }
+}
