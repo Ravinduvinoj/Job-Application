@@ -9,6 +9,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { JCategoryComponent } from './j-category/j-category.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AccountsComponent } from './admin/accounts/accounts.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AccountsComponent } from './admin/accounts/accounts.component';
     AppRoutingModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
