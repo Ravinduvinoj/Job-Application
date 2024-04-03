@@ -8,7 +8,7 @@ import { BodyComponent } from './body/body.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { JCategoryComponent } from './j-category/j-category.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { AccountsComponent } from './accounts/accounts.component';
+import { AccountsComponent } from './admin/accounts/accounts.component';
 
 @NgModule({
   declarations: [
