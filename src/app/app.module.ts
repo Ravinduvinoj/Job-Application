@@ -10,6 +10,11 @@ import { JCategoryComponent } from './j-category/j-category.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AccountsComponent } from './admin/accounts/accounts.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { ScheduleComponent } from './employee/schedule/schedule.component';
+import { JobpostComponent } from './employee/jobpost/jobpost.component';
+import { SubscriptionComponent } from './admin/subscription/subscription.component';
+import { JobapprovalComponent } from './admin/jobapproval/jobapproval.component';
+import { PaymentComponent } from './admin/payment/payment.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +24,12 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     DashboardComponent,
     JCategoryComponent,
     NavbarComponent,
-    AccountsComponent
+    AccountsComponent,
+    ScheduleComponent,
+    JobpostComponent,
+    SubscriptionComponent,
+    JobapprovalComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,
