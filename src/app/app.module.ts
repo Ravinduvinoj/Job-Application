@@ -15,6 +15,7 @@ import { JobpostComponent } from './employee/jobpost/jobpost.component';
 import { SubscriptionComponent } from './admin/subscription/subscription.component';
 import { JobapprovalComponent } from './admin/jobapproval/jobapproval.component';
 import { PaymentComponent } from './admin/payment/payment.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PaymentComponent } from './admin/payment/payment.component';
     JobpostComponent,
     SubscriptionComponent,
     JobapprovalComponent,
-    PaymentComponent
+    PaymentComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
