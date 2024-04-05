@@ -5,8 +5,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { BodyComponent } from './body/body.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { JCategoryComponent } from './j-category/j-category.component';
+import { DashboardComponent } from './common/dashboard/dashboard.component';
+import { JCategoryComponent } from './admin/j-category/j-category.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AccountsComponent } from './admin/accounts/accounts.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
@@ -14,7 +14,7 @@ import { ScheduleComponent } from './employee/schedule/schedule.component';
 import { JobpostComponent } from './employee/jobpost/jobpost.component';
 import { SubscriptionComponent } from './admin/subscription/subscription.component';
 import { JobapprovalComponent } from './admin/jobapproval/jobapproval.component';
-import { SearchComponent } from './search/search.component';
+import { SearchComponent } from './common/search/search.component';
 import { JoblistningsComponent } from './employee/joblistnings/joblistnings.component';
 
 @NgModule({
