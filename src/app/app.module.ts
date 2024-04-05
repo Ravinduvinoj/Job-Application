@@ -14,7 +14,6 @@ import { ScheduleComponent } from './employee/schedule/schedule.component';
 import { JobpostComponent } from './employee/jobpost/jobpost.component';
 import { SubscriptionComponent } from './admin/subscription/subscription.component';
 import { JobapprovalComponent } from './admin/jobapproval/jobapproval.component';
-import { PaymentComponent } from './admin/payment/payment.component';
 import { SearchComponent } from './search/search.component';
 import { JoblistningsComponent } from './employee/joblistnings/joblistnings.component';
 
@@ -31,7 +30,6 @@ import { JoblistningsComponent } from './employee/joblistnings/joblistnings.comp
     JobpostComponent,
     SubscriptionComponent,
     JobapprovalComponent,
-    PaymentComponent,
     SearchComponent,
     JoblistningsComponent
   ],
