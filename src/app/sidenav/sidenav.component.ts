@@ -26,7 +26,7 @@ export class SidenavComponent {
 // }
 
   toggleCollapse():void {
-    this.collapsed= true;
+    this.collapsed= !this.collapsed;
     this.onToggleSidenav.emit({collapsed:this.collapsed,screenWidth:this.screenWidth})
    
   }
