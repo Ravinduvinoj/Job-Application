@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+
 @Component({
   selector: 'app-j-category',
   templateUrl: './j-category.component.html',

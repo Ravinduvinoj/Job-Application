@@ -18,6 +18,7 @@ import { SearchComponent } from './common/search/search.component';
 import { JoblistningsComponent } from './employee/joblistnings/joblistnings.component';
 import { RegisterComponent } from './common/register/register/register.component';
 import { LoginComponent } from './common/login/login/login.component';
+import { LoginnavComponent } from './common/login/loginnav/loginnav.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { LoginComponent } from './common/login/login/login.component';
     SearchComponent,
     JoblistningsComponent,
     RegisterComponent,
-    LoginComponent
+    LoginComponent,
+    LoginnavComponent
   ],
   imports: [
     BrowserModule,
