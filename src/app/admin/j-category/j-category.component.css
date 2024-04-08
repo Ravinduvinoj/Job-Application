@@ -1,4 +1,49 @@
+
 .div-cat {
+    width: auto;
+    overflow: hidden; /* Ensure the container wraps its floated children */
+}
+
+.div-cat ul {
+    list-style-type: none;
+    overflow: hidden; /* Clear floats */
+    
+}
+
+.div-cat ul .li-cat {
+    float: left; /* Float the Job Category to the left */
+}
+
+.div-cat ul .li-cat1 {
+    float: right; /* Float the Create Category button to the right */
+
+}
+
+.div-cat ul li h1 {
+    padding: 0px 10px;
+    display: block;
+    margin: 0; /* Remove default margin */
+}
+
+.div-cat ul li button {
+    padding: 10px 10px; 
+    display: block; /* Make button a block element to fill its container */
+    border-radius: 7px;
+    border: transparent;
+    background-color: rgb(32, 131, 49);
+    color: #fff;
+    cursor: pointer;
+    transition: .4s;
+}
+.div-cat ul li button:hover{
+    background-color: rgb(138, 230, 120);
+}
+
+
+
+
+
+/* .div-cat {
     width: auto;
 }
 .div-cat ul {
@@ -14,5 +59,7 @@
     display: block;
 }
 .div-cat ul li button{
+  
     padding: 5px 10px; 
-}
+} */
+/* margin-left: 1420px; */
