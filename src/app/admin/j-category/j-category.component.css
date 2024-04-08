@@ -1,0 +1,26 @@
+.div-cat {
+    width: auto;
+
+
+}
+
+.div-cat ul {
+    list-style-type: none;
+    overflow: hidden;
+    float: left;
+
+}
+
+.div-cat ul li {
+    float: left;
+
+}
+
+.div-cat ul li h1 {
+    padding: 0px 10px;
+    display: block;
+}
+.div-cat ul li button{
+    padding: 5px 10px;
+    
+}
