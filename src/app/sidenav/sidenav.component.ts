@@ -1,5 +1,5 @@
 import { Component, Output ,EventEmitter, OnInit ,} from '@angular/core';
-import { navbarData} from './side-data';
+import { adminData, empData} from './side-data';
 
 
 interface SidenavToggle {
@@ -19,7 +19,7 @@ export class SidenavComponent {
 
   collapsed = false;
   screenWidth =0;
-  navData = navbarData;
+  navData = empData;
 
 // ngOnInit(): void {
 //     this.screenWidth = window.innerWidth;

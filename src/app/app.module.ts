@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 import { BodyComponent } from './body/body.component';
-import { DashboardComponent } from './common/dashboard/dashboard.component';
+import { DashboardComponent } from './admin/dashboard/dashboard.component';
 import { JCategoryComponent } from './admin/j-category/j-category.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AccountsComponent } from './admin/accounts/accounts.component';
@@ -18,6 +18,7 @@ import { JoblistningsComponent } from './employee/joblistnings/joblistnings.comp
 import { LoginComponent } from './common/login/login/login.component';
 import { LoginnavComponent } from './common/login/loginnav/loginnav.component';
 import { RegisterComponent } from './common/login/register/register.component';
+import { EmpDashboardComponent } from './employee/emp-dashboard/emp-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { RegisterComponent } from './common/login/register/register.component';
     JoblistningsComponent,
     LoginComponent,
     LoginnavComponent,
-    RegisterComponent
+    RegisterComponent,
+    EmpDashboardComponent,
   ],
   imports: [
     BrowserModule,

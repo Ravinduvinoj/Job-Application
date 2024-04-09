@@ -1,4 +1,5 @@
-export const navbarData = [
+
+export const adminData = [
      {
           routeLink: 'dashboard',
           icon: 'fas fa-home',
@@ -27,6 +28,33 @@ export const navbarData = [
           routeLink: 'subscription',
           icon: 'far fa-gem',
           Label: 'Subscription'
+
+     }
+]
+
+export const empData = [
+     {
+          routeLink: 'emp-dashboard',
+          icon: 'fas fa-home',
+          Label: 'Dashboard'
+
+     },
+     {
+          routeLink: 'jobpost',
+          icon: 'fas fa-upload',
+          Label: 'Job Post'
+
+     },
+     {
+          routeLink: 'joblistnings',
+          icon: 'fas fa-user-clock',
+          Label: 'Job Listnings'
+
+     },
+     {
+          routeLink: 'schedule',
+          icon: 'fas fa-calendar-alt',
+          Label: 'Interview Schedule'
 
      }
 ]
