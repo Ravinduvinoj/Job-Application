@@ -18,7 +18,7 @@ const routes: Routes = [
  {path: 'jobapproval', component: JobapprovalComponent},
  {path: 'subscription', component: SubscriptionComponent},
  {path: 'emp-dashboard', component:EmpDashboardComponent},
- {path: 'joblistning', component: JoblistningsComponent},
+ {path: 'joblistnings', component: JoblistningsComponent},
  {path: 'jobpost', component: JobpostComponent},
  {path: 'schedule', component: ScheduleComponent}
 
