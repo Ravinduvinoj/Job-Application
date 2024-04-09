@@ -14,11 +14,10 @@ import { ScheduleComponent } from './employee/schedule/schedule.component';
 import { JobpostComponent } from './employee/jobpost/jobpost.component';
 import { SubscriptionComponent } from './admin/subscription/subscription.component';
 import { JobapprovalComponent } from './admin/jobapproval/jobapproval.component';
-import { SearchComponent } from './common/search/search.component';
 import { JoblistningsComponent } from './employee/joblistnings/joblistnings.component';
-import { RegisterComponent } from './common/register/register/register.component';
 import { LoginComponent } from './common/login/login/login.component';
 import { LoginnavComponent } from './common/login/loginnav/loginnav.component';
+import { RegisterComponent } from './common/login/register/register.component';
 
 @NgModule({
   declarations: [
@@ -33,11 +32,10 @@ import { LoginnavComponent } from './common/login/loginnav/loginnav.component';
     JobpostComponent,
     SubscriptionComponent,
     JobapprovalComponent,
-    SearchComponent,
     JoblistningsComponent,
-    RegisterComponent,
     LoginComponent,
-    LoginnavComponent
+    LoginnavComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
