@@ -20,9 +20,12 @@
 }
 
 .div-cat ul li h1 {
-    padding: 0px 10px;
+    padding: 3px 14px;
     display: block;
     margin: 0; /* Remove default margin */
+    cursor: auto;
+    border-radius: 5px;
+    background: rgb(160, 235, 160);
 }
 
 .div-cat ul li button {
@@ -43,27 +46,6 @@
     padding: 8px 10px;
     font-size: 14px;
     border-radius: 5px;
+    cursor: text;
+   
 }
-
-
-
-/* .div-cat {
-    width: auto;
-}
-.div-cat ul {
-    list-style-type: none;
-    overflow: hidden;
-    float: left;
-}
-.div-cat ul li {
-    float: left;
-}
-.div-cat ul li h1 {
-    padding: 0px 10px;
-    display: block;
-}
-.div-cat ul li button{
-  
-    padding: 5px 10px; 
-} */
-/* margin-left: 1420px; */
