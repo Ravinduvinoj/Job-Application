@@ -3,22 +3,22 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SidenavComponent } from './sidenav/sidenav.component';
-import { BodyComponent } from './body/body.component';
-import { DashboardComponent } from './admin/dashboard/dashboard.component';
-import { JCategoryComponent } from './admin/j-category/j-category.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { AccountsComponent } from './admin/accounts/accounts.component';
+import { SidenavComponent } from './modules/sidenav/sidenav.component';
+import { BodyComponent } from './modules/body/body.component';
+import { DashboardComponent } from './modules/admin/components/dashboard/dashboard.component';
+import { JCategoryComponent } from './modules/admin/components/j-category/j-category.component';
+import { NavbarComponent } from './modules/navbar/navbar.component';
+import { AccountsComponent } from './modules/admin/components/accounts/accounts.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { ScheduleComponent } from './employee/schedule/schedule.component';
-import { JobpostComponent } from './employee/jobpost/jobpost.component';
-import { SubscriptionComponent } from './admin/subscription/subscription.component';
-import { JobapprovalComponent } from './admin/jobapproval/jobapproval.component';
-import { JoblistningsComponent } from './employee/joblistnings/joblistnings.component';
-import { LoginComponent } from './common/login/login/login.component';
-import { LoginnavComponent } from './common/login/loginnav/loginnav.component';
-import { RegisterComponent } from './common/login/register/register.component';
-import { EmpDashboardComponent } from './employee/emp-dashboard/emp-dashboard.component';
+import { ScheduleComponent } from './modules/company/components/schedule/schedule.component';
+import { JobpostComponent } from './modules/company/components/jobpost/jobpost.component';
+import { SubscriptionComponent } from './modules/admin/components/subscription/subscription.component';
+import { JobapprovalComponent } from './modules/admin/components/jobapproval/jobapproval.component';
+import { JoblistningsComponent } from './modules/company/components/joblistnings/joblistnings.component';
+import { LoginComponent } from './login/login.component';
+import { LoginnavComponent } from './loginnav/loginnav.component';
+import { RegisterComponent } from './register/register.component';;
+import { EmpDashboardComponent } from './modules/company/components/emp-dashboard/emp-dashboard.component';
 
 @NgModule({
   declarations: [
