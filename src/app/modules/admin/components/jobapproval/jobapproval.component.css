@@ -1,5 +1,6 @@
 
 .div-cat {
+    margin-left: 150px;
     width: auto;
     overflow: hidden; /* Ensure the container wraps its floated children */
 }

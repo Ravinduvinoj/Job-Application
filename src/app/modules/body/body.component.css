@@ -1,12 +1,11 @@
 .body {
     overflow: hidden;
-    width: calc(100% - 4rem);
-    margin-left: 6rem;
+    
     z-index: 0;
     position: relative;
     top: -25px;
     transition: all .5s ease;
-    padding: 3rem;
+    padding: 1rem;
     
 }
 

@@ -3,8 +3,6 @@
     justify-content: center;
     margin-top: 150px;
 
-
-
     .container-new {
         max-width: 500px;
         width: 100%;
@@ -13,7 +11,6 @@
         border-radius: 10px;
         box-shadow: 0 5px 10px rgba(103, 153, 102, 0.15);
     }
-
     .container-new .title {
         font-size: 25px;
         font-weight: 500;
@@ -22,7 +19,6 @@
     .btnon  {
         margin-left: 160px;
         margin-bottom: 15px;
-        
     }
     .btnon input{
         padding: 10px 40px;
@@ -31,14 +27,12 @@
         border: 1px solid #ccc;
         background-color: rgb(32, 131, 49);
         color: #fff;
-        
     }
     .reg-now {
-        text-decoration: none;
-        color: green;
+        /* text-decoration: none; */
+        /* color: green; */
         font-weight: 500;
     }
-
     .container-new .title::before {
         content: "";
         position: absolute;

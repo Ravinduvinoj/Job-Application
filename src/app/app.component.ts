@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
-interface SidenavToggle {
-  screenWidth : number;
-  collapsed: boolean;
-}
+// interface SidenavToggle {
+//   screenWidth : number;
+//   collapsed: boolean;
+// }
 
 @Component({
   selector: 'app-root',
@@ -13,10 +13,8 @@ interface SidenavToggle {
 export class AppComponent {
   title = 'jobapp';
 
-  isSideNavCollapsed = false;
-  screenWidth = 0;
+  // isSideNavCollapsed = false;
+  // screenWidth = 0;
 
-  onToggleSideNav(data: SidenavToggle): void {
-      this.isSideNavCollapsed = data.collapsed;
-  }
+
 }

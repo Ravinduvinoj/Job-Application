@@ -10,11 +10,13 @@ import { JoblistningsComponent } from './modules/company/components/joblistnings
 import { JobpostComponent } from './modules/company/components/jobpost/jobpost.component';
 import { ScheduleComponent } from './modules/company/components/schedule/schedule.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
   {path : 'login' , component : LoginComponent},
   { path: 'dashboard', component: DashboardComponent },
+  { path: 'register', component: RegisterComponent},
   { path: 'j-category', component: JCategoryComponent },
   { path: 'accounts', component: AccountsComponent },
   { path: 'jobapproval', component: JobapprovalComponent },

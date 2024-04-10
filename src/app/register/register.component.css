@@ -34,9 +34,10 @@
         
     }
     .reg-now {
-        text-decoration: none;
+        /* text-decoration: none; */
         color: green;
         font-weight: 500;
+
     }
 
     .container-new .title::before {

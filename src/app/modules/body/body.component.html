@@ -1,6 +1,10 @@
+<app-navbar></app-navbar>
+<app-sidenav (onToggleSidenav)="onToggleSideNav($event)"></app-sidenav>
 <div class="body" [ngClass]="getBodyClass()">
-    <router-outlet></router-outlet>
+   
     <!-- <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque impedit deserunt sequi. <br>Enim ratione doloremque vitae esse architecto corporis magnam, veritatis ullam. Quidem omnis officia impedit nam obcaecati laudantium necessitatibus.</p> -->
     </div>
+
+    <!-- <app-login></app-login> -->
 
   
