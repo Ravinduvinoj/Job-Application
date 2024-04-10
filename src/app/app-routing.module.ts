@@ -11,17 +11,16 @@ import { JobpostComponent } from './employee/jobpost/jobpost.component';
 import { ScheduleComponent } from './employee/schedule/schedule.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
- {path: 'dashboard', component: DashboardComponent},
- {path: 'j-category', component: JCategoryComponent},
- {path: 'accounts', component: AccountsComponent},
- {path: 'jobapproval', component: JobapprovalComponent},
- {path: 'subscription', component: SubscriptionComponent},
- {path: 'emp-dashboard', component:EmpDashboardComponent},
- {path: 'joblistnings', component: JoblistningsComponent},
- {path: 'jobpost', component: JobpostComponent},
- {path: 'schedule', component: ScheduleComponent}
-
+  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'j-category', component: JCategoryComponent },
+  { path: 'accounts', component: AccountsComponent },
+  { path: 'jobapproval', component: JobapprovalComponent },
+  { path: 'subscription', component: SubscriptionComponent },
+  { path: 'emp-dashboard', component: EmpDashboardComponent },
+  { path: 'joblistnings', component: JoblistningsComponent },
+  { path: 'jobpost', component: JobpostComponent },
+  { path: 'schedule', component: ScheduleComponent }
 ];
 
 @NgModule({
