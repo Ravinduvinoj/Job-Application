@@ -9,22 +9,36 @@ import { EmpDashboardComponent } from './modules/company/components/emp-dashboar
 import { JoblistningsComponent } from './modules/company/components/joblistnings/joblistnings.component';
 import { JobpostComponent } from './modules/company/components/jobpost/jobpost.component';
 import { ScheduleComponent } from './modules/company/components/schedule/schedule.component';
+import { AdminComponent } from './modules/admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { CompanyComponent } from './modules/company/company.component';
+
+
+
 
 const routes: Routes = [
-  { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
-  {path : 'login' , component : LoginComponent},
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'register', component: RegisterComponent},
-  { path: 'j-category', component: JCategoryComponent },
-  { path: 'accounts', component: AccountsComponent },
-  { path: 'jobapproval', component: JobapprovalComponent },
-  { path: 'subscription', component: SubscriptionComponent },
-  { path: 'emp-dashboard', component: EmpDashboardComponent },
-  { path: 'joblistnings', component: JoblistningsComponent },
-  { path: 'jobpost', component: JobpostComponent },
-  { path: 'schedule', component: ScheduleComponent }
+  { path: '', redirectTo: 'company', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  {
+    path: 'admin', component: AdminComponent, children: [
+      { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'j-category', component: JCategoryComponent },
+      { path: 'accounts', component: AccountsComponent },
+      { path: 'jobapproval', component: JobapprovalComponent },
+      { path: 'subscription', component: SubscriptionComponent },
+    ]
+  },
+  {
+    path: 'company', component: CompanyComponent, children: [
+      { path: '', redirectTo: '/company/emp-dashboard', pathMatch: 'full' },
+      { path: 'emp-dashboard', component: EmpDashboardComponent },
+      { path: 'joblistnings', component: JoblistningsComponent },
+      { path: 'jobpost', component: JobpostComponent },
+      { path: 'schedule', component: ScheduleComponent }]
+  },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

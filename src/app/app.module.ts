@@ -4,7 +4,6 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './modules/sidenav/sidenav.component';
-import { BodyComponent } from './modules/body/body.component';
 import { DashboardComponent } from './modules/admin/components/dashboard/dashboard.component';
 import { JCategoryComponent } from './modules/admin/components/j-category/j-category.component';
 import { NavbarComponent } from './modules/navbar/navbar.component';
@@ -19,6 +18,13 @@ import { LoginComponent } from './login/login.component';
 import { LoginnavComponent } from './loginnav/loginnav.component';
 import { RegisterComponent } from './register/register.component';;
 import { EmpDashboardComponent } from './modules/company/components/emp-dashboard/emp-dashboard.component';
+import { BodyComponent } from './modules/body/body.component';
+import { AdminComponent } from './modules/admin/admin.component';
+import { CompanyComponent } from './modules/company/company.component';
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -38,6 +44,9 @@ import { EmpDashboardComponent } from './modules/company/components/emp-dashboar
     LoginnavComponent,
     RegisterComponent,
     EmpDashboardComponent,
+    AdminComponent,
+    CompanyComponent,
+
   ],
   imports: [
     BrowserModule,
