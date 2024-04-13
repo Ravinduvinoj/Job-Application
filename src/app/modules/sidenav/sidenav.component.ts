@@ -19,7 +19,7 @@ export class SidenavComponent {
 
   collapsed = false;
   screenWidth =0;
-  navData = empData;
+  navData = adminData;
 
 // ngOnInit(): void {
 //     this.screenWidth = window.innerWidth;
