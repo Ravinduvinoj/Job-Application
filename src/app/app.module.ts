@@ -21,6 +21,9 @@ import { EmpDashboardComponent } from './modules/company/components/emp-dashboar
 import { BodyComponent } from './modules/body/body.component';
 import { AdminComponent } from './modules/admin/admin.component';
 import { CompanyComponent } from './modules/company/company.component';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -47,10 +50,14 @@ import { CompanyComponent } from './modules/company/company.component';
     AdminComponent,
     CompanyComponent,
 
+
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [
     provideClientHydration(),
