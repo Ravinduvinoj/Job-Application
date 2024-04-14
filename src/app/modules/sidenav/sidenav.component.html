@@ -1,5 +1,3 @@
-
-
 <div class="sidenav" [ngClass]="{'sidenav-collapsed': collapsed}">
     <div class="logo-container">
         <button class="logo" (click)="toggleCollapse()">
@@ -14,11 +12,13 @@
         <li class="sidenav-nav-item" *ngFor="let data1 of navData">
             <a class="sidenav-nav-link" [routerLink]="[data1.routeLink]" routerLinkActive="active"
                 [routerLinkActiveOptions]="{exact: true}">
-
                 <i class="sidenav-link-icon" [class]="data1.icon"></i>
                 <span class="sidenav-link-text" *ngIf="collapsed">{{data1.Label}} </span>
             </a>
         </li>
+        <div class="logout-func">
+            <button routerLink="/" *ngIf="collapsed" (click)="logout()" >
+                <i class="fad fa-sign-in-alt"></i>Logout </button>
+        </div>
     </ul>
-
 </div>
