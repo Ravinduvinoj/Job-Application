@@ -22,7 +22,10 @@ import { BodyComponent } from './modules/body/body.component';
 import { AdminComponent } from './modules/admin/admin.component';
 import { CompanyComponent } from './modules/company/company.component';
 import { FormsModule , ReactiveFormsModule} from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { provideHttpClient, withFetch } from "@angular/common/http";
+
 
 
 
@@ -49,6 +52,7 @@ import { HttpClientModule } from '@angular/common/http';
     EmpDashboardComponent,
     AdminComponent,
     CompanyComponent,
+    
 
 
   ],
@@ -58,11 +62,15 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
+    MatSnackBarModule,
   ],
   providers: [
     provideClientHydration(),
-    provideAnimationsAsync()
+    provideAnimationsAsync(),
+    provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+
+}
