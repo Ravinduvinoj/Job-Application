@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-login',
@@ -18,6 +19,7 @@ constructor(
   private http: HttpClient,
   private router: Router,
   private snackBar: MatSnackBar,
+  private Toast : NgToastService,
 ) {
 
 }
@@ -43,17 +45,19 @@ constructor(
     console.log(user);
 
     if(user.email==""|| user.password ==""){
-      this.snackBar.open("please  enter all the fields", 'Close',{
-        duration:3000,
-        verticalPosition: 'bottom',
-        horizontalPosition: 'center'
-      })
+      // this.snackBar.open("please  enter all the fields", 'Close',{
+      //   duration:3000,
+      //   verticalPosition: 'bottom',
+      //   horizontalPosition: 'center'
+      // })
+      this.Toast.warning({detail:"please  enter all the fields",summary: 'you have to fill all the fields and try again', duration:4000 ,position:'bottomRight'})
     }else if(!this.ValidateEmail(user.email)){
-      this.snackBar.open("please  enter valid email", 'Close',{
-        duration:3000,
-        verticalPosition: 'bottom',
-        horizontalPosition: 'center'
-      })
+      // this.snackBar.open("please  enter valid email", 'Close',{
+      //   duration:3000,
+      //   verticalPosition: 'bottom',
+      //   horizontalPosition: 'center'
+      // })
+      this.Toast.warning({detail:"please  enter valid email", duration:4000 ,position:'bottomRight'})
       
     }else {
       this.http.post("http://localhost:5000/api/login", user,{
@@ -67,11 +71,13 @@ constructor(
           }
         },
         (err) =>{
-          this.snackBar.open(err.error.message,'Close',{
-          duration:3000,
-          verticalPosition: 'bottom',
-          horizontalPosition: 'center'
-        })
+        //   this.snackBar.open(err.error.message,'Close',{
+        //   duration:3000,
+        //   verticalPosition: 'bottom',
+        //   horizontalPosition: 'center'
+        // })
+
+        this.Toast.error({detail: err.error.message, duration:4000 ,position:'bottomRight'})
         }
       )
     }

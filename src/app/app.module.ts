@@ -25,6 +25,7 @@ import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { provideHttpClient, withFetch } from "@angular/common/http";
+import { NgToastModule } from 'ng-angular-popup';
 
 
 
@@ -57,6 +58,7 @@ import { provideHttpClient, withFetch } from "@angular/common/http";
 
   ],
   imports: [
+    NgToastModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,
