@@ -1,5 +1,4 @@
 import { Component, Output, EventEmitter, OnInit } from '@angular/core';
-import { navigationData } from './nav-data';
 import { Emitter } from '../../emitter/emitter';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -19,9 +18,10 @@ export class NavbarComponent implements OnInit{
   @Output() onTogglenav: EventEmitter<navToggle> = new EventEmitter();
 
   collapsed = false;
-  naviData = navigationData;
 
   message : any;
+  dashboard : any;
+  type: any;
 
   constructor (private http:HttpClient,
     private snackBar: MatSnackBar,
@@ -35,6 +35,14 @@ export class NavbarComponent implements OnInit{
       (res: any)=> {
       this.message = `${res.firstname}`;
       Emitter.authEmitter.emit(true)
+      this.type = res.usertype;
+      if (this.type === 'admin'){
+        this.dashboard = 'Admin panel';
+      } else {
+        this.dashboard = 'Company panel';
+      }
+      
+
     },
     (err)=>{
       this.message = "you are not logged"

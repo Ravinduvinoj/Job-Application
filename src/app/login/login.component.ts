@@ -59,7 +59,13 @@ constructor(
       this.http.post("http://localhost:5000/api/login", user,{
         withCredentials: true
       }).subscribe(
-        (res)=> this.router.navigate(['/admin/dashboard']),
+        (res : any)=> {
+          if (res.usertype === "admin") {
+            this.router.navigate(['/admin/dashboard']);
+          } else if (res.usertype === "company") {
+            this.router.navigate(['/company/emp-dashboard']);
+          }
+        },
         (err) =>{
           this.snackBar.open(err.error.message,'Close',{
           duration:3000,
