@@ -27,6 +27,7 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { provideHttpClient, withFetch } from "@angular/common/http";
 import { NgToastModule } from 'ng-angular-popup';
 import { HomeComponent } from './home/home.component';
+import { AccountbodyComponent } from './modules/admin/components/accounts/accountbody/accountbody.component';
 
 
 
@@ -55,7 +56,8 @@ import { HomeComponent } from './home/home.component';
     EmpDashboardComponent,
     AdminComponent,
     CompanyComponent,
-    HomeComponent
+    HomeComponent,
+    AccountbodyComponent
 
 
 
