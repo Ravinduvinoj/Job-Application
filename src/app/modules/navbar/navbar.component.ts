@@ -33,9 +33,9 @@ export class NavbarComponent implements OnInit{
     withCredentials:true,
     }).subscribe(
       (res: any)=> {
-      this.message = `${res.firstname}`;
+      this.message = `${res.company}`;
       Emitter.authEmitter.emit(true)
-      this.type = res.usertype;
+      this.type = res.userRole;
       if (this.type === 'admin'){
         this.dashboard = 'Admin panel';
       } else {

@@ -27,7 +27,7 @@ constructor(
     this.form = this.formbuilder.group({
       email: "",
       password: "",
-      usertype: "company",
+      userRole: "company",
     });
   }
   ValidateEmail = (email: any)=>{
@@ -64,9 +64,9 @@ constructor(
         withCredentials: true
       }).subscribe(
         (res : any)=> {
-          if (res.usertype === "admin") {
+          if (res.userRole === "admin") {
             this.router.navigate(['/admin/dashboard']);
-          } else if (res.usertype === "company") {
+          } else if (res.userRole === "company") {
             this.router.navigate(['/company/emp-dashboard']);
           }
         },

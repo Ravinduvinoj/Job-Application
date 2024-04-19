@@ -24,12 +24,12 @@ export class RegisterComponent implements OnInit {
   }
   ngOnInit(): void {
     this.form = this.formbuilder.group({
-      firstname: "",
-      lastname: "",
+      company: "",
+      contact: "",
       email: "",
       password: "",
       con_password: "",
-      usertype: "company",
+      userRole: "company",
 
     })
   }
@@ -44,11 +44,19 @@ export class RegisterComponent implements OnInit {
     }
   }
 
+  checkpass = (pass:any,con_pass:any)=>{
+    if(pass==con_pass){
+      return true;
+    }else{
+      return false;
+    }
+  }
+
   submit(): void {
     let user = this.form.getRawValue()
     console.log(user);
 
-    if(user.firstname ==""||user.lastname==""|| user.email==""|| user.password ==""||user.con_password ==""){
+    if(user.company ==""||user.contact ==""|| user.email==""|| user.password ==""||user.con_password ==""){
       this.snackBar.open("please  enter all the fields", 'Close',{
         duration:3000,
         verticalPosition: 'bottom',
@@ -62,7 +70,7 @@ export class RegisterComponent implements OnInit {
       })
       
       
-    }else if (!user.password === user.con_password){
+    }else if (!this.checkpass(user.password,user.con_password)){
       this.snackBar.open("Your password does not match", 'Close',{
         duration:3000,
         verticalPosition: 'bottom',

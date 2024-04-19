@@ -47,10 +47,10 @@ export class SidenavComponent implements OnInit {
       withCredentials: true,
     }).subscribe(
       (res: any) => {
-        if (res.usertype === "admin") {
+        if (res.userRole === "admin") {
           this.navData = adminData;
         }
-        else if (res.usertype === "company") {
+        else if (res.userRole === "company") {
           this.navData = empData;
         }
       })
