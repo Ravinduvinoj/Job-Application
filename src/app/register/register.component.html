@@ -4,25 +4,30 @@
     <div class="loginf">
         <div class="reg-form">
             <div class="container-new">
-                <div class="title">User Registration</div>
+                <div class="title">Company Registration</div>
                 <div class="content">
                     <form [formGroup]="form" (submit)="submit()">
                         <div class="user-details">
                             <div class="input-box1">
-                                <span class="details" >First Name</span>
-                                <input type="text" formControlName = "firstname" placeholder="Enter first name" required>
-                            </div>
-                            <div class="input-box1">
-                                <span class="details" >Last Name</span>
-                                <input type="text" formControlName = "lastname" placeholder="Enter last name" required>
+                                <span class="details" >Company Name</span>
+                                <input type="text" formControlName = "firstname" placeholder="Enter company name" required>
                             </div>
                             <div class="input-box1">
                                 <span class="details" >Email</span>
                                 <input type="text" formControlName = "email" placeholder="Enter your email" required>
                             </div>
                             <div class="input-box1">
+                                <span class="details" >Contact</span>
+                                <input type="text" formControlName = "lastname" placeholder="Enter your contact number" required>
+                            </div>
+                            
+                            <div class="input-box1">
                                 <span class="details">Password</span>
                                 <input type="password" formControlName = "password" placeholder="Enter your password" required>
+                            </div>
+                            <div class="input-box1">
+                                <span class="details">Confirm password</span>
+                                <input type="password" formControlName = "con_password" placeholder="Confirm your password" required>
                             </div>
 
                         </div>

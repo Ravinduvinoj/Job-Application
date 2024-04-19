@@ -28,7 +28,9 @@ export class RegisterComponent implements OnInit {
       lastname: "",
       email: "",
       password: "",
+      con_password: "",
       usertype: "company",
+
     })
   }
   ValidateEmail = (email: any)=>{
@@ -46,7 +48,7 @@ export class RegisterComponent implements OnInit {
     let user = this.form.getRawValue()
     console.log(user);
 
-    if(user.firstname ==""||user.lastname==""|| user.email==""|| user.password ==""){
+    if(user.firstname ==""||user.lastname==""|| user.email==""|| user.password ==""||user.con_password ==""){
       this.snackBar.open("please  enter all the fields", 'Close',{
         duration:3000,
         verticalPosition: 'bottom',
@@ -59,6 +61,13 @@ export class RegisterComponent implements OnInit {
         horizontalPosition: 'center'
       })
       
+      
+    }else if (!user.password === user.con_password){
+      this.snackBar.open("Your password does not match", 'Close',{
+        duration:3000,
+        verticalPosition: 'bottom',
+        horizontalPosition: 'center'
+      })
     } else{
       this.http.post("http://localhost:5000/api/register", user,{
         withCredentials: true

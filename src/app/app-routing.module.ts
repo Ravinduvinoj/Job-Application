@@ -13,12 +13,15 @@ import { AdminComponent } from './modules/admin/admin.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { CompanyComponent } from './modules/company/company.component';
+import { HomeComponent } from './home/home.component';
 
 
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path : 'home', component : HomeComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   {

@@ -21,11 +21,13 @@ import { EmpDashboardComponent } from './modules/company/components/emp-dashboar
 import { BodyComponent } from './modules/body/body.component';
 import { AdminComponent } from './modules/admin/admin.component';
 import { CompanyComponent } from './modules/company/company.component';
-import { FormsModule , ReactiveFormsModule} from '@angular/forms';
-import { HttpClientModule} from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { provideHttpClient, withFetch } from "@angular/common/http";
 import { NgToastModule } from 'ng-angular-popup';
+import { HomeComponent } from './home/home.component';
+
 
 
 
@@ -53,7 +55,8 @@ import { NgToastModule } from 'ng-angular-popup';
     EmpDashboardComponent,
     AdminComponent,
     CompanyComponent,
-    
+    HomeComponent
+
 
 
   ],
@@ -73,6 +76,6 @@ import { NgToastModule } from 'ng-angular-popup';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
 
 }
