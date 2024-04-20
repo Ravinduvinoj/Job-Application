@@ -28,6 +28,7 @@ import { provideHttpClient, withFetch } from "@angular/common/http";
 import { NgToastModule } from 'ng-angular-popup';
 import { HomeComponent } from './home/home.component';
 import { AccountbodyComponent } from './modules/admin/components/accounts/accountbody/accountbody.component';
+import {DataTablesModule} from 'angular-datatables'
 
 
 
@@ -57,7 +58,9 @@ import { AccountbodyComponent } from './modules/admin/components/accounts/accoun
     AdminComponent,
     CompanyComponent,
     HomeComponent,
-    AccountbodyComponent
+    AccountbodyComponent,
+  
+    
 
 
 
@@ -70,6 +73,9 @@ import { AccountbodyComponent } from './modules/admin/components/accounts/accoun
     HttpClientModule,
     ReactiveFormsModule,
     MatSnackBarModule,
+    DataTablesModule,
+    
+    
   ],
   providers: [
     provideClientHydration(),

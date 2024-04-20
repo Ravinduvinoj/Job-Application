@@ -63,6 +63,4 @@ export class SidenavComponent implements OnInit {
       { withCredentials: true }
     ).subscribe(() => this.authenticated = false)
   }
-
-
 }
