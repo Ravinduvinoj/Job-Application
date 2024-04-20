@@ -84,11 +84,11 @@ export class RegisterComponent implements OnInit {
         horizontalPosition: 'center'
       })
     } else {
-      this.http.post("http://localhost:5000/api/register", user, {
+      this.http.post("http://localhost:5000/api/temp-register", user, {
         withCredentials: true
       })
         .subscribe(() => {
-          this.Toast.success({detail:"Thank you!!!",summary: 'Your registration is sent please wait for admin approve', duration:4000 ,position:'botomCenter'})
+          this.Toast.success({detail:"Thank you!!!",summary: 'Your registration is sent please wait for admin approve', duration:9000 ,position:'botomCenter'})
           this.router.navigate(['/']);
 
          // swal('Hello world!')
