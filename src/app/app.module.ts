@@ -28,7 +28,8 @@ import { provideHttpClient, withFetch } from "@angular/common/http";
 import { NgToastModule } from 'ng-angular-popup';
 import { HomeComponent } from './home/home.component';
 import { AccountbodyComponent } from './modules/admin/components/accounts/accountbody/accountbody.component';
-import {DataTablesModule} from 'angular-datatables'
+import {DataTablesModule} from 'angular-datatables';
+import {MatDialogModule} from '@angular/material/dialog'
 
 
 
@@ -59,6 +60,7 @@ import {DataTablesModule} from 'angular-datatables'
     CompanyComponent,
     HomeComponent,
     AccountbodyComponent,
+    
   
     
 
@@ -74,6 +76,7 @@ import {DataTablesModule} from 'angular-datatables'
     ReactiveFormsModule,
     MatSnackBarModule,
     DataTablesModule,
+    MatDialogModule,
     
     
   ],
