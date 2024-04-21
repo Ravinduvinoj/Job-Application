@@ -30,7 +30,7 @@ import { HomeComponent } from './home/home.component';
 import { AccountbodyComponent } from './modules/admin/components/accounts/accountbody/accountbody.component';
 import {DataTablesModule} from 'angular-datatables';
 import {MatDialogModule} from '@angular/material/dialog'
-
+import {MatInputModule} from '@angular/material/input';
 
 
 
@@ -77,6 +77,7 @@ import {MatDialogModule} from '@angular/material/dialog'
     MatSnackBarModule,
     DataTablesModule,
     MatDialogModule,
+    MatInputModule,
     
     
   ],

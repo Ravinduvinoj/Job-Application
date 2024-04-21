@@ -1,17 +1,25 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormsModule, ReactiveFormsModule, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { error } from 'console';
 import { SharedService } from '../shared.service';
 import { NgToastService } from 'ng-angular-popup';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+
+
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrl: './register.component.css',
 })
 export class RegisterComponent implements OnInit {
+  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+
 
   pending: any;
 
@@ -24,6 +32,8 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private snackBar: MatSnackBar,
     private Toast : NgToastService,
+    private FormField:MatFormFieldModule,
+    private Input :MatInputModule,
   ) {
 
   }
@@ -34,12 +44,17 @@ export class RegisterComponent implements OnInit {
       email: "",
       password: "",
       con_password: "",
+      companyurl : "",
       userRole: "company",
+      city : "",
+      address : ""
+
 
     })
 
 
   }
+  
   ValidateEmail = (email: any) => {
 
     var ValidRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -61,15 +76,17 @@ export class RegisterComponent implements OnInit {
 
   submit(): void {
     let user = this.form.getRawValue()
+    user.email = this.emailFormControl.value;
     console.log(user);
 
-    if (user.company == "" || user.contact == "" || user.email == "" || user.password == "" || user.con_password == "") {
+
+    if (user.company == "" || user.contact == "" || this.emailFormControl.value == "" || user.password == "" || user.con_password == "") {
       this.snackBar.open("please  enter all the fields", 'Close', {
         duration: 3000,
         verticalPosition: 'bottom',
         horizontalPosition: 'center'
       })
-    } else if (!this.ValidateEmail(user.email)) {
+    } else if (!this.ValidateEmail(this.emailFormControl.value)) {
       this.snackBar.open("please  enter valid email", 'Close', {
         duration: 3000,
         verticalPosition: 'bottom',

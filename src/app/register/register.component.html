@@ -8,45 +8,102 @@
                 <div class="content">
                     <form [formGroup]="form" (submit)="submit()">
                         <div class="user-details">
-                            <div class="input-box1">
-                                <span class="details" >Company Name</span>
-                                <input type="text" formControlName = "company" placeholder="Enter company name" required>
+                            <div class="input-box1 left">
+                                <mat-form-field class="reg-form-field">
+                                    <mat-label>Company</mat-label>
+                                    <input formControlName="company" matInput type="text">
+                                  </mat-form-field>
+                                  
+                                <!-- <span class="details" >Company Name</span>
+                                <input type="text" formControlName = "company" placeholder="Enter company name" required> -->
                             </div>
-                            <div class="input-box1">
-                                <span class="details" >Email</span>
-                                <input type="text" formControlName = "email" placeholder="Enter your email" required>
+                            <div class="input-box1 right">
+                                <!-- <span class="details" >Email</span>
+                                <input type="text" formControlName = "email" placeholder="Enter your email" required> -->
+                                <mat-form-field class="reg-full-width">
+                                    <mat-label>Email</mat-label>
+                                    <input type="email" matInput [formControl]="emailFormControl"  placeholder="Ex. pat@example.com">
+                                    @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+                                      <mat-error>Please enter a valid email address</mat-error>
+                                    }
+                                    @if (emailFormControl.hasError('required')) {
+                                      <mat-error>Email is <strong>required</strong></mat-error>
+                                    }
+                                  </mat-form-field>
+
                             </div>
-                            <div class="input-box1">
-                                <span class="details" >Contact</span>
-                                <input type="text" formControlName = "contact" placeholder="Enter your contact number" required>
+                          
+                            
+                            <div class="input-box1 left">
+                                <mat-form-field class="reg-form-field">
+                                <mat-label>Password</mat-label>
+                                    <input formControlName="password" matInput type="password">
+                                </mat-form-field>
+                                <!-- <span class="details">Password</span>
+                                <input type="password" formControlName = "password" placeholder="Enter your password" required> -->
+                            </div>
+                            <div class="input-box1 right">
+
+                                <mat-form-field class="reg-full-width">
+                                    <mat-label>Contact</mat-label>
+                                    <span matTextPrefix>+94 &nbsp;</span>
+                                    <input type="tel" matInput placeholder="XXX XXX XXXX">
+                                  </mat-form-field>
+
+                                <!-- <mat-form-field class="reg-form-field">
+                                <mat-label>Contact</mat-label>
+                                    <input formControlName="contact" matInput type="text">
+                                </mat-form-field> -->
+
+
+                                <!-- <span class="details" >Contact</span>
+                                <input type="text" formControlName = "contact" placeholder="Enter your contact number" required> -->
+
+                            </div>
+                            <div class="input-box1 left">
+                                <mat-form-field class="reg-form-field">
+                                <mat-label>Confirm password</mat-label>
+                                    <input formControlName="con_password" matInput type="password">
+                                </mat-form-field>
+                                <!-- <span class="details">Confirm password</span>
+                                <input type="password" formControlName = "con_password" placeholder="Confirm your password" required> -->
+                            </div>
+                            <div class="input-box1 right">
+                                <!-- <span class="details">City</span>
+                                <input type="password"  placeholder="Enter city" required> -->
+
+                                <mat-form-field class="reg-form-field">
+                                    <mat-label>City</mat-label>
+                                    <input formControlName="city" matInput type="text">
+                                  </mat-form-field>
                             </div>
                             
-                            <div class="input-box1">
-                                <span class="details">Password</span>
-                                <input type="password" formControlName = "password" placeholder="Enter your password" required>
+                            <div class="input-box1 left">
+                                <!-- <span class="details">Address</span>
+                                <input type="password"  placeholder="Enter Address" required> -->
+                                <mat-form-field class="reg-form-field">
+                                    <mat-label>Address</mat-label>
+                                    <textarea matInput placeholder=""></textarea>
+                                    <input formControlName="address" matInput type="text">
+                                  </mat-form-field>
+                                
                             </div>
-                            <div class="input-box1">
-                                <span class="details">Confirm password</span>
-                                <input type="password" formControlName = "con_password" placeholder="Confirm your password" required>
-                            </div>
-                            <div class="input-box1">
-                                <span class="details">City</span>
-                                <input type="password"  placeholder="Enter city" required>
-                            </div>
-                            
-                            <div class="input-box1">
-                                <span class="details">Address</span>
-                                <input type="password"  placeholder="Enter Address" required>
-                            </div>
-                            <div class="input-box1">
-                                <span class="details">Company Website</span>
-                                <input type="password"  placeholder="Enter company website URL" required>
+                            <div class="input-box1 right">
+                                <!-- <span class="details">Company Website</span>
+                                <input type="password"  placeholder="Enter company website URL" required> -->
+
+                                <mat-form-field class="reg-form-field">
+                                    <mat-label>Company Website</mat-label>
+                                    <textarea matInput placeholder="Enter company website URL"></textarea>
+                                    <input formControlName="companyurl" matInput type="text">
+                                  </mat-form-field>
                             </div>
 
                         </div>
                         <div class="btnon">
                             <input type="submit" value="Register">
                         </div>
+            
                         <div>
                             You have already an account <a class="reg-now" routerLink="/login">Login now</a>
                         </div>

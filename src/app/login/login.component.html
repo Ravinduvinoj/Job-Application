@@ -7,12 +7,28 @@
         <form [formGroup]="form" (submit)="submit()">
           <div class="user-details">
             <div class="input-box1">
-              <span class="details">Email</span>
-              <input type="text" formControlName="email" placeholder="Enter your email" required>
+              <!-- <span class="details">Email</span>
+              <input type="text" formControlName="email" placeholder="Enter your email" required> -->
+
+              <mat-form-field class="reg-full-width">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput [formControl]="emailFormControl"  placeholder="Ex. pat@example.com">
+                @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+                  <mat-error>Please enter a valid email address</mat-error>
+                }
+                @if (emailFormControl.hasError('required')) {
+                  <mat-error>Email is <strong>required</strong></mat-error>
+                }
+              </mat-form-field>
             </div>
             <div class="input-box1">
-              <span class="details">Password</span>
-              <input type="password" formControlName="password" placeholder="Enter your password" required>
+              <!-- <span class="details">Password</span>
+              <input type="password" formControlName="password" placeholder="Enter your password" required> -->
+
+              <mat-form-field class="reg-form-field">
+                <mat-label>Password</mat-label>
+                    <input formControlName="password" matInput type="password">
+                </mat-form-field>
             </div>
           </div>
           <div class="btnon">

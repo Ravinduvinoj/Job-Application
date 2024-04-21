@@ -6,7 +6,7 @@
 
 
     .container-new {
-        max-width: 500px;
+        max-width: 700px;
         width: 100%;
         background-color: #d0ebdafb;
         padding: 25px 30px;
@@ -28,7 +28,7 @@
         padding: 10px 40px;
         border-radius: 5px;
         cursor: pointer;
-        border: 1px solid #ccc;
+       
         background-color: rgb(32, 131, 49);
         color: #fff;
         
@@ -57,9 +57,10 @@
         margin: 20px 0 12px 0;
     }
 
-    form .user-details .input-box1 {
+     form .user-details .input-box1 {
         margin-bottom: 15px;
-        width: calc(100% - 20px);
+        float: left;
+        padding: 10px;
     }
 
     form .input-box1 span.details {
@@ -68,7 +69,7 @@
         margin-bottom: 5px;
     }
 
-    .user-details .input-box1 input {
+    /* .user-details .input-box1 input {
         height: 45px;
         width: 100%;
         outline: none;
@@ -76,8 +77,32 @@
         font-size: 16px;
         border-radius: 10px;
         padding-left: 15px;
-        border: 1px solid #ccc;
         border-bottom-width: 2px;
         transition: all 0.4s ease;
-    }
+    }  */
 }
+
+  * {
+    box-sizing: border-box;
+  }
+  .input-box1 {
+    float: left;
+    padding: 10px;
+  }
+  .left {
+    width: 50%;
+  }
+  
+  .right {
+    width: 50%;
+  }
+
+
+  .reg-full-width {
+    margin-left: 20px;
+    width: 300px;
+  }
+  .reg-form-field {
+    width: 300px;
+  }
+  
