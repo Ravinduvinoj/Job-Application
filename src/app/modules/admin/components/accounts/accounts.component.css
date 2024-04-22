@@ -1,35 +1,40 @@
-
 .div-cat {
     margin-left: 150px;
     width: auto;
-    overflow: hidden; /* Ensure the container wraps its floated children */
+    overflow: hidden;
+    /* Ensure the container wraps its floated children */
 }
 
 .div-cat ul {
     list-style-type: none;
-    overflow: hidden; /* Clear floats */
+    overflow: hidden;
+    /* Clear floats */
     text-align: center;
-    
+
 }
 
 .div-cat ul .li-cat {
-    float: left; /* Float the Job Category to the left */
+    float: left;
+    /* Float the Job Category to the left */
 }
 
 .div-cat ul .li-cat1 {
-    float: right; /* Float the Create Category button to the right */
+    float: right;
+    /* Float the Create Category button to the right */
 
 }
 
 .div-cat ul li h1 {
     padding: 0px 10px;
     display: block;
-    margin: 0; /* Remove default margin */
+    margin: 0;
+    /* Remove default margin */
 }
 
 .div-cat ul li button {
-    padding: 10px 15px; 
-    display: block; /* Make button a block element to fill its container */
+    padding: 10px 15px;
+    display: block;
+    /* Make button a block element to fill its container */
     border-radius: 7px;
     border: transparent;
     background-color: rgb(32, 131, 49);
@@ -37,41 +42,67 @@
     cursor: pointer;
     transition: .4s;
 }
-.div-cat ul li button:hover{
+
+.div-cat ul li button:hover {
     background-color: rgb(138, 230, 120);
 }
-.div-cat ul li input{
+
+.div-cat ul li input {
     padding: 8px 10px;
     border-radius: 5px;
     font-size: 14px;
-    
+
 }
+
 /* temp-user-list.component.css */
 .mat-elevation-z8 {
     width: 90%;
-   margin-left: 150px;
-   margin-top: 50px;
+    margin-left: 150px;
+    margin-top: 50px;
     border: 1px solid #ccc;
     border-radius: 4px;
     overflow-x: auto;
-  }
-  
-  table {
-    
+}
+
+table {
+
     border-collapse: collapse;
-  }
-  
-  th, td {
+}
+
+th,
+td {
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
-  }
-  
-  th {
+}
+
+th {
     background-color: #f2f2f2;
-  }
-  
-  tr:hover {
+}
+
+tr:hover {
     background-color: #f5f5f5;
-  }
-  
+}
+
+table td button {
+    padding: 8px 20px;
+    border: transparent;
+    border-radius: 5px;
+    transition: .4s;
+}
+
+table td .action-button1 {
+    color: white;
+    background: rgb(223, 83, 83);
+}
+table td .action-button2{
+    background: rgb(125, 209, 125);
+    margin-left: 20px;
+}
+table td .action-button1:hover {
+    background: red;
+}
+table td .action-button2:hover {
+    background: rgb(17, 145, 12);
+    color: #fff;
+}
