@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { MessageComponent } from './message/message.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 
@@ -10,11 +12,25 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './accounts.component.css'
 })
 export class AccountsComponent implements OnInit {
+  constructor(private http: HttpClient, public dialog: MatDialog) { }
   onApprove(_t68: any) {
 
   }
-  onDelete(_t68: any) {
-
+  onDelete(tempUser: any): void {
+    const dialogRef = this.dialog.open(MessageComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        this.http.get<any[]>(`http://localhost:5000/api/delete-tempacc/${tempUser.email}`).subscribe({
+          next: (data) => {
+            console.log('User deleted successfully');
+            this.fetchTempUsers(); // Refresh the user list after deletion
+          },
+          error: (error) => {
+            console.error('Error deleting user:', error);
+          }
+        });
+      }
+    });
   }
   tempUsers: any[] = []; // Initialize as an empty array
 
@@ -25,11 +41,19 @@ export class AccountsComponent implements OnInit {
     'userRole',
     'actions'
   ];
+  showTable: boolean = false;
 
-  constructor(private http: HttpClient) { }
+  
 
   ngOnInit(): void {
     this.fetchTempUsers();
+  }
+  toggleTable(): void {
+    this.showTable = !this.showTable; // Toggle table visibility
+    if (this.showTable) {
+      // Fetch temp users data here if needed when the table is shown
+      this.fetchTempUsers();
+    }
   }
 
   fetchTempUsers(): void {

@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './modules/sidenav/sidenav.component';
@@ -32,6 +31,8 @@ import {DataTablesModule} from 'angular-datatables';
 import {MatDialogModule} from '@angular/material/dialog'
 import {MatInputModule} from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
+import { MessageComponent } from './modules/admin/components/accounts/message/message.component';
+
 
 
 
@@ -61,6 +62,7 @@ import { MatTableModule } from '@angular/material/table';
     CompanyComponent,
     HomeComponent,
     AccountbodyComponent,
+    MessageComponent,
     
   
     
