@@ -31,6 +31,7 @@ import { AccountbodyComponent } from './modules/admin/components/accounts/accoun
 import {DataTablesModule} from 'angular-datatables';
 import {MatDialogModule} from '@angular/material/dialog'
 import {MatInputModule} from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
 
 
 
@@ -78,6 +79,7 @@ import {MatInputModule} from '@angular/material/input';
     DataTablesModule,
     MatDialogModule,
     MatInputModule,
+    MatTableModule,
     
     
   ],
