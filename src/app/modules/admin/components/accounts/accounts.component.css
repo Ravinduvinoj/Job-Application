@@ -72,6 +72,7 @@ table {
 }
 
  table td {
+    margin-left: 40px;
     padding: 8px;
     text-align: left;
     border-bottom: 1px solid #ddd;
@@ -79,7 +80,7 @@ table {
 
 table th {
     background: #c4ebc6;
-    text-align: center;
+   margin-left: 20px;
 }
 
 table tr:hover {
@@ -107,4 +108,11 @@ table td .action-button1:hover {
 table td .action-button2:hover {
     background: rgb(17, 145, 12);
     color: #fff;
+}
+
+
+.head-tble{
+    width: 90%;
+    margin-left: 150px;
+    margin-top: 50px;
 }

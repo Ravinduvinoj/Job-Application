@@ -12,11 +12,49 @@ import { MatDialog } from '@angular/material/dialog';
   styleUrl: './accounts.component.css'
 })
 export class AccountsComponent implements OnInit {
-  constructor(private http: HttpClient, public dialog: MatDialog) { }
-  onApprove(_t68: any) {
+[x: string]: any;
 
+  userAccounts: any[];
+
+  fetchUserAccounts(): void {
+    const apiUrl = 'http://localhost:5000/api/user-accounts'; // Update the API URL as per your backend route
+
+    this.http.get<any[]>(apiUrl).subscribe(
+      (data) => {
+        this.userAccounts = data;
+      },
+      (error) => {
+        console.error('Error fetching user accounts:', error);
+      }
+    );
   }
-  onDelete(tempUser: any): void {
+
+
+  constructor(
+    private http: HttpClient, 
+    public dialog: MatDialog
+  ) { }
+
+onUserDelete(user:any):void {
+  
+}
+  
+  onApprove(tempUser: any): void {
+    this.http.get<any[]>(`http://localhost:5000/api/approve-tempacc/${tempUser.email}`).subscribe({
+      next: (data) => {
+        console.log('User approved and moved to user account collection successfully');
+        this.fetchTempUsers(); // Refresh the user list after approval
+      },
+      error: (error) => {
+        console.error('Error approving user:', error);
+      }
+    });
+  }
+
+
+
+
+  onTempDelete(tempUser: any): void {
     const dialogRef = this.dialog.open(MessageComponent);
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
@@ -32,9 +70,14 @@ export class AccountsComponent implements OnInit {
       }
     });
   }
+
+
+
+
   tempUsers: any[] = []; // Initialize as an empty array
 
   displayedColumns: string[] = [
+    'index',
     'company',
     'contact',
     'email',
@@ -43,16 +86,20 @@ export class AccountsComponent implements OnInit {
   ];
   showTable: boolean = false;
 
-  
+  activTable: boolean = true;
 
   ngOnInit(): void {
     this.fetchTempUsers();
+    this.fetchUserAccounts();
   }
   toggleTable(): void {
     this.showTable = !this.showTable; // Toggle table visibility
     if (this.showTable) {
+      this.activTable=false;
       // Fetch temp users data here if needed when the table is shown
       this.fetchTempUsers();
+    } else {
+      this.activTable=true;
     }
   }
 
