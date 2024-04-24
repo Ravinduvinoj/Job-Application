@@ -33,10 +33,26 @@ export class AccountsComponent implements OnInit {
   constructor(
     private http: HttpClient, 
     public dialog: MatDialog
-  ) { }
+  ) {
+    this.fetchTempUsers();
+    this.fetchUserAccounts();
+   }
 
-onUserDelete(user:any):void {
-  
+onUserDelete(User:any):void {
+  const dialogRef = this.dialog.open(MessageComponent);
+  dialogRef.afterClosed().subscribe(result => {
+    if (result) {
+      this.http.get<any[]>(`http://localhost:5000/api/delete-useracc/${User.email}`).subscribe({
+        next: (data) => {
+          console.log('User deleted successfully');
+          this.fetchUserAccounts(); // Refresh the user list after deletion
+        },
+        error: (error) => {
+          console.error('Error deleting user:', error);
+        }
+      });
+    }
+  });
 }
   
   onApprove(tempUser: any): void {
