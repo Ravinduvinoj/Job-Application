@@ -6,8 +6,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { error } from 'console';
 import { SharedService } from '../shared.service';
 import { NgToastService } from 'ng-angular-popup';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 
@@ -31,9 +31,9 @@ export class RegisterComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private snackBar: MatSnackBar,
-    private Toast : NgToastService,
-    private FormField:MatFormFieldModule,
-    private Input :MatInputModule,
+    private Toast: NgToastService,
+    private FormField: MatFormFieldModule,
+    private Input: MatInputModule,
   ) {
 
   }
@@ -44,17 +44,17 @@ export class RegisterComponent implements OnInit {
       email: "",
       password: "",
       con_password: "",
-      companyurl : "",
+      companyurl: "",
       userRole: "company",
-      city : "",
-      address : ""
+      city: "",
+      address: ""
 
 
     })
 
 
   }
-  
+
   ValidateEmail = (email: any) => {
 
     var ValidRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -80,7 +80,7 @@ export class RegisterComponent implements OnInit {
     console.log(user);
 
 
-    if (user.company == "" || user.contact == "" || this.emailFormControl.value == "" || user.password == "" || user.con_password == "") {
+    if (user.company == "" || user.contact == "" || this.emailFormControl.value == "" || user.contact=='' || user.city=='' || user.address=='' || user.password == "" || user.con_password == "") {
       this.snackBar.open("please  enter all the fields", 'Close', {
         duration: 3000,
         verticalPosition: 'bottom',
@@ -105,10 +105,10 @@ export class RegisterComponent implements OnInit {
         withCredentials: true
       })
         .subscribe(() => {
-          this.Toast.success({detail:"Thank you!!!",summary: 'Your registration is sent please wait for admin approve', duration:9000 ,position:'botomCenter'})
+          this.Toast.success({ detail: "Thank you!!!", summary: 'Your registration is sent please wait for admin approve', duration: 9000, position: 'botomCenter' })
           this.router.navigate(['/']);
 
-         // swal('Hello world!')
+          // swal('Hello world!')
 
         },
           (err) => {
