@@ -1,65 +1,74 @@
-
 <div class="div-cat">
     <ul class="ul-cat">
-        <li class="li-cat"><h1>Accounts:</h1>
+        <li class="li-cat">
+            <h1>Accounts:</h1>
         </li>
         <li class="li-cat" style="margin-left: 30px;"><input type="text" id="search" name="search"></li>
         <li class="li-cat" style="margin-left: 15px;"><button>Search</button></li>
-        
+
         <li class="li-cat1" style="margin-left: 20px; margin-right: 20px;"><button>Create Company</button></li>
-        <li class="li-cat1" style="margin-left: 20px; margin-right: 20px;"><button (click)="toggleTable()">Pending Accounts</button></li>
-        
-        
-        
+        <li class="li-cat1" style="margin-left: 20px; margin-right: 20px;"><button (click)="toggleTable()">Pending
+                Accounts</button></li>
+
+
+
 
     </ul>
 
 </div>
 
 <div class="head-tble" *ngIf="activTable && userAccounts && userAccounts.length">
-<table mat-table [dataSource]="userAccounts" matSort>
-    <ng-container matColumnDef="index">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> No </th>
-        <td mat-cell *matCellDef="let user; let i = index"> {{ i + 1 }} </td>
-      </ng-container>
-  <!-- Company Column -->
-  <ng-container matColumnDef="company">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Company </th>
-    <td mat-cell *matCellDef="let user"> {{ user.company }} </td>
-  </ng-container>
+    <table mat-table [dataSource]="userAccounts" matSort>
+        <ng-container matColumnDef="index">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> No </th>
+            <td mat-cell *matCellDef="let user; let i = index"> {{ i + 1 }} </td>
+        </ng-container>
+        <!-- Company Column -->
+        <ng-container matColumnDef="company">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Company </th>
+            <td mat-cell *matCellDef="let user"> {{ user.company }} </td>
+        </ng-container>
 
-  <!-- Contact Column -->
-  <ng-container matColumnDef="contact">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Contact </th>
-    <td mat-cell *matCellDef="let user"> {{ user.contact }} </td>
-  </ng-container>
+        <!-- Contact Column -->
+        <ng-container matColumnDef="contact">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Contact </th>
+            <td mat-cell *matCellDef="let user"> {{ user.contact }} </td>
+        </ng-container>
 
-  <!-- Email Column -->
-  <ng-container matColumnDef="email">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
-    <td mat-cell *matCellDef="let user"> {{ user.email }} </td>
-  </ng-container>
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+            <td mat-cell *matCellDef="let user"> {{ user.email }} </td>
+        </ng-container>
+        <ng-container matColumnDef="city">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+            <td mat-cell *matCellDef="let user"> {{ user.city }} </td>
+        </ng-container>
+        <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
+            <td mat-cell *matCellDef="let user"> {{ user.address }} </td>
+        </ng-container>
 
-  <!-- UserRole Column -->
-  <ng-container matColumnDef="userRole">
-    <th mat-header-cell *matHeaderCellDef mat-sort-header> User Role </th>
-    <td mat-cell *matCellDef="let user"> {{ user.userRole }} </td>
-  </ng-container>
+        <!-- UserRole Column -->
+        <ng-container matColumnDef="userRole">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> User Role </th>
+            <td mat-cell *matCellDef="let user"> {{ user.userRole }} </td>
+        </ng-container>
 
-  <!-- Column definitions for action buttons (if needed) -->
-  <ng-container matColumnDef="actions">
-    <th mat-header-cell *matHeaderCellDef> Actions </th>
-    <td mat-cell *matCellDef="let user">
-        <button (click)="onUserDelete(user)" class="action-button1" ><i class="fas fa-trash-alt"></i></button>
-      <!-- Your action buttons (if needed) -->
-    </td>
-  </ng-container>
+        <!-- Column definitions for action buttons (if needed) -->
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let user">
+                <button (click)="onUserDelete(user)" class="action-button1"><i class="fas fa-trash-alt"></i></button>
+                <!-- Your action buttons (if needed) -->
+            </td>
+        </ng-container>
 
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-</table>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
 
-<!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator> -->
+    <!-- <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator> -->
 
 </div>
 
@@ -74,42 +83,49 @@
         <ng-container matColumnDef="index">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> No </th>
             <td mat-cell *matCellDef="let user; let i = index"> {{ i + 1 }} </td>
-          </ng-container>
-      <!-- Company Column -->
-      <ng-container matColumnDef="company">
-        <th mat-header-cell *matHeaderCellDef> Company </th>
-        <td mat-cell *matCellDef="let tempUser"> {{tempUser.company}} </td>
-      </ng-container>
-  
-      <!-- Contact Column -->
-      <ng-container matColumnDef="contact">
-        <th mat-header-cell *matHeaderCellDef> Contact </th>
-        <td mat-cell *matCellDef="let tempUser"> {{tempUser.contact}} </td>
-      </ng-container>
-  
-      <!-- Email Column -->
-      <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef> Email </th>
-        <td mat-cell *matCellDef="let tempUser"> {{tempUser.email}} </td>
-      </ng-container>
-  
-      <!-- UserRole Column -->
-      <ng-container matColumnDef="userRole">
-        <th mat-header-cell *matHeaderCellDef> User Role </th>
-        <td mat-cell *matCellDef="let tempUser"> {{tempUser.userRole}} </td>
-      </ng-container>
-        <ng-container matColumnDef="actions" class="action-con">
-      <th mat-header-cell *matHeaderCellDef> Actions </th>
-      <td mat-cell *matCellDef="let tempUser">
-        <button (click)="onTempDelete(tempUser)" class="action-button1" ><i class="fas fa-trash-alt"></i></button>
-        <button (click)="onApprove(tempUser)" class="action-button2"><i class="fas fa-user-check"></i>&nbsp;&nbsp; Approve</button>
-      </td>
-    </ng-container>
-  
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  </div>
+        </ng-container>
+        <!-- Company Column -->
+        <ng-container matColumnDef="company">
+            <th mat-header-cell *matHeaderCellDef> Company </th>
+            <td mat-cell *matCellDef="let tempUser"> {{tempUser.company}} </td>
+        </ng-container>
 
-  
-  
+        <!-- Contact Column -->
+        <ng-container matColumnDef="contact">
+            <th mat-header-cell *matHeaderCellDef> Contact </th>
+            <td mat-cell *matCellDef="let tempUser"> {{tempUser.contact}} </td>
+        </ng-container>
+
+        <!-- Email Column -->
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> Email </th>
+            <td mat-cell *matCellDef="let tempUser"> {{tempUser.email}} </td>
+        </ng-container>
+        <ng-container matColumnDef="city">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+            <td mat-cell *matCellDef="let tempUser"> {{ tempUser.city }} </td>
+        </ng-container>
+        <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
+            <td mat-cell *matCellDef="let tempUser"> {{ tempUser.address }} </td>
+        </ng-container>
+
+        <!-- UserRole Column -->
+        <ng-container matColumnDef="userRole">
+            <th mat-header-cell *matHeaderCellDef> User Role </th>
+            <td mat-cell *matCellDef="let tempUser"> {{tempUser.userRole}} </td>
+        </ng-container>
+        <ng-container matColumnDef="actions" class="action-con">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let tempUser">
+                <button (click)="onTempDelete(tempUser)" class="action-button1"><i
+                        class="fas fa-trash-alt"></i></button>
+                <button (click)="onApprove(tempUser)" class="action-button2"><i
+                        class="fas fa-user-check"></i>&nbsp;&nbsp; Approve</button>
+            </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>

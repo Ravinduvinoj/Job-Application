@@ -97,6 +97,8 @@ onUserDelete(User:any):void {
     'company',
     'contact',
     'email',
+    'address',
+    'city',
     'userRole',
     'actions'
   ];
