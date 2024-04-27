@@ -67,7 +67,9 @@ onUserDelete(User:any):void {
     });
   }
 
-
+onUserEdit(user:any) :void {
+  
+}
 
 
   onTempDelete(tempUser: any): void {

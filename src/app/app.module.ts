@@ -32,6 +32,7 @@ import {MatDialogModule} from '@angular/material/dialog'
 import {MatInputModule} from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MessageComponent } from './modules/admin/components/accounts/message/message.component';
+import { EdituserComponent } from './modules/admin/components/accounts/edituser/edituser.component';
 
 
 
@@ -63,6 +64,7 @@ import { MessageComponent } from './modules/admin/components/accounts/message/me
     HomeComponent,
     AccountbodyComponent,
     MessageComponent,
+    EdituserComponent,
     
   
     
