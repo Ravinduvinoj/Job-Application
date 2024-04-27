@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { MessageComponent } from './message/message.component';
 import { MatDialog } from '@angular/material/dialog';
+import { EdituserComponent } from './edituser/edituser.component';
 
 
 
@@ -68,7 +69,7 @@ onUserDelete(User:any):void {
   }
 
 onUserEdit(user:any) :void {
-  
+  const dialogRef = this.dialog.open(EdituserComponent);
 }
 
 
