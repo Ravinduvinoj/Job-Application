@@ -102,6 +102,7 @@ onUserEdit(user:any) :void {
     'email',
     'address',
     'city',
+    'companyurl',
     'userRole',
     'actions'
   ];

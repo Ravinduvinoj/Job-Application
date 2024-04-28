@@ -44,12 +44,10 @@ export class RegisterComponent implements OnInit {
       email: "",
       password: "",
       con_password: "",
-      companyurl: "",
+      companyurl: [''],
       userRole: "company",
       city: "",
       address: ""
-
-
     })
 
 
@@ -77,10 +75,12 @@ export class RegisterComponent implements OnInit {
   submit(): void {
     let user = this.form.getRawValue()
     user.email = this.emailFormControl.value;
+    
+   
     console.log(user);
 
 
-    if (user.company == "" || user.contact == "" || this.emailFormControl.value == "" || user.contact=='' || user.city=='' || user.address=='' || user.password == "" || user.con_password == "") {
+    if (user.company == "" || user.contact == "" || this.emailFormControl.value == "" || user.contact=='' || user.city=='' || user.address=='' || user.password == "" || user.con_password == ""|| user.companyurl=="") {
       this.snackBar.open("please  enter all the fields", 'Close', {
         duration: 3000,
         verticalPosition: 'bottom',
