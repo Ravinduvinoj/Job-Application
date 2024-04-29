@@ -7,7 +7,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   templateUrl: './edituser.component.html',
   styleUrl: './edituser.component.css'
 })
-export class EdituserComponent {
+export class EdituserComponent implements OnInit{
 
 
   form: FormGroup
@@ -30,6 +30,9 @@ export class EdituserComponent {
 
 
     })
+  }
+  ngOnInit(): void {
+    this.form.patchValue(this.data)
   }
   onFormSubmit() {
     

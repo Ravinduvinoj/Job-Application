@@ -53,7 +53,10 @@ export class RegisterComponent implements OnInit {
           Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
         ]
       ],
-      companyurl: [''],
+      companyurl: new FormControl('', [
+        Validators.required,
+        Validators.pattern("/^(http[s]?:\/\/){0,1}(www\.){0,1}[a-zA-Z0-9\.\-]+\.[a-zA-Z]{2,5}[\.]{0,1}/")
+      ]),
       userRole: "company",
       city: "",
       address: ""

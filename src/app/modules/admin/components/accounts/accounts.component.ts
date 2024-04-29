@@ -61,6 +61,7 @@ onUserDelete(User:any):void {
       next: (data) => {
         console.log('User approved and moved to user account collection successfully');
         this.fetchTempUsers(); // Refresh the user list after approval
+        this.fetchUserAccounts();
       },
       error: (error) => {
         console.error('Error approving user:', error);
@@ -68,8 +69,9 @@ onUserDelete(User:any):void {
     });
   }
 
-onUserEdit(user:any) :void {
-  const dialogRef = this.dialog.open(EdituserComponent);
+onUserEdit(user:any) {
+  this.dialog.open(EdituserComponent,{data : user});
+console.log(user)
 }
 
 
