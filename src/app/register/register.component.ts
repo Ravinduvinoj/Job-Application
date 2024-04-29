@@ -35,24 +35,40 @@ export class RegisterComponent implements OnInit {
     private FormField: MatFormFieldModule,
     private Input: MatInputModule,
   ) {
-
-  }
-  ngOnInit(): void {
     this.form = this.formbuilder.group({
       company: "",
-      contact: "",
+      contact: ['', [Validators.required, Validators.pattern("^((\\+94-?)|0)?[0-9]{9}$")]],
       email: "",
-      password: "",
-      con_password: "",
+      password: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
+        ]
+      ],
+      con_password: [
+        '',
+        [
+          Validators.required,
+          Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
+        ]
+      ],
       companyurl: [''],
       userRole: "company",
       city: "",
       address: ""
     })
+  }
+
+  ngOnInit(): void {
+
 
 
   }
 
+  get m() {
+    return this.form.controls;
+  }
   ValidateEmail = (email: any) => {
 
     var ValidRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -75,12 +91,13 @@ export class RegisterComponent implements OnInit {
   submit(): void {
     let user = this.form.getRawValue()
     user.email = this.emailFormControl.value;
-    
-   
+
+  
+
     console.log(user);
 
 
-    if (user.company == "" || user.contact == "" || this.emailFormControl.value == "" || user.contact=='' || user.city=='' || user.address=='' || user.password == "" || user.con_password == ""|| user.companyurl=="") {
+    if (user.company == "" || user.contact == "" || this.emailFormControl.value == "" || user.contact == '' || user.city == '' || user.address == '' || user.password == "" || user.con_password== "" || user.companyurl == "") {
       this.snackBar.open("please  enter all the fields", 'Close', {
         duration: 3000,
         verticalPosition: 'bottom',
@@ -94,6 +111,13 @@ export class RegisterComponent implements OnInit {
       })
 
 
+    }else if(!this.form.valid) {
+      this.snackBar.open("please enter valid details", 'Close', {
+        duration: 3000,
+        verticalPosition: 'bottom',
+        horizontalPosition: 'center'
+      })
+  
     } else if (!this.checkpass(user.password, user.con_password)) {
       this.snackBar.open("Your password does not match", 'Close', {
         duration: 3000,

@@ -37,12 +37,12 @@
         <div class="row">
             <mat-form-field appearance="outline">
                 <mat-label>Address</mat-label>
-                <textarea matInput placeholder=""></textarea>
-                <input formControlName="address" matInput type="text">
+                <textarea matInput placeholder="" formControlName="address"></textarea>
             </mat-form-field>
-            <!-- <mat-form-field appearance="outline">
-
-            </mat-form-field> -->
+            <mat-form-field appearance="outline">
+                <mat-label>Website</mat-label>
+                <textarea matInput placeholder="" formControlName="companyurl"></textarea>
+            </mat-form-field>
         </div>
         <div mat-dialog-actions class="action">
             <button mat-raised-button type="button" [mat-dialog-close]="false" class="action-button1">Cancel</button>

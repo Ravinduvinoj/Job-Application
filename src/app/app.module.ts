@@ -27,9 +27,9 @@ import { provideHttpClient, withFetch } from "@angular/common/http";
 import { NgToastModule } from 'ng-angular-popup';
 import { HomeComponent } from './home/home.component';
 import { AccountbodyComponent } from './modules/admin/components/accounts/accountbody/accountbody.component';
-import {DataTablesModule} from 'angular-datatables';
-import {MatDialogModule} from '@angular/material/dialog'
-import {MatInputModule} from '@angular/material/input';
+import { DataTablesModule } from 'angular-datatables';
+import { MatDialogModule } from '@angular/material/dialog'
+import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MessageComponent } from './modules/admin/components/accounts/message/message.component';
 import { EdituserComponent } from './modules/admin/components/accounts/edituser/edituser.component';
@@ -65,9 +65,9 @@ import { EdituserComponent } from './modules/admin/components/accounts/edituser/
     AccountbodyComponent,
     MessageComponent,
     EdituserComponent,
-    
-  
-    
+
+
+
 
 
 
@@ -84,8 +84,8 @@ import { EdituserComponent } from './modules/admin/components/accounts/edituser/
     MatDialogModule,
     MatInputModule,
     MatTableModule,
-    
-    
+
+
   ],
   providers: [
     provideClientHydration(),

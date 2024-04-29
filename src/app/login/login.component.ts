@@ -68,9 +68,9 @@ constructor(
       }).subscribe(
         (res : any)=> {
           if (res.userRole === "admin") {
-            this.router.navigate(['/admin/dashboard']);
+            this.router.navigate(['/admin']);
           } else if (res.userRole === "company") {
-            this.router.navigate(['/company/emp-dashboard']);
+            this.router.navigate(['/company']);
           }
         },
         (err) =>{
