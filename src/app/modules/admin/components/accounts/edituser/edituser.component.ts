@@ -1,21 +1,27 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { NgToastService } from 'ng-angular-popup';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-edituser',
   templateUrl: './edituser.component.html',
   styleUrl: './edituser.component.css'
 })
-export class EdituserComponent implements OnInit{
+export class EdituserComponent implements OnInit {
 
 
   form: FormGroup
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
- constructor( private _fb: FormBuilder,
-  private _dialogRef: MatDialogRef<EdituserComponent>,
-  @Inject(MAT_DIALOG_DATA) public data: any){
+  constructor(private _fb: FormBuilder,
+    private http: HttpClient,
+    private snackBar: MatSnackBar,
+    private Toast: NgToastService,
+    private _dialogRef: MatDialogRef<EdituserComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any) {
 
     this.form = this._fb.group({
       company: "",
@@ -33,8 +39,31 @@ export class EdituserComponent implements OnInit{
   }
   ngOnInit(): void {
     this.form.patchValue(this.data)
+    this.emailFormControl.patchValue(this.data.email)
+
   }
   onFormSubmit() {
-    
-    }
+    const userUpdateData = this.form.value;
+
+    this.http.put<any>('http://localhost:5000/api/update-user/' + this.data.email, userUpdateData)
+      .subscribe(
+        (response) => {
+          this.snackBar.open('User updated successfully', 'Close', {
+            duration: 3000,
+            verticalPosition: 'bottom',
+            horizontalPosition: 'center'
+          });
+          this._dialogRef.close();
+        },
+        (error) => {
+          this.snackBar.open('Failed to update user', 'Close', {
+            duration: 3000,
+            verticalPosition: 'bottom',
+            horizontalPosition: 'center'
+          });
+          console.error('Error updating user:', error);
+        }
+      );
+  }
 }
+

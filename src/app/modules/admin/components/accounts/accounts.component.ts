@@ -3,8 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { MessageComponent } from './message/message.component';
 import { MatDialog } from '@angular/material/dialog';
 import { EdituserComponent } from './edituser/edituser.component';
-
-
+import { NgToastService } from 'ng-angular-popup';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -13,11 +13,10 @@ import { EdituserComponent } from './edituser/edituser.component';
   styleUrl: './accounts.component.css'
 })
 export class AccountsComponent implements OnInit {
-[x: string]: any;
+  [x: string]: any;
 
   userAccounts: any[];
-
-  fetchUserAccounts(): void {
+ fetchUserAccounts(): void {
     const apiUrl = 'http://localhost:5000/api/user-accounts'; // Update the API URL as per your backend route
 
     this.http.get<any[]>(apiUrl).subscribe(
@@ -32,34 +31,48 @@ export class AccountsComponent implements OnInit {
 
 
   constructor(
-    private http: HttpClient, 
+    private http: HttpClient,
+    private snackBar: MatSnackBar,
+    private Toast: NgToastService,
     public dialog: MatDialog
   ) {
     this.fetchTempUsers();
     this.fetchUserAccounts();
-   }
+  }
 
-onUserDelete(User:any):void {
-  const dialogRef = this.dialog.open(MessageComponent);
-  dialogRef.afterClosed().subscribe(result => {
-    if (result) {
-      this.http.get<any[]>(`http://localhost:5000/api/delete-useracc/${User.email}`).subscribe({
-        next: (data) => {
-          console.log('User deleted successfully');
-          this.fetchUserAccounts(); // Refresh the user list after deletion
-        },
-        error: (error) => {
-          console.error('Error deleting user:', error);
+  onUserDelete(User: any): void {
+    if (User.userRole == 'admin'){
+      this.snackBar.open("you can not delete", 'Close', {
+        duration: 3000,
+        verticalPosition: 'bottom',
+        horizontalPosition: 'center'
+      })
+    }else{
+      const dialogRef = this.dialog.open(MessageComponent);
+      dialogRef.afterClosed().subscribe(result => {
+        if (result) {
+          this.http.get<any[]>(`http://localhost:5000/api/delete-useracc/${User.email}`).subscribe({
+            next: (data) => {
+              this.Toast.success({ detail: "User Deleted", summary: 'User Deleted successfully', duration: 7000, position: 'botomCenter' })
+              console.log('User deleted successfully');
+              this.fetchUserAccounts(); // Refresh the user list after deletion
+            },
+            error: (error) => {
+              console.error('Error deleting user:', error);
+            }
+          });
         }
       });
+
     }
-  });
-}
-  
+   
+  }
+
   onApprove(tempUser: any): void {
     this.http.get<any[]>(`http://localhost:5000/api/approve-tempacc/${tempUser.email}`).subscribe({
       next: (data) => {
         console.log('User approved and moved to user account collection successfully');
+        this.Toast.success({ detail: "Email is sent", summary: 'User approved successfully', duration: 7000, position: 'botomCenter' })
         this.fetchTempUsers(); // Refresh the user list after approval
         this.fetchUserAccounts();
       },
@@ -69,10 +82,20 @@ onUserDelete(User:any):void {
     });
   }
 
-onUserEdit(user:any) {
-  this.dialog.open(EdituserComponent,{data : user});
-console.log(user)
-}
+  onUserEdit(user: any) {
+    if (user.userRole == 'admin') {
+      this.snackBar.open("you can't edit", 'Close', {
+        duration: 3000,
+        verticalPosition: 'bottom',
+        horizontalPosition: 'center'
+      })
+    } else {
+      this.dialog.open(EdituserComponent, { data: user });
+      console.log(user);
+      this.fetchUserAccounts();
+    }
+
+  }
 
 
   onTempDelete(tempUser: any): void {
@@ -82,6 +105,7 @@ console.log(user)
         this.http.get<any[]>(`http://localhost:5000/api/delete-tempacc/${tempUser.email}`).subscribe({
           next: (data) => {
             console.log('User deleted successfully');
+           
             this.fetchTempUsers(); // Refresh the user list after deletion
           },
           error: (error) => {
@@ -119,11 +143,11 @@ console.log(user)
   toggleTable(): void {
     this.showTable = !this.showTable; // Toggle table visibility
     if (this.showTable) {
-      this.activTable=false;
+      this.activTable = false;
       // Fetch temp users data here if needed when the table is shown
       this.fetchTempUsers();
     } else {
-      this.activTable=true;
+      this.activTable = true;
     }
   }
 

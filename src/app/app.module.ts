@@ -33,6 +33,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MessageComponent } from './modules/admin/components/accounts/message/message.component';
 import { EdituserComponent } from './modules/admin/components/accounts/edituser/edituser.component';
+import { UserRegisterComponent } from './modules/admin/components/accounts/user-register/user-register.component';
 
 
 
@@ -65,6 +66,7 @@ import { EdituserComponent } from './modules/admin/components/accounts/edituser/
     AccountbodyComponent,
     MessageComponent,
     EdituserComponent,
+    UserRegisterComponent,
 
 
 
