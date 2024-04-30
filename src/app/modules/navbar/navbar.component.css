@@ -21,6 +21,7 @@
 .dash-list1 {
     float: right;
     margin-right: 20px;
+    cursor: pointer;
 }
 .dash-img {
     margin-left: 50px;
