@@ -34,6 +34,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MessageComponent } from './modules/admin/components/accounts/message/message.component';
 import { EdituserComponent } from './modules/admin/components/accounts/edituser/edituser.component';
 import { UserRegisterComponent } from './modules/admin/components/accounts/user-register/user-register.component';
+import { SearchUserPipe } from './modules/admin/components/accounts/search-user.pipe';
 
 
 
@@ -67,6 +68,7 @@ import { UserRegisterComponent } from './modules/admin/components/accounts/user-
     MessageComponent,
     EdituserComponent,
     UserRegisterComponent,
+    SearchUserPipe,
 
 
 

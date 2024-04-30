@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { EdituserComponent } from './edituser/edituser.component';
 import { NgToastService } from 'ng-angular-popup';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { SearchUserPipe } from './search-user.pipe'
 
 
 @Component({
@@ -14,14 +15,16 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class AccountsComponent implements OnInit {
   [x: string]: any;
-
+  SearchText: any;
   userAccounts: any[];
  fetchUserAccounts(): void {
     const apiUrl = 'http://localhost:5000/api/user-accounts'; // Update the API URL as per your backend route
 
     this.http.get<any[]>(apiUrl).subscribe(
       (data) => {
+        this.SearchText
         this.userAccounts = data;
+        
       },
       (error) => {
         console.error('Error fetching user accounts:', error);
