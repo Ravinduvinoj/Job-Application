@@ -15,7 +15,6 @@ form: FormGroup
 
 emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
-
 constructor(
   private formbuilder: FormBuilder,
   private http: HttpClient,
@@ -23,8 +22,8 @@ constructor(
   private snackBar: MatSnackBar,
   private Toast : NgToastService,
 ) {
-
 }
+
   ngOnInit(): void {
     this.form = this.formbuilder.group({
       email: "",
@@ -74,11 +73,7 @@ constructor(
           }
         },
         (err) =>{
-        //   this.snackBar.open(err.error.message,'Close',{
-        //   duration:3000,
-        //   verticalPosition: 'bottom',
-        //   horizontalPosition: 'center'
-        // })
+ 
 
         this.Toast.error({detail: err.error.message, duration:4000 ,position:'bottomRight'})
         }
@@ -87,11 +82,3 @@ constructor(
   }
   
 }
-// {
-//   if (res.usertype === "admin") {
-//     this.router.navigate(['/admin/dashboard']);
-//   }
-//   else if (res.usertype === "company") {
-//     this.router.navigate(['/company/emp-dashboard']);
-//   }
-// }
