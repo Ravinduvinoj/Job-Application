@@ -6,24 +6,25 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
 import { SharedService } from '../../../../../shared.service';
 import { AccountsComponent } from '../accounts.component';
-
+import { ChangeDetectorRef } from '@angular/core';
 @Component({
   selector: 'app-edituser',
   templateUrl: './edituser.component.html',
   styleUrl: './edituser.component.css'
 })
 export class EdituserComponent implements OnInit {
-
+  @Input() com: (AccountsComponent);
   form: FormGroup
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
   constructor(
+    private cdr: ChangeDetectorRef,
     private _fb: FormBuilder,
     private http: HttpClient,
     private snackBar: MatSnackBar,
     private Toast: NgToastService,
     private _dialogRef: MatDialogRef<EdituserComponent>,
-    private sharedServices:SharedService,
+    private sharedServices: SharedService,
     @Inject(MAT_DIALOG_DATA) public data: any) {
 
     this.form = this._fb.group({
@@ -42,6 +43,7 @@ export class EdituserComponent implements OnInit {
   ngOnInit(): void {
     this.form.patchValue(this.data)
     this.emailFormControl.patchValue(this.data.email)
+    this.com.fetchUserAccounts();
 
   }
   onFormSubmit() {
@@ -50,16 +52,17 @@ export class EdituserComponent implements OnInit {
     this.http.put<any>('http://localhost:5000/api/update-user/' + this.data.email, userUpdateData)
       .subscribe(
         (response) => {
-          
+
           this.snackBar.open('User updated successfully', 'Close', {
             duration: 3000,
             verticalPosition: 'bottom',
             horizontalPosition: 'center'
           });
-         
-        
+
+
           this._dialogRef.close();
-          
+         
+          this.cdr.detectChanges();
         },
         (error) => {
           this.snackBar.open('Failed to update user', 'Close', {

@@ -37,6 +37,7 @@ import { UserRegisterComponent } from './modules/admin/components/accounts/user-
 import { SearchUserPipe } from './modules/admin/components/accounts/search-user.pipe';
 import { NewCategoryComponent } from './modules/admin/components/j-category/components/new-category/new-category.component';
 import { AddSubCategoryComponent } from './modules/admin/components/j-category/components/add-sub-category/add-sub-category.component';
+import { DeletecategoryComponent } from './modules/admin/components/j-category/components/deletecategory/deletecategory.component';
 
 
 
@@ -73,6 +74,7 @@ import { AddSubCategoryComponent } from './modules/admin/components/j-category/c
     SearchUserPipe,
     NewCategoryComponent,
     AddSubCategoryComponent,
+    DeletecategoryComponent,
 
 
 
