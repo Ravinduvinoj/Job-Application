@@ -1,0 +1,25 @@
+<div mat-dialog-title>
+    <h1>Create job category</h1>
+</div>
+<form [formGroup]="form" (ngSubmit)="onCategoryAdd()">
+    <div mat-dialog-content class="content">
+
+
+        <div class="row">
+            <!-- <mat-form-field appearance="outline">
+            <mat-label>Contact</mat-label>
+            <span matTextPrefix>+94 &nbsp;</span>
+            <input formControlName="contact" type="tel" matInput placeholder="XXX XXX XXXX">
+        </mat-form-field> -->
+            <mat-form-field appearance="outline">
+                <mat-label>Category name</mat-label>
+                <input formControlName="categoryname" matInput type="text">
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions class="action">
+            <button mat-raised-button type="button" [mat-dialog-close]="false" class="action-button1">Cancel</button>
+            <button mat-raised-button color="primary" type="submit" class="action-button2">Create</button>
+        </div>
+
+    </div>
+</form>

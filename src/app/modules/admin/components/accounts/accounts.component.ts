@@ -7,6 +7,7 @@ import { NgToastService } from 'ng-angular-popup';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SearchUserPipe } from './search-user.pipe'
 import { UserRegisterComponent } from './user-register/user-register.component';
+import { SharedService } from '../../../../shared.service';
 
 
 @Component({
@@ -18,27 +19,14 @@ export class AccountsComponent implements OnInit {
   [x: string]: any;
   SearchText: any;
   userAccounts: any[];
-  fetchUserAccounts(): void {
-    const apiUrl = 'http://localhost:5000/api/user-accounts'; // Update the API URL as per your backend route
-
-    this.http.get<any[]>(apiUrl).subscribe(
-      (data) => {
-        this.SearchText
-        this.userAccounts = data;
-
-      },
-      (error) => {
-        console.error('Error fetching user accounts:', error);
-      }
-    );
-  }
-
+  
 
   constructor(
     private http: HttpClient,
     private snackBar: MatSnackBar,
     private Toast: NgToastService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private SServices :SharedService,
   ) {
     this.fetchTempUsers();
     this.fetchUserAccounts();
@@ -99,7 +87,7 @@ export class AccountsComponent implements OnInit {
     } else {
       this.dialog.open(EdituserComponent, { data: user });
       console.log(user);
-      this.fetchUserAccounts();
+      
     }
 
   }
@@ -122,9 +110,6 @@ export class AccountsComponent implements OnInit {
       }
     });
   }
-
-
-
 
   tempUsers: any[] = []; // Initialize as an empty array
 
@@ -168,4 +153,19 @@ export class AccountsComponent implements OnInit {
       }
     });
   }
+  public fetchUserAccounts(): void {
+    const apiUrl = 'http://localhost:5000/api/user-accounts'; // Update the API URL as per your backend route
+
+    this.http.get<any[]>(apiUrl).subscribe(
+      (data) => {
+        this.SearchText
+        this.userAccounts = data;
+
+      },
+      (error) => {
+        console.error('Error fetching user accounts:', error);
+      }
+    );
+  }
+
 }

@@ -35,6 +35,8 @@ import { MessageComponent } from './modules/admin/components/accounts/message/me
 import { EdituserComponent } from './modules/admin/components/accounts/edituser/edituser.component';
 import { UserRegisterComponent } from './modules/admin/components/accounts/user-register/user-register.component';
 import { SearchUserPipe } from './modules/admin/components/accounts/search-user.pipe';
+import { NewCategoryComponent } from './modules/admin/components/j-category/components/new-category/new-category.component';
+import { AddSubCategoryComponent } from './modules/admin/components/j-category/components/add-sub-category/add-sub-category.component';
 
 
 
@@ -69,6 +71,8 @@ import { SearchUserPipe } from './modules/admin/components/accounts/search-user.
     EdituserComponent,
     UserRegisterComponent,
     SearchUserPipe,
+    NewCategoryComponent,
+    AddSubCategoryComponent,
 
 
 

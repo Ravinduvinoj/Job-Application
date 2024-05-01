@@ -1,9 +1,11 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NgToastService } from 'ng-angular-popup';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
+import { SharedService } from '../../../../../shared.service';
+import { AccountsComponent } from '../accounts.component';
 
 @Component({
   selector: 'app-edituser',
@@ -12,15 +14,16 @@ import { HttpClient } from '@angular/common/http';
 })
 export class EdituserComponent implements OnInit {
 
-
   form: FormGroup
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
-  constructor(private _fb: FormBuilder,
+  constructor(
+    private _fb: FormBuilder,
     private http: HttpClient,
     private snackBar: MatSnackBar,
     private Toast: NgToastService,
     private _dialogRef: MatDialogRef<EdituserComponent>,
+    private sharedServices:SharedService,
     @Inject(MAT_DIALOG_DATA) public data: any) {
 
     this.form = this._fb.group({
@@ -33,7 +36,6 @@ export class EdituserComponent implements OnInit {
       userRole: "company",
       city: "",
       address: ""
-
 
     })
   }
@@ -48,12 +50,16 @@ export class EdituserComponent implements OnInit {
     this.http.put<any>('http://localhost:5000/api/update-user/' + this.data.email, userUpdateData)
       .subscribe(
         (response) => {
+          
           this.snackBar.open('User updated successfully', 'Close', {
             duration: 3000,
             verticalPosition: 'bottom',
             horizontalPosition: 'center'
           });
+         
+        
           this._dialogRef.close();
+          
         },
         (error) => {
           this.snackBar.open('Failed to update user', 'Close', {
