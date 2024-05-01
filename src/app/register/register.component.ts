@@ -36,7 +36,7 @@ export class RegisterComponent implements OnInit {
     private Input: MatInputModule,
   ) {
     this.form = this.formbuilder.group({
-      company: "",
+      company: ['',[Validators.required]],
       contact: ['', [Validators.required, Validators.pattern("^((\\+94-?)|0)?[0-9]{9}$")]],
       email: "",
       password: [
@@ -53,10 +53,10 @@ export class RegisterComponent implements OnInit {
           Validators.pattern('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&].{8,}')
         ]
       ],
-      companyurl: [''],
+      companyurl: ['',[Validators.required]],
       userRole: "company",
-      city: "",
-      address: ""
+      city: ['',Validators.required],
+      address: ['',Validators.required]
     })
   }
 
@@ -66,9 +66,7 @@ export class RegisterComponent implements OnInit {
 
   }
 
-  get m() {
-    return this.form.controls;
-  }
+ 
   ValidateEmail = (email: any) => {
 
     var ValidRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;

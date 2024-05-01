@@ -6,6 +6,7 @@ import { EdituserComponent } from './edituser/edituser.component';
 import { NgToastService } from 'ng-angular-popup';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SearchUserPipe } from './search-user.pipe'
+import { UserRegisterComponent } from './user-register/user-register.component';
 
 
 @Component({
@@ -17,14 +18,14 @@ export class AccountsComponent implements OnInit {
   [x: string]: any;
   SearchText: any;
   userAccounts: any[];
- fetchUserAccounts(): void {
+  fetchUserAccounts(): void {
     const apiUrl = 'http://localhost:5000/api/user-accounts'; // Update the API URL as per your backend route
 
     this.http.get<any[]>(apiUrl).subscribe(
       (data) => {
         this.SearchText
         this.userAccounts = data;
-        
+
       },
       (error) => {
         console.error('Error fetching user accounts:', error);
@@ -44,13 +45,13 @@ export class AccountsComponent implements OnInit {
   }
 
   onUserDelete(User: any): void {
-    if (User.userRole == 'admin'){
-      this.snackBar.open("you can not delete", 'Close', {
+    if (User.userRole == 'admin') {
+      this.snackBar.open("you can't delete", 'Close', {
         duration: 3000,
         verticalPosition: 'bottom',
         horizontalPosition: 'center'
       })
-    }else{
+    } else {
       const dialogRef = this.dialog.open(MessageComponent);
       dialogRef.afterClosed().subscribe(result => {
         if (result) {
@@ -68,7 +69,7 @@ export class AccountsComponent implements OnInit {
       });
 
     }
-   
+
   }
 
   onApprove(tempUser: any): void {
@@ -84,7 +85,10 @@ export class AccountsComponent implements OnInit {
       }
     });
   }
-
+  onCompanyRegister() {
+    this.dialog.open(UserRegisterComponent)
+    this.fetchUserAccounts();
+  }
   onUserEdit(user: any) {
     if (user.userRole == 'admin') {
       this.snackBar.open("you can't edit", 'Close', {
@@ -108,7 +112,7 @@ export class AccountsComponent implements OnInit {
         this.http.get<any[]>(`http://localhost:5000/api/delete-tempacc/${tempUser.email}`).subscribe({
           next: (data) => {
             console.log('User deleted successfully');
-           
+
             this.fetchTempUsers(); // Refresh the user list after deletion
           },
           error: (error) => {
