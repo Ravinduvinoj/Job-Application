@@ -38,6 +38,7 @@ import { SearchUserPipe } from './modules/admin/components/accounts/search-user.
 import { NewCategoryComponent } from './modules/admin/components/j-category/components/new-category/new-category.component';
 import { AddSubCategoryComponent } from './modules/admin/components/j-category/components/add-sub-category/add-sub-category.component';
 import { DeletecategoryComponent } from './modules/admin/components/j-category/components/deletecategory/deletecategory.component';
+import { UpdateCategoryComponent } from './modules/admin/components/j-category/components/update-category/update-category.component';
 
 
 
@@ -75,6 +76,7 @@ import { DeletecategoryComponent } from './modules/admin/components/j-category/c
     NewCategoryComponent,
     AddSubCategoryComponent,
     DeletecategoryComponent,
+    UpdateCategoryComponent,
 
 
 

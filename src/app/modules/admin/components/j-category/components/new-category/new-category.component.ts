@@ -10,42 +10,42 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './new-category.component.html',
   styleUrl: './new-category.component.css'
 })
-export class NewCategoryComponent implements OnInit{
+export class NewCategoryComponent implements OnInit {
   form: FormGroup
-  
-constructor(private _fb: FormBuilder,
-  private http: HttpClient,
-  private snackBar: MatSnackBar,
-  private Toast: NgToastService,
-  private _dialogRef: MatDialogRef<NewCategoryComponent>){
 
-}
+  constructor(private _fb: FormBuilder,
+    private http: HttpClient,
+    private snackBar: MatSnackBar,
+    private Toast: NgToastService,
+    private _dialogRef: MatDialogRef<NewCategoryComponent>) {
+
+  }
   ngOnInit(): void {
     this.form = this._fb.group({
- categoryname:['',[Validators.required]],
+      categoryname: ['', [Validators.required]],
 
 
     })
   }
-  onCategoryAdd(){
+  onCategoryAdd() {
     let category = this.form.getRawValue()
 
 
-    if(category.categoryname==''){
+    if (category.categoryname == '') {
       this.snackBar.open("please fill the form", 'Close', {
         duration: 3000,
         verticalPosition: 'bottom',
         horizontalPosition: 'center'
       })
-    }else {
- 
+    } else {
+
 
       this.http.post("http://localhost:5000/api/addcategory", category, {
         withCredentials: true
       })
         .subscribe(() => {
           this.Toast.success({ detail: "category Created", summary: 'job category creation successfully', duration: 9000, position: 'botomCenter' })
-         this._dialogRef.close();
+          this._dialogRef.close();
 
           // swal('Hello world!')
 
@@ -57,7 +57,7 @@ constructor(private _fb: FormBuilder,
               horizontalPosition: 'center'
             })
           })
-      
+
     }
   }
 }

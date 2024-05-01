@@ -43,7 +43,7 @@ export class EdituserComponent implements OnInit {
   ngOnInit(): void {
     this.form.patchValue(this.data)
     this.emailFormControl.patchValue(this.data.email)
-    this.com.fetchUserAccounts();
+
 
   }
   onFormSubmit() {
