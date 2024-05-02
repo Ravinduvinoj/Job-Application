@@ -23,6 +23,7 @@ export class EdituserComponent implements OnInit {
     private http: HttpClient,
     private snackBar: MatSnackBar,
     private Toast: NgToastService,
+    private sharedService:SharedService,
     private _dialogRef: MatDialogRef<EdituserComponent>,
     private sharedServices: SharedService,
     @Inject(MAT_DIALOG_DATA) public data: any) {
@@ -61,7 +62,7 @@ export class EdituserComponent implements OnInit {
 
 
           this._dialogRef.close();
-         
+          this.sharedService.sendClickEvent();
           this.cdr.detectChanges();
         },
         (error) => {

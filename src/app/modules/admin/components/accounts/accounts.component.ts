@@ -8,6 +8,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { SearchUserPipe } from './search-user.pipe'
 import { UserRegisterComponent } from './user-register/user-register.component';
 import { SharedService } from '../../../../shared.service';
+import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -19,15 +20,19 @@ export class AccountsComponent implements OnInit {
   [x: string]: any;
   SearchText: any;
   userAccounts: any[];
-  
+  clickEventSubscription:Subscription;
 
   constructor(
     private http: HttpClient,
     private snackBar: MatSnackBar,
     private Toast: NgToastService,
     public dialog: MatDialog,
+    private sharedService:SharedService,
     private SServices :SharedService,
   ) {
+    this.clickEventSubscription= this.sharedService.getClickEvent().subscribe(()=>{
+      this.fetchUserAccounts();
+    })
     this.fetchTempUsers();
     this.fetchUserAccounts();
   }

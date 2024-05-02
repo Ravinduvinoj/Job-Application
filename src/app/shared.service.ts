@@ -1,25 +1,19 @@
 import { Injectable } from '@angular/core';
+import {Observable, Subject} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SharedService {
-  pendingmess: String;
-  tablefunc: boolean=false;
 
-  constructor() {
+  private subject = new Subject<any>();
+
+  sendClickEvent(){
+    this.subject.next;
+
   }
-  setTablefunc(data:boolean){
-    this.tablefunc= data;
-    console.log(this.tablefunc)
-  }
-  getTablefunc(){
-    return this.tablefunc
-  }
-  setMessage(data: any) {
-    this.pendingmess = data;
-  }
-  getMessage() {
-    return this.pendingmess
-  }
+  getClickEvent():Observable<any>{
+    return this.subject.asObservable();
+ }
+
 }
