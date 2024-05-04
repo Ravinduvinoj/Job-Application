@@ -4,10 +4,11 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NgToastService } from 'ng-angular-popup';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
-import {MatSelectModule} from '@angular/material/select';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {FormsModule} from '@angular/forms';
+import { MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { event } from 'jquery';
 
 interface Food {
   value: string;
@@ -21,28 +22,28 @@ interface Food {
   styleUrl: './add-sub-category.component.css'
 })
 
-export class AddSubCategoryComponent implements OnInit{
+export class AddSubCategoryComponent implements OnInit {
   form: FormGroup
   mainCategory: any[];
   selectedCategoryId: string | undefined;
   subcategoryName: string;
   constructor(private _fb: FormBuilder,
-    private matinput:MatInputModule,
+    private matinput: MatInputModule,
     private Matform: MatFormFieldModule,
-    private Formmod : FormsModule,
+    private Formmod: FormsModule,
     private http: HttpClient,
     private snackBar: MatSnackBar,
     private Toast: NgToastService,
-    private select:MatSelectModule,
+    private select: MatSelectModule,
     private _dialogRef: MatDialogRef<AddSubCategoryComponent>) {
 
   }
- 
+
 
   ngOnInit(): void {
     this.form = this._fb.group({
       SubCategory: ['', [Validators.required]],
-      Maincategory:""
+      Maincategory: ['', [Validators.required]]
 
 
     })
@@ -65,10 +66,44 @@ export class AddSubCategoryComponent implements OnInit{
   onCategorySelectionChange(event: any): void {
     this.selectedCategoryId = event.value;
     console.log('Selected Category ID:', this.selectedCategoryId);
-    // You can perform additional actions based on the selected category ID
+
   }
 
-  onSubCategoryAdd(){
+  onSubCategoryAdd() {
+    let subCat = this.form.getRawValue()
 
+
+    if (subCat.SubCategory == '') {
+      this.snackBar.open("please enter a category name", 'Close', {
+        duration: 3000,
+        verticalPosition: 'bottom',
+        horizontalPosition: 'center'
+      })
+    }else if (this.selectedCategoryId==undefined){
+      this.snackBar.open("please select a category", 'Close', {
+        duration: 3000,
+        verticalPosition: 'bottom',
+        horizontalPosition: 'center'
+      })
+    }else{
+      this.http.post(`http://localhost:5000/api/add-subcategory/${this.selectedCategoryId}`, subCat, {
+        withCredentials: true
+      })
+        .subscribe(() => {
+          this.Toast.success({ detail: "category Created", summary: 'sub category creation successfully', duration: 9000, position: 'botomCenter' })
+          this._dialogRef.close();
+
+          // swal('Hello world!')
+
+        },
+          (err) => {
+            this.snackBar.open(err.error.message, 'Close', {
+              duration: 3000,
+              verticalPosition: 'bottom',
+              horizontalPosition: 'center'
+            })
+          })
+    }
+    
   }
 }
