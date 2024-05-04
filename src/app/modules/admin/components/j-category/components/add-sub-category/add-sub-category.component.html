@@ -1,1 +1,30 @@
-<p>add-sub-category works!</p>
+<div mat-dialog-title>
+    <h1>Create job sub category</h1>
+</div>
+<form [formGroup]="form" (ngSubmit)="onSubCategoryAdd()">
+    <div mat-dialog-content class="content">
+
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                
+                    <mat-label>Job category</mat-label>
+                    <mat-select  (selectionChange)="onCategorySelectionChange($event)">
+                        <mat-option *ngFor="let category of mainCategory" [value]="category._id">
+                          {{ category.jobcategory }}
+                        </mat-option>
+                      </mat-select>
+                  </mat-form-field>
+    
+            <mat-form-field appearance="outline">
+                <mat-label>Sub category name</mat-label>
+                <input formControlName="SubCategory" matInput type="text">
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions class="action">
+            <button mat-raised-button type="button" [mat-dialog-close]="false" class="action-button1">Cancel</button>
+            <button mat-raised-button color="primary" type="submit" class="action-button2">Add</button>
+        </div>
+
+    </div>
+</form>

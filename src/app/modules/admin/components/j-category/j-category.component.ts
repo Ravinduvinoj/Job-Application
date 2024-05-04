@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { DeletecategoryComponent } from './components/deletecategory/deletecategory.component';
 import { UpdateCategoryComponent } from './components/update-category/update-category.component';
+import { AddSubCategoryComponent } from './components/add-sub-category/add-sub-category.component';
 
 @Component({
   selector: 'app-j-category',
@@ -29,6 +30,9 @@ export class JCategoryComponent implements OnInit {
 
   onNewCategory() {
     this.dialog.open(NewCategoryComponent)
+  }
+  onNewSubCategory(){
+    this.dialog.open(AddSubCategoryComponent)
   }
   onCategoryDelete(cat: any): void {
 
