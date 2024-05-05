@@ -40,6 +40,7 @@ import { AddSubCategoryComponent } from './modules/admin/components/j-category/c
 import { DeletecategoryComponent } from './modules/admin/components/j-category/components/deletecategory/deletecategory.component';
 import { UpdateCategoryComponent } from './modules/admin/components/j-category/components/update-category/update-category.component';
 import {MatSelectModule} from '@angular/material/select';
+import { UpdateSubCategoryComponent } from './modules/admin/components/j-category/components/update-sub-category/update-sub-category.component';
 
 
 
@@ -77,6 +78,7 @@ import {MatSelectModule} from '@angular/material/select';
     AddSubCategoryComponent,
     DeletecategoryComponent,
     UpdateCategoryComponent,
+    UpdateSubCategoryComponent,
 
 
 

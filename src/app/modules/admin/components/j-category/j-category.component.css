@@ -50,17 +50,35 @@
     cursor: text;
    
 }
+.main-table h2 {
+    margin-left: 350px;
+    margin-top: 25px;
+    font-size: 30px;
+}
+.sub-table h2 {
+    margin-left: 350px;
+    margin-top: 25px;
+    font-size: 30px;
+}
+.div-table {
+    display: flex;
+    width: 100%;
+
 .head-tble{
-    width: 30%;
-    margin-left: 150px;
+    width: 900px;
+    margin-left: 400px;
+    margin-top: 50px;
+    border-radius: 10px;
+}
+.head-tble2{
+    width: 1200px;
+    margin-left: 400px;
     margin-top: 50px;
     border-radius: 10px;
 }
 
 table {
-
     border-collapse: collapse;
-    
     border: solid 2px rgb(32, 131, 49);
 }
 
@@ -111,3 +129,4 @@ table td .action-button2:hover {
     color: #fff;
 }
 
+}

@@ -6,6 +6,7 @@
         <li class="li-cat" style="margin-left: 30px;"><input type="text" id="search" name="search" placeholder="search category"></li>
         <li class="li-cat1" style="margin-left: 20px; margin-right: 20px;"><button (click)="onNewSubCategory()">Add Sub Category</button></li>
         <li class="li-cat1"><button (click)="onNewCategory()">Create Category</button></li>
+        <li class="li-cat1" style="margin-left: 20px; margin-right: 20px;"><button (click)="showMainTable()">Show Main Category</button></li>
 
 
 
@@ -14,29 +15,66 @@
 
 </div>
 
-<div class="head-tble" *ngIf="activTable && mainCategory && mainCategory.length ">
+
+<div class="div-table">
+    <div class="main-table"  *ngIf="mainActivTable">
+        <h2>Main Job categories</h2> 
+<div class="head-tble">
     <table mat-table [dataSource]="mainCategory" matSort>
         <ng-container matColumnDef="index">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> No </th>
-            <td mat-cell *matCellDef="let cat; let i = index"> {{ i + 1 }} </td>
+            <td  mat-cell *matCellDef="let cat; let i = index" > {{ i + 1 }} </td>
         </ng-container>
        
         <ng-container matColumnDef="category">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Category Name </th>
-            <td mat-cell *matCellDef="let cat"> {{ cat.jobcategory }} </td>
+            <td mat-cell *matCellDef="let cat" > {{ cat.jobcategory }} </td>
         </ng-container>
 
         <!-- Column definitions for action buttons (if needed) -->
         <ng-container matColumnDef="actions">
             <th mat-header-cell *matHeaderCellDef> Actions </th>
             <td mat-cell *matCellDef="let cat">
-                <button (click)="onCategoryDelete(cat)" class="action-button1"><i class="fas fa-trash-alt"></i></button>
+                <!-- <button (click)="onCategoryDelete(cat)" class="action-button1"><i class="fas fa-trash-alt"></i></button> -->
                 <button (click)="onCategoryEdit(cat)" class="action-button2"><i class="fad fa-user-edit"></i></button>
                 <!-- Your action buttons (if needed) -->
             </td>
         </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedmainColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedmainColumns;"></tr>
+    </table>
+</div>
+</div>
+<div class="sub-table"  *ngIf="subActivTable">
+    <h2>Sub Job categories</h2> 
+<div class="head-tble2" >
+    <table mat-table [dataSource]="subCategory" matSort>
+        <ng-container matColumnDef="index">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> No </th>
+            <td mat-cell *matCellDef="let sub; let i = index"> {{ i + 1 }} </td>
+        </ng-container>
+       
+        <ng-container matColumnDef="category">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Category Name </th>
+            <td mat-cell *matCellDef="let sub"> {{ sub.JobCategory.jobcategory }} </td>
+        </ng-container>
+        <ng-container matColumnDef="Subcategory">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>  sub Category Name </th>
+            <td mat-cell *matCellDef="let sub "> {{ sub.jobsubcategory }} </td>
+        </ng-container>
 
+        <!-- Column definitions for action buttons (if needed) -->
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let sub">
+                <!-- <button (click)="onCategoryDelete(sub)" class="action-button1"><i class="fas fa-trash-alt"></i></button> -->
+                <button (click)="onSubCategoryEdit(sub)" class="action-button2"><i class="fad fa-user-edit"></i></button>
+                <!-- Your action buttons (if needed) -->
+            </td>
+        </ng-container>
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+</div>
+</div>
 </div>

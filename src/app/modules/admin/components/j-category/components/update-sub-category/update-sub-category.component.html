@@ -1,7 +1,7 @@
 <div mat-dialog-title>
-    <h1>Create job sub category</h1>
+    <h1>Update job sub category</h1>
 </div>
-<form [formGroup]="form" (ngSubmit)="onSubCategoryAdd()">
+<form [formGroup]="form" (ngSubmit)="onSubCategoryUpdate()">
     <div mat-dialog-content class="content">
 
 
@@ -18,7 +18,7 @@
     
             <mat-form-field appearance="outline">
                 <mat-label>Sub category name</mat-label>
-                <input formControlName="SubCategory" matInput type="text">
+                <input formControlName="jobsubcategory" matInput type="text">
             </mat-form-field>
         </div>
         <div mat-dialog-actions class="action">

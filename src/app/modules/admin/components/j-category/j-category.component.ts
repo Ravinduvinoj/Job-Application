@@ -7,6 +7,8 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeletecategoryComponent } from './components/deletecategory/deletecategory.component';
 import { UpdateCategoryComponent } from './components/update-category/update-category.component';
 import { AddSubCategoryComponent } from './components/add-sub-category/add-sub-category.component';
+import { error } from 'console';
+import { UpdateSubCategoryComponent } from './components/update-sub-category/update-sub-category.component';
 
 @Component({
   selector: 'app-j-category',
@@ -15,8 +17,11 @@ import { AddSubCategoryComponent } from './components/add-sub-category/add-sub-c
 })
 export class JCategoryComponent implements OnInit {
   title = 'Job Category';
-  activTable: boolean = true;
+
+  mainActivTable: boolean = false;
+  subActivTable: boolean = true;
   mainCategory: any[];
+  subCategory : any[];
   constructor(private http: HttpClient,
     private snackBar: MatSnackBar,
     private Toast: NgToastService,
@@ -25,8 +30,16 @@ export class JCategoryComponent implements OnInit {
   }
   ngOnInit(): void {
     this.fetchCategories();
+    this.fetchSubCategories();
   }
-
+  showMainTable(): void{
+this.mainActivTable = !this.mainActivTable;
+if(this.mainActivTable){
+  this.subActivTable = false;
+}else{
+  this. subActivTable=true;
+}
+  }
 
   onNewCategory() {
     this.dialog.open(NewCategoryComponent)
@@ -62,12 +75,43 @@ export class JCategoryComponent implements OnInit {
     );
     console.log(cat);
   }
+  // onSubCategoryEdit(sub: any): void {
+  //   this.dialog.open(UpdateSubCategoryComponent, {data: sub}
+
+  //   );
+  //   console.log(sub);
+  // }
+  onSubCategoryEdit(sub: any): void {
+    this.dialog.open(UpdateSubCategoryComponent, {
+        data: sub // Pass the selected subcategory data to the dialog
+    });
+}
+
+
 
   displayedColumns: string[] = [
     'index',
     'category',
+    'Subcategory',
     'actions'
   ];
+  displayedmainColumns: string[] = [
+    'index',
+    'category',
+    'actions'
+  ];
+
+  public fetchSubCategories():void {
+    const apiURL = 'http://localhost:5000/api//get-all-Sub-Categories';
+
+    this.http.get<any[]>(apiURL).subscribe(
+      (data)=>{
+        this.subCategory= data
+      },
+    (error)=>{
+      console.error('Error fetching sub category:', error);
+    })
+  }
 
   public fetchCategories(): void {
     const apiUrl = 'http://localhost:5000/api/get-all-category'; // Update the API URL as per your backend route
@@ -79,7 +123,7 @@ export class JCategoryComponent implements OnInit {
 
       },
       (error) => {
-        console.error('Error fetching user accounts:', error);
+        console.error('Error fetching main category:', error);
       }
     );
   }
