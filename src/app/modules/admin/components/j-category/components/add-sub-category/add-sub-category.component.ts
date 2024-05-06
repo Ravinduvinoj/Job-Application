@@ -65,6 +65,8 @@ export class AddSubCategoryComponent implements OnInit {
     console.log('Selected Category ID:', this.selectedCategoryId);
 
   }
+ 
+  
 
   onSubCategoryAdd() {
     let subCat = this.form.getRawValue()
@@ -89,7 +91,6 @@ export class AddSubCategoryComponent implements OnInit {
         .subscribe(() => {
           this.Toast.success({ detail: "category Created", summary: 'sub category creation successfully', duration: 9000, position: 'botomCenter' })
           this._dialogRef.close();
-
           // swal('Hello world!')
 
         },

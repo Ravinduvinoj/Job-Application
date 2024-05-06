@@ -55,8 +55,8 @@ export class SidenavComponent implements OnInit {
         }
       })
 
-
-  }
+      
+     }
 
   logout(): void {
     this.http.post('http://localhost:5000/api/logout', {},

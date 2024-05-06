@@ -7,7 +7,7 @@ import { NgToastService } from 'ng-angular-popup';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SearchUserPipe } from './search-user.pipe'
 import { UserRegisterComponent } from './user-register/user-register.component';
-import { SharedService } from '../../../../shared.service';
+
 import { Subscription } from 'rxjs';
 
 
@@ -27,12 +27,9 @@ export class AccountsComponent implements OnInit {
     private snackBar: MatSnackBar,
     private Toast: NgToastService,
     public dialog: MatDialog,
-    private sharedService:SharedService,
-    private SServices :SharedService,
+    
   ) {
-    this.clickEventSubscription= this.sharedService.getClickEvent().subscribe(()=>{
-      this.fetchUserAccounts();
-    })
+    
     this.fetchTempUsers();
     this.fetchUserAccounts();
   }

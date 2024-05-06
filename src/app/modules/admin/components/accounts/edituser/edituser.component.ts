@@ -4,7 +4,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { NgToastService } from 'ng-angular-popup';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
-import { SharedService } from '../../../../../shared.service';
+
 import { AccountsComponent } from '../accounts.component';
 import { ChangeDetectorRef } from '@angular/core';
 @Component({
@@ -18,14 +18,15 @@ export class EdituserComponent implements OnInit {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
   constructor(
+    private ac:AccountsComponent,
     private cdr: ChangeDetectorRef,
     private _fb: FormBuilder,
     private http: HttpClient,
     private snackBar: MatSnackBar,
     private Toast: NgToastService,
-    private sharedService:SharedService,
+ 
     private _dialogRef: MatDialogRef<EdituserComponent>,
-    private sharedServices: SharedService,
+   
     @Inject(MAT_DIALOG_DATA) public data: any) {
 
     this.form = this._fb.group({
@@ -62,8 +63,7 @@ export class EdituserComponent implements OnInit {
 
 
           this._dialogRef.close();
-          this.sharedService.sendClickEvent();
-          this.cdr.detectChanges();
+         
         },
         (error) => {
           this.snackBar.open('Failed to update user', 'Close', {
@@ -74,6 +74,11 @@ export class EdituserComponent implements OnInit {
           console.error('Error updating user:', error);
         }
       );
+     this.updatetbl();
   }
+  updatetbl(){
+    this.ac.fetchUserAccounts;
+  }
+
 }
 

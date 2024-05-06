@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable, Subject} from 'rxjs';
 
@@ -5,15 +6,10 @@ import {Observable, Subject} from 'rxjs';
   providedIn: 'root'
 })
 export class SharedService {
+  // constructor(private http:HttpClientModule){}
+  // private url:"http://localhost:5000/api/user-accounts";
 
-  private subject = new Subject<any>();
 
-  sendClickEvent(){
-    this.subject.next;
 
-  }
-  getClickEvent():Observable<any>{
-    return this.subject.asObservable();
- }
-
+ 
 }
