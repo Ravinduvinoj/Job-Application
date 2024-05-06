@@ -9,6 +9,7 @@ import { SearchUserPipe } from './search-user.pipe'
 import { UserRegisterComponent } from './user-register/user-register.component';
 
 import { Subscription } from 'rxjs';
+import { response } from 'express';
 
 
 @Component({
@@ -87,8 +88,9 @@ export class AccountsComponent implements OnInit {
         horizontalPosition: 'center'
       })
     } else {
-      this.dialog.open(EdituserComponent, { data: user });
+     const dialogRef= this.dialog.open(EdituserComponent, { data: user });
       console.log(user);
+
       
     }
 

@@ -64,6 +64,7 @@ export class EdituserComponent implements OnInit {
 
           this._dialogRef.close();
          
+
         },
         (error) => {
           this.snackBar.open('Failed to update user', 'Close', {

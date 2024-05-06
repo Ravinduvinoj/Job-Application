@@ -41,7 +41,7 @@ import { DeletecategoryComponent } from './modules/admin/components/j-category/c
 import { UpdateCategoryComponent } from './modules/admin/components/j-category/components/update-category/update-category.component';
 import {MatSelectModule} from '@angular/material/select';
 import { UpdateSubCategoryComponent } from './modules/admin/components/j-category/components/update-sub-category/update-sub-category.component';
-import { JobAddComponent } from './modules/company/components/jobpost/components/job-add/job-add.component';
+import { AddPostComponent } from './modules/company/components/jobpost/components/add-post/add-post.component';
 
 
 
@@ -78,7 +78,8 @@ import { JobAddComponent } from './modules/company/components/jobpost/components
     DeletecategoryComponent,
     UpdateCategoryComponent,
     UpdateSubCategoryComponent,
-    JobAddComponent,
+    AddPostComponent,
+
 
 
 

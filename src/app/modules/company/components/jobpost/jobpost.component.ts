@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { JobAddComponent } from './components/job-add/job-add.component';
 import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { NgToastService } from 'ng-angular-popup';
@@ -33,7 +32,7 @@ export class JobpostComponent implements OnInit {
 
 
   createJob(): void {
-    this.dialog.open(JobAddComponent)
+  //  this.dialog.open(JobAddComponent)
   }
 }
 
