@@ -5,6 +5,7 @@ import { NgToastService } from 'ng-angular-popup';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SharedService } from '../../../../shared.service';
 import { Subscription } from 'rxjs';
+import { AddPostComponent } from './components/add-post/add-post.component';
 
 
 @Component({
@@ -32,7 +33,7 @@ export class JobpostComponent implements OnInit {
 
 
   createJob(): void {
-  //  this.dialog.open(JobAddComponent)
+   this.dialog.open(AddPostComponent)
   }
 }
 

@@ -1,1 +1,61 @@
-<p>add-post works!</p>
+<div mat-dialog-title>
+    <h1>Create job category</h1>
+</div>
+<form [formGroup]="form" (ngSubmit)="onPostAdd()">
+    <div mat-dialog-content class="content">
+
+
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Job title</mat-label>
+                <input formControlName="jobtitle" matInput type="text">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Job description</mat-label>
+                <textarea matInput placeholder="" formControlName="jobDescription"></textarea>
+              
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Position summary</mat-label>
+                <input formControlName="possitionSummary" matInput type="text">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Addvertiesment closing date</mat-label>
+                <input formControlName="add_closing_Date" matInput type="text">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>requirement1</mat-label>
+                <input formControlName="requirement1" matInput type="text">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>requirement1</mat-label>
+                <input formControlName="requirement2" matInput type="text">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline">
+                <mat-label>Select country</mat-label>
+                <input formControlName="çountry" matInput type="text">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+                <mat-label>City</mat-label>
+                <input formControlName="city" matInput type="text">
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions class="action">
+            <button mat-raised-button type="button" [mat-dialog-close]="false" class="action-button1">Cancel</button>
+            <button mat-raised-button color="primary" type="submit" class="action-button2">Create</button>
+        </div>
+
+    </div>
+</form>
