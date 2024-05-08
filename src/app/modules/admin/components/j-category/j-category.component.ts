@@ -102,7 +102,7 @@ if(this.mainActivTable){
   ];
 
   public fetchSubCategories():void {
-    const apiURL = 'http://localhost:5000/api//get-all-Sub-Categories';
+    const apiURL = 'http://localhost:5000/api/get-all-Sub-Categories';
 
     this.http.get<any[]>(apiURL).subscribe(
       (data)=>{

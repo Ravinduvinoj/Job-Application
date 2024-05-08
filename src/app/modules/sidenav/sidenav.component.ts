@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter, OnInit, } from '@angular/core';
 import { adminData, empData } from './side-data';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Emitter } from '../../emitter/emitter';
 
 interface SidenavToggle {
@@ -13,6 +13,8 @@ interface SidenavToggle {
   styleUrl: './sidenav.component.css'
 })
 export class SidenavComponent implements OnInit {
+
+
 
 
   @Output() onToggleSidenav: EventEmitter<SidenavToggle> = new EventEmitter();

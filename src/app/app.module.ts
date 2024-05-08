@@ -42,7 +42,7 @@ import { UpdateCategoryComponent } from './modules/admin/components/j-category/c
 import {MatSelectModule} from '@angular/material/select';
 import { UpdateSubCategoryComponent } from './modules/admin/components/j-category/components/update-sub-category/update-sub-category.component';
 import { AddPostComponent } from './modules/company/components/jobpost/components/add-post/add-post.component';
-
+import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
 
 
 
@@ -100,6 +100,7 @@ import { AddPostComponent } from './modules/company/components/jobpost/component
     MatInputModule,
     MatTableModule,
     MatSelectModule,
+    MatSelectCountryModule.forRoot('de'),
 
 
   ],

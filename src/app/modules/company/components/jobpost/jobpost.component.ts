@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { MatDialog } from '@angular/material/dialog';
 import { NgToastService } from 'ng-angular-popup';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { SharedService } from '../../../../shared.service';
 import { Subscription } from 'rxjs';
 import { AddPostComponent } from './components/add-post/add-post.component';
 
@@ -19,9 +18,7 @@ export class JobpostComponent implements OnInit {
     private http: HttpClient,
     private snackBar: MatSnackBar,
     private Toast: NgToastService,
-    public dialog: MatDialog,
-    private sharedService: SharedService,
-    private SServices: SharedService,
+    public dialog: MatDialog
   ) {
 
   }

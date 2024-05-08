@@ -4,7 +4,6 @@ import { FormGroup, FormBuilder, FormsModule, ReactiveFormsModule, FormControl, 
 import { Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { error } from 'console';
-import { SharedService } from '../shared.service';
 import { NgToastService } from 'ng-angular-popup';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -26,7 +25,6 @@ export class RegisterComponent implements OnInit {
   form: FormGroup
 
   constructor(
-    private shared: SharedService,
     private formbuilder: FormBuilder,
     private http: HttpClient,
     private router: Router,
