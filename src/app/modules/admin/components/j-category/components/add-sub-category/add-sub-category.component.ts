@@ -1,6 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component,  OnInit } from '@angular/core';
+import { FormBuilder,  FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef} from '@angular/material/dialog';
 import { NgToastService } from 'ng-angular-popup';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
@@ -8,7 +8,6 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
-import { event } from 'jquery';
 
 
 

@@ -1,6 +1,6 @@
 import { Component, Output, EventEmitter, OnInit, } from '@angular/core';
 import { adminData, empData } from './side-data';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Emitter } from '../../emitter/emitter';
 
 interface SidenavToggle {

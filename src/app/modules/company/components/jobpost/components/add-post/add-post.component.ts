@@ -5,7 +5,6 @@ import { NgToastService } from 'ng-angular-popup';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
 import { add_data } from '../../adddata';
-import { event } from 'jquery';
 @Component({
   selector: 'app-add-post',
   templateUrl: './add-post.component.html',
@@ -48,7 +47,11 @@ export class AddPostComponent implements OnInit {
 
   OnFileSelect(event: any) {
     console.log('somthing slected')
-    const file = event.target.files[0];
+    const file = event.target.file[0]
+
+    const allowedimgtype = ["image/png", "image/jpeg", "image/jpg"];
+    this.form.patchValue({ Image: file })
+
   }
 
 
