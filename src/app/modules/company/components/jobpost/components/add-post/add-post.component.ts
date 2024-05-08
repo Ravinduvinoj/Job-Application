@@ -32,7 +32,7 @@ export class AddPostComponent implements OnInit {
     this.form = this._fb.group({
       jobtitle: ['', [Validators.required]],
       selectcategory: '',
-      image : new FormControl(null),
+      image: new FormControl(null),
       jobDescription: ['', [Validators.required]],
       requirement1: "",
       requirement2: '',
@@ -45,8 +45,10 @@ export class AddPostComponent implements OnInit {
     })
     this.fetchCategories();
   }
-  OnFileSelect($event: Event){
-console.log('somthing slected')
+
+  OnFileSelect(event: any) {
+    console.log('somthing slected')
+    const file = event.target.files[0];
   }
 
 
@@ -56,9 +58,9 @@ console.log('somthing slected')
 
     this.http.get<any[]>(apiUrl).subscribe(
       (data) => {
-      
+
         this.mainCategory = data;
-       
+
       },
       (error) => {
         console.error('Error fetching job category:', error);
@@ -87,7 +89,7 @@ console.log('somthing slected')
     console.log('Selected sub Category ID:', this.selectedSubCategoryId);
 
   }
-  
+
   onPostAdd() {
 
   }
