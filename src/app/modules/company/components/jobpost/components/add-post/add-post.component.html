@@ -55,7 +55,10 @@
 
             </div>
             <div *ngIf="imageData">
-                <img src="imageData" alt="form.value.name">
+                <img style="width: 250px;height: 500px;display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;" [src]="imageData" alt="Selected Image Preview">
             </div>
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
         </div>
@@ -92,7 +95,7 @@
                 <mat-label>City</mat-label>
                 <input formControlName="city" matInput type="text">
             </mat-form-field>
-           
+
         </div>
         &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
         <div mat-dialog-actions class="action">

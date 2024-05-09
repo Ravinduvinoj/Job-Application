@@ -15,7 +15,7 @@ export class AddPostComponent implements OnInit {
   addver_data: add_data;
   mainCategory: any[];
   subCategory: any[];
-  imageData: String;
+  imageData: string | ArrayBuffer | null;
   selectedCategoryId: string | undefined;
   selectedSubCategoryId: string | undefined;
   subcategoryName: string;
@@ -46,14 +46,19 @@ export class AddPostComponent implements OnInit {
   }
 
   OnFileSelect(event: any) {
-    console.log('somthing slected')
-    const file = event.target.file[0]
-
+    const file = event.target.files[0]; // Access files array
+    this.form.patchValue({ Image: file });
     const allowedimgtype = ["image/png", "image/jpeg", "image/jpg"];
-    this.form.patchValue({ Image: file })
-
+    if (file && allowedimgtype.includes(file.type)) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imageData = reader.result; // Assign reader.result directly
+      };
+      reader.readAsDataURL(file);
+    } else {
+      this.imageData = null; // Reset imageData if file type is not allowed
+    }
   }
-
 
 
   public fetchCategories(): void {
