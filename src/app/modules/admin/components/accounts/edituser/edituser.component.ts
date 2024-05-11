@@ -18,7 +18,6 @@ export class EdituserComponent implements OnInit {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
   constructor(
-    private ac:AccountsComponent,
     private cdr: ChangeDetectorRef,
     private _fb: FormBuilder,
     private http: HttpClient,
@@ -75,11 +74,9 @@ export class EdituserComponent implements OnInit {
           console.error('Error updating user:', error);
         }
       );
-     this.updatetbl();
+   
   }
-  updatetbl(){
-    this.ac.fetchUserAccounts;
-  }
+
 
 }
 

@@ -41,6 +41,10 @@ export class SidenavComponent implements OnInit {
 
   }
   ngOnInit(): void {
+    this.get_user()
+  }
+
+  get_user(): void {
     Emitter.authEmitter.subscribe((auth: boolean) => {
       this.authenticated = auth;
     })
@@ -56,9 +60,7 @@ export class SidenavComponent implements OnInit {
           this.navData = empData;
         }
       })
-
-      
-     }
+  }
 
   logout(): void {
     this.http.post('http://localhost:5000/api/logout', {},

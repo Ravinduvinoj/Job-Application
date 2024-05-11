@@ -12,43 +12,46 @@ interface navToggle {
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css'
 })
-export class NavbarComponent implements OnInit{
+export class NavbarComponent implements OnInit {
   title = 'Navbar';
 
   @Output() onTogglenav: EventEmitter<navToggle> = new EventEmitter();
 
   collapsed = false;
 
-  message : any;
-  dashboard : any;
+  message: any;
+  dashboard: any;
   type: any;
 
-  constructor (private http:HttpClient,
+  constructor(private http: HttpClient,
     private snackBar: MatSnackBar,
-  ){
+  ) {
 
   }
   ngOnInit(): void {
-    this.http.get('http://localhost:5000/api/user', {
-    withCredentials:true,
-    }).subscribe(
-      (res: any)=> {
-      this.message = `${res.company}`;
-      Emitter.authEmitter.emit(true)
-      this.type = res.userRole;
-      if (this.type === 'admin'){
-        this.dashboard = 'Admin panel';
-      } else {
-        this.dashboard = 'Company panel';
-      }
-      
+    this.get_user()
 
-    },
-    (err)=>{
-      this.message = "you are not logged"
-      Emitter.authEmitter.emit(false)
-    }
-  );
-    
-}
+  }
+  get_user(): void {
+    this.http.get('http://localhost:5000/api/user', {
+      withCredentials: true,
+    }).subscribe(
+      (res: any) => {
+        this.message = `${res.company}`;
+        Emitter.authEmitter.emit(true)
+        this.type = res.userRole;
+        if (this.type === 'admin') {
+          this.dashboard = 'Admin panel';
+        } else {
+          this.dashboard = 'Company panel';
+        }
+
+
+      },
+      (err) => {
+        this.message = "you are not logged"
+        Emitter.authEmitter.emit(false)
+      }
+    );
+  }
 }

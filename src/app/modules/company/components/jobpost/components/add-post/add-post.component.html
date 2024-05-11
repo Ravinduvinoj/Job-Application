@@ -46,22 +46,21 @@
                 <input formControlName="possitionSummary" matInput type="text">
             </mat-form-field>
         </div>
-        <div class="row3">
+        <!-- <div class="row3">
             <mat-label>*upload your advertiesment</mat-label>
 
             <div class="in-img-selcted">
 
-                <input (change)="OnFileSelect($event)" type="file">
+                <input (change)="OnFileSelect($event)" type="file" formControlName="image">
 
             </div>
             <div *ngIf="imageData">
-                <img style="width: 250px;height: 500px;display: block;
+                <img style="width: 40%;height: 40%;display: block;
                 margin-left: auto;
-                margin-right: auto;
-                width: 50%;" [src]="imageData" alt="Selected Image Preview">
+                margin-right: auto;" [src]="imageData" alt="Selected Image Preview">
             </div>
             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-        </div>
+        </div> -->
 
         <div class="row">
             <mat-form-field appearance="fill">
