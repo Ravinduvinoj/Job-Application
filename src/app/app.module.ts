@@ -2,10 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SidenavComponent } from './modules/sidenav/sidenav.component';
 import { DashboardComponent } from './modules/admin/components/dashboard/dashboard.component';
 import { JCategoryComponent } from './modules/admin/components/j-category/j-category.component';
-import { NavbarComponent } from './modules/navbar/navbar.component';
 import { AccountsComponent } from './modules/admin/components/accounts/accounts.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { ScheduleComponent } from './modules/company/components/schedule/schedule.component';
@@ -43,6 +41,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { UpdateSubCategoryComponent } from './modules/admin/components/j-category/components/update-sub-category/update-sub-category.component';
 import { AddPostComponent } from './modules/company/components/jobpost/components/add-post/add-post.component';
 import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { NavbarComponent } from './modules/navbar/navbar.component';
+import { SidenavComponent } from './modules/sidenav/sidenav.component';
 
 
 
@@ -79,6 +80,7 @@ import { MatSelectCountryModule } from '@angular-material-extensions/select-coun
     UpdateCategoryComponent,
     UpdateSubCategoryComponent,
     AddPostComponent,
+    NotFoundComponent,
 
 
 

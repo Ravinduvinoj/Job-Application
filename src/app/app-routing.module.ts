@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { CompanyComponent } from './modules/company/company.component';
 import { HomeComponent } from './home/home.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
@@ -21,9 +22,11 @@ import { HomeComponent } from './home/home.component';
 const routes: Routes = [
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path : 'home', component : HomeComponent},
+  { path: 'home', component: HomeComponent },
+  
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  
   {
     path: 'admin', component: AdminComponent, children: [
       { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' },
@@ -32,6 +35,7 @@ const routes: Routes = [
       { path: 'accounts', component: AccountsComponent },
       { path: 'jobapproval', component: JobapprovalComponent },
       { path: 'subscription', component: SubscriptionComponent },
+      
     ]
   },
   {
@@ -42,6 +46,7 @@ const routes: Routes = [
       { path: 'jobpost', component: JobpostComponent },
       { path: 'schedule', component: ScheduleComponent }]
   },
+  {path:'**', component:NotFoundComponent}
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
