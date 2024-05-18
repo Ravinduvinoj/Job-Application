@@ -130,3 +130,10 @@ table td .action-button2:hover {
 }
 
 }
+
+.example-stretched-tabs {
+    max-width: 800px;
+    margin-left: 200px;
+    margin-top: 30px;
+  }
+  

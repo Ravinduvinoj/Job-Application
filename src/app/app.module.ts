@@ -44,6 +44,7 @@ import { MatSelectCountryModule } from '@angular-material-extensions/select-coun
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NavbarComponent } from './modules/navbar/navbar.component';
 import { SidenavComponent } from './modules/sidenav/sidenav.component';
+import {MatTabsModule} from '@angular/material/tabs';
 
 
 
@@ -103,6 +104,7 @@ import { SidenavComponent } from './modules/sidenav/sidenav.component';
     MatTableModule,
     MatSelectModule,
     MatSelectCountryModule.forRoot('de'),
+    MatTabsModule,
 
 
   ],

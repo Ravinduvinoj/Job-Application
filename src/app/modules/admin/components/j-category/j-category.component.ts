@@ -9,6 +9,7 @@ import { UpdateCategoryComponent } from './components/update-category/update-cat
 import { AddSubCategoryComponent } from './components/add-sub-category/add-sub-category.component';
 import { error } from 'console';
 import { UpdateSubCategoryComponent } from './components/update-sub-category/update-sub-category.component';
+import { MatTabChangeEvent } from '@angular/material/tabs';
 
 @Component({
   selector: 'app-j-category',
@@ -16,12 +17,16 @@ import { UpdateSubCategoryComponent } from './components/update-sub-category/upd
   styleUrl: './j-category.component.css'
 })
 export class JCategoryComponent implements OnInit {
+onTabChange($event: MatTabChangeEvent) {
+throw new Error('Method not implemented.');
+}
   title = 'Job Category';
 
   mainActivTable: boolean = false;
   subActivTable: boolean = true;
   mainCategory: any[];
   subCategory : any[];
+selectedTabIndex: any;
   constructor(private http: HttpClient,
     private snackBar: MatSnackBar,
     private Toast: NgToastService,
