@@ -1,53 +1,57 @@
-<div class="div-cat">
-  <ul class="ul-cat">
-    <li class="li-cat"><h1>Post Job:</h1></li>
-    <li class="li-cat" style="margin-left: 30px;"><input type="text" id="search" name="search"></li>
-    <li class="li-cat" style="margin-left: 15px;"><button>Search</button></li>
-    <li class="li-cat1" style="margin-left: 20px; margin-right: 20px;"><button (click)="createJob()">Create Advertiesment</button></li>
-  </ul>
-</div>
+<router-outlet></router-outlet>
 
-<div class="head-tble1">
-  <ng-container *ngFor="let post of posts; let i = index">
-    <div class="post-item">
-      <div class="post-title">
-        <ul>
-          <li></li>
-          <li>
-            <div class="job-main">
-              <h2 >{{ i + 1 }}. {{ post.job_title }}</h2>
-            </div>
-            <h4 style="margin-left: 1050px;margin-top: -50px;" class="expiry-info">Expires In <i class="fal fa-clock"></i>: {{ post.ad_closing_date }}</h4>
-          </li>
-        </ul>
-      </div>
-      <div class="post-content">
-        <div class="post-image">
-          <img src="http://localhost:5000/{{post.image}}" alt="Job Image">
+<div *ngIf="onShow && !isPostProfileRoute()">
+  <div class="div-cat">
+    <ul class="ul-cat">
+      <li class="li-cat"><h1>Post Job:</h1></li>
+      <li class="li-cat" style="margin-left: 30px;"><input type="text" id="search" name="search"></li>
+      <li class="li-cat" style="margin-left: 15px;"><button>Search</button></li>
+      <li class="li-cat1" style="margin-left: 20px; margin-right: 20px;"><button (click)="createJob()">Create Advertisement</button></li>
+    </ul>
+  </div>
+
+  <div class="head-tble1">
+    <ng-container *ngFor="let post of posts; let i = index">
+      <div class="post-item">
+        <div class="post-title">
+          <ul>
+            <li></li>
+            <li>
+              <div class="job-main">
+                <h2>{{ i + 1 }}. {{ post.job_title }}</h2>
+              </div>
+              <h4 style="margin-left: 1050px; margin-top: -50px;" class="expiry-info">Expires In <i class="fal fa-clock"></i>: {{ post.ad_closing_date }}</h4>
+            </li>
+          </ul>
         </div>
-        <div class="post-details">
-          <div class="post-job-description">
-            <h2><i class="fad fa-angle-double-right"></i> {{ post.job_description }}</h2>
-            <p>{{ post.position_summary }}</p>
+        <div class="post-content">
+          <div class="post-image">
+            <img src="http://localhost:5000/{{ post.image }}" alt="Job Image">
           </div>
-          <div class="job-requirements">
-            <p>Requirements:</p>
-            <ul>
-              <li><p>{{ post.requirement1 }}</p></li>
-              <li><p>{{ post.requirement2 }}</p></li>
-            </ul>
-          </div>
-          <div class="post-actions">
-            <div class="job-location">
-              <h3>Location: {{ post.city }}, {{ post.country }}</h3>
+          <div class="post-details">
+            <div class="post-job-description">
+              <h2><i class="fad fa-angle-double-right"></i> {{ post.job_description }}</h2>
+              <p>{{ post.position_summary }}</p>
             </div>
-            <div class="action-buttons">
-              <button (click)="onAddEdit(post)" class="action-button2">More <i class="fad fa-angle-double-right"></i></button>
-              <button (click)="onAddEdit(post)" class="action-button1"><i class="fad fa-user-edit"></i>Edit</button>
+            <div class="job-requirements">
+              <p>Requirements:</p>
+              <ul>
+                <li><p>{{ post.requirement1 }}</p></li>
+                <li><p>{{ post.requirement2 }}</p></li>
+              </ul>
+            </div>
+            <div class="post-actions">
+              <div class="job-location">
+                <h3>Location: {{ post.city }}, {{ post.country }}</h3>
+              </div>
+              <div class="action-buttons">
+                <button (click)="onShowMore(post)" class="action-button2">More <i class="fad fa-angle-double-right"></i></button>
+                <button (click)="onAddEdit(post)" class="action-button1"><i class="fad fa-user-edit"></i>Edit</button>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </ng-container>
+    </ng-container>
+  </div>
 </div>

@@ -15,6 +15,8 @@ import { RegisterComponent } from './register/register.component';
 import { CompanyComponent } from './modules/company/company.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { PostProfileComponent } from './modules/company/components/jobpost/components/post-profile/post-profile.component';
+import { PostComponent } from './modules/company/components/jobpost/components/post/post.component';
 
 
 
@@ -23,10 +25,10 @@ const routes: Routes = [
 
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  
+
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  
+
   {
     path: 'admin', component: AdminComponent, children: [
       { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' },
@@ -35,7 +37,7 @@ const routes: Routes = [
       { path: 'accounts', component: AccountsComponent },
       { path: 'jobapproval', component: JobapprovalComponent },
       { path: 'subscription', component: SubscriptionComponent },
-      
+
     ]
   },
   {
@@ -43,10 +45,16 @@ const routes: Routes = [
       { path: '', redirectTo: '/company/emp-dashboard', pathMatch: 'full' },
       { path: 'emp-dashboard', component: EmpDashboardComponent },
       { path: 'joblistnings', component: JoblistningsComponent },
-      { path: 'jobpost', component: JobpostComponent },
+      {
+        path: 'jobpost', component: JobpostComponent, children: [
+          { path: 'post-profile', component: PostProfileComponent },
+
+
+        ]
+      },
       { path: 'schedule', component: ScheduleComponent }]
   },
-  {path:'**', component:NotFoundComponent}
+  { path: '**', component: NotFoundComponent }
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

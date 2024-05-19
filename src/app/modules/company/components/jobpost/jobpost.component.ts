@@ -5,6 +5,9 @@ import { NgToastService } from 'ng-angular-popup';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AddPostComponent } from './components/add-post/add-post.component';
 import { Emitter } from '../../../../emitter/emitter';
+import { Router, ActivatedRoute } from '@angular/router';
+import { PostProfileServiceService } from '../../../../services/post-profile/post-profile-service.service';
+
 
 
 @Component({
@@ -13,11 +16,14 @@ import { Emitter } from '../../../../emitter/emitter';
   styleUrl: './jobpost.component.css'
 })
 export class JobpostComponent implements OnInit {
-
+  onShow: boolean = true;
   posts : any[];
   authenticated: boolean;
   loginID: string;
   constructor(
+    private post_prof:PostProfileServiceService,
+    private router: Router, 
+    private activatedRoute: ActivatedRoute,
     private http: HttpClient,
     private snackBar: MatSnackBar,
     private Toast: NgToastService,
@@ -56,6 +62,15 @@ export class JobpostComponent implements OnInit {
 
       })
     // this.fetchposts(this.loginID);
+  }
+
+  onShowMore(post: any): void {
+    this.post_prof.setJobData(post);
+   this.router.navigate(['/company/jobpost/post-profile']);
+  }
+
+  isPostProfileRoute(): boolean {
+    return this.router.url === '/company/jobpost/post-profile';
   }
   
 //  onPath(path:any):void {

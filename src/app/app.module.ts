@@ -47,6 +47,7 @@ import { SidenavComponent } from './modules/sidenav/sidenav.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { PostComponent } from './modules/company/components/jobpost/components/post/post.component';
+import { PostProfileComponent } from './modules/company/components/jobpost/components/post-profile/post-profile.component';
 
 
 
@@ -85,6 +86,7 @@ import { PostComponent } from './modules/company/components/jobpost/components/p
     AddPostComponent,
     NotFoundComponent,
     PostComponent,
+    PostProfileComponent,
 
 
 
