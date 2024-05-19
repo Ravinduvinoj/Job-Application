@@ -45,6 +45,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { NavbarComponent } from './modules/navbar/navbar.component';
 import { SidenavComponent } from './modules/sidenav/sidenav.component';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { PostComponent } from './modules/company/components/jobpost/components/post/post.component';
 
 
 
@@ -82,6 +84,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     UpdateSubCategoryComponent,
     AddPostComponent,
     NotFoundComponent,
+    PostComponent,
 
 
 
@@ -105,7 +108,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatSelectModule,
     MatSelectCountryModule.forRoot('de'),
     MatTabsModule,
-
+    MatDatepickerModule
 
   ],
   providers: [

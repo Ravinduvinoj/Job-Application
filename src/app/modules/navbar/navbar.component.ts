@@ -33,25 +33,32 @@ export class NavbarComponent implements OnInit {
 
   }
   get_user(): void {
-    this.http.get('http://localhost:5000/api/user', {
-      withCredentials: true,
-    }).subscribe(
-      (res: any) => {
-        this.message = `${res.company}`;
-        Emitter.authEmitter.emit(true)
-        this.type = res.userRole;
-        if (this.type === 'admin') {
-          this.dashboard = 'Admin panel';
-        } else {
-          this.dashboard = 'Company panel';
+
+    try {
+      this.http.get('http://localhost:5000/api/user', {
+        withCredentials: true,
+      }).subscribe(
+        (res: any) => {
+          this.message = `${res.company}`;
+          Emitter.authEmitter.emit(true)
+          this.type = res.userRole;
+          if (this.type === 'admin') {
+            this.dashboard = 'Admin panel';
+          } else {
+            this.dashboard = 'Company panel';
+          }
+
+
+        },
+        (err) => {
+          this.message = "you are not logged"
+          Emitter.authEmitter.emit(false)
         }
+      );
+    } catch (e) {
+      console.log(e)
+    }
 
 
-      },
-      (err) => {
-        this.message = "you are not logged"
-        Emitter.authEmitter.emit(false)
-      }
-    );
   }
 }

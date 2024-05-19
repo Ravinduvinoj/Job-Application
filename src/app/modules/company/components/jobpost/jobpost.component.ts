@@ -58,7 +58,21 @@ export class JobpostComponent implements OnInit {
     // this.fetchposts(this.loginID);
   }
   
- 
+//  onPath(path:any):void {
+//   const apiUrl = 'http://localhost:5000/api/upload'; // Update the API URL as per your backend route
+
+//   this.http.get<any[]>(apiUrl).subscribe(
+//     (data) => {
+//       //this.SearchText
+//       this.mainCategory = data;
+
+//     },
+//     (error) => {
+//       console.error('Error fetching job category:', error);
+//     }
+//   );
+// }
+//  }
 
 
 onAddEdit(data:any){

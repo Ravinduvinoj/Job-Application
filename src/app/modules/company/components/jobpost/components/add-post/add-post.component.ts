@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
 import { add_data } from '../../adddata';
 import { Emitter } from '../../../../../../emitter/emitter';
+
 @Component({
   selector: 'app-add-post',
   templateUrl: './add-post.component.html',
@@ -23,51 +24,56 @@ export class AddPostComponent implements OnInit {
 
   selectedFile: File;
   authenticated: boolean;
-  loginID:'';
+  loginID: '';
   constructor(
     private _fb: FormBuilder,
     private http: HttpClient,
     private snackBar: MatSnackBar,
     private Toast: NgToastService,
     private _dialogRef: MatDialogRef<AddPostComponent>) {
-
-  }
-  ngOnInit(): void {
-    this.form = this._fb.group({
-      jobtitle: ['', [Validators.required]],
-      // selectcategory: '',
-      SubCategory: '',
-      Maincategory: '',
-      // image: ['', Validators.required],
-      jobDescription: ['', [Validators.required]],
-      requirement1: "",
-      requirement2: '',
-      possitionSummary: '',
-      add_closing_Date: ['', [Validators.required]],
-      çountry: ['', [Validators.required]],
-      city: ['', [Validators.required]],
-      login_id: ''
-
-
-    })
     this.get_user()
     this.fetchCategories();
   }
+  ngOnInit(): void {
+    this.get_user()
+    this.fetchCategories();
+    this.form = this._fb.group({
+      job_title: ['', [Validators.required]],
+      // selectcategory: '',
+      jobsubcategory: '',
+      JobCategory: '',
+      image: ['', Validators.required],
+      job_description: ['', [Validators.required]],
+      requirement1: "",
+      requirement2: '',
+      position_summary: '',
+      ad_closing_date: ['', [Validators.required]],
+      country: ['', [Validators.required]],
+      city: ['', [Validators.required]],
+      User: ''
 
-  // OnFileSelect(event: any) {
-  //   this.selectedFile = event.target.files[0]; // Access files array
-  //   this.form.patchValue({ Image: this.selectedFile });
-  //   const allowedimgtype = ["image/png", "image/jpeg", "image/jpg"];
-  //   if (this.selectedFile && allowedimgtype.includes(this.selectedFile.type)) {
-  //     const reader = new FileReader();
-  //     reader.onload = () => {
-  //       this.imageData = reader.result; // Assign reader.result directly
-  //     };
-  //     reader.readAsDataURL(this.selectedFile);
-  //   } else {
-  //     this.imageData = null; // Reset imageData if file type is not allowed
-  //   }
-  // }
+
+    })
+
+  }
+
+
+
+  OnFileSelect(event: any) {
+    this.selectedFile = event.target.files[0]; // Access files array
+    this.form.patchValue({ Image: this.selectedFile });
+    const allowedimgtype = ["image/png", "image/jpeg", "image/jpg"];
+    if (this.selectedFile && allowedimgtype.includes(this.selectedFile.type)) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imageData = reader.result; // Assign reader.result directly
+        return this.imageData
+      };
+      reader.readAsDataURL(this.selectedFile);
+    } else {
+      this.imageData = null; // Reset imageData if file type is not allowed
+    }
+  }
 
 
   public fetchCategories(): void {
@@ -111,17 +117,64 @@ export class AddPostComponent implements OnInit {
     Emitter.authEmitter.subscribe((auth: boolean) => {
       this.authenticated = auth;
     })
+    try {
+      this.http.get('http://localhost:5000/api/user', {
+        withCredentials: true,
+      }).subscribe(
+        (res: any) => {
+          this.loginID = res._id
+          console.log('login Id is ' + this.loginID)
 
-    this.http.get('http://localhost:5000/api/user', {
-      withCredentials: true,
-    }).subscribe(
-      (res: any) => {
-        this.loginID=res._id
-        console.log('login Id is '+this.loginID)
+        })
+    } catch (e) {
+      console.log(e)
+    }
 
-      })
   }
+  // onPostAdd() {
+  //   if (this.form.invalid) {
+  //     this.snackBar.open("please  enter all the fields valid data", 'Close', {
+  //       duration: 3000,
+  //       verticalPosition: 'bottom',
+  //       horizontalPosition: 'center'
+  //     })
+
+  //   } else {
+  //     let post = this.form.getRawValue()
+  //     // post.image = this.selectedFile;
+  //     post.Maincategory = this.selectedCategoryId;
+  //     post.SubCategory = this.selectedSubCategoryId;
+  //     post.login_id = this.loginID;
+  //     console.log(post);
+  //     this.http.post(`http://localhost:5000/api/add-post`, post, {
+  //       withCredentials: true
+  //     })
+  //       .subscribe(() => {
+  //         this.Toast.success({ detail: "job posted", summary: 'sub category creation successfully', duration: 9000, position: 'botomCenter' })
+  //         this._dialogRef.close();
+  //         // swal('Hello world!')
+
+  //       },
+  //         (err) => {
+  //           this.snackBar.open(err.error.message, 'Close', {
+  //             duration: 3000,
+  //             verticalPosition: 'bottom',
+  //             horizontalPosition: 'center'
+  //           })
+  //         })
+
+
+
+
+
+  //   }
+  // }
   onPostAdd() {
+    let post = this.form.getRawValue()
+    post.image = this.selectedFile;
+    post.JobCategory = this.selectedCategoryId;
+    post.jobsubcategory = this.selectedSubCategoryId;
+    post.User = this.loginID;
     if (this.form.invalid) {
       this.snackBar.open("please  enter all the fields valid data", 'Close', {
         duration: 3000,
@@ -130,14 +183,26 @@ export class AddPostComponent implements OnInit {
       })
 
     } else {
-      let post = this.form.getRawValue()
-      // post.image = this.selectedFile;
-      post.Maincategory = this.selectedCategoryId;
-      post.SubCategory = this.selectedSubCategoryId;
-      post.login_id= this.loginID;
+
+      const formData = new FormData();
+
+      formData.append("job_title", post.job_title);
+      formData.append("job_description", post.job_description);
+      formData.append("position_summary", post.position_summary);
+      formData.append("ad_closing_date", post.ad_closing_date);
+      formData.append("requirement1", post.requirement1);
+      formData.append("requirement2", post.requirement2);
+      formData.append("country", post.country);
+      formData.append("city", post.city);
+      formData.append("JobCategory", post.JobCategory);
+      formData.append("jobsubcategory", post.jobsubcategory);
+      formData.append("User", post.User);
+      formData.append("image", post.image);
+
       console.log(post);
-      this.http.post(`http://localhost:5000/api/add-post`, post, {
+      this.http.post(`http://localhost:5000/api/add-post`, formData, {
         withCredentials: true
+      
       })
         .subscribe(() => {
           this.Toast.success({ detail: "job posted", summary: 'sub category creation successfully', duration: 9000, position: 'botomCenter' })
@@ -155,7 +220,7 @@ export class AddPostComponent implements OnInit {
 
 
 
-      
+
 
     }
   }

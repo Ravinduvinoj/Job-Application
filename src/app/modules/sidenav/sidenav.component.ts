@@ -48,18 +48,23 @@ export class SidenavComponent implements OnInit {
     Emitter.authEmitter.subscribe((auth: boolean) => {
       this.authenticated = auth;
     })
+try {
+  this.http.get('http://localhost:5000/api/user', {
+    withCredentials: true,
+  }).subscribe(
+    (res: any) => {
+      if (res.userRole === "admin") {
+        this.navData = adminData;
+      }
+      else if (res.userRole === "company") {
+        this.navData = empData;
+      }
+    })
+}catch(e){
+  console.log(e)
 
-    this.http.get('http://localhost:5000/api/user', {
-      withCredentials: true,
-    }).subscribe(
-      (res: any) => {
-        if (res.userRole === "admin") {
-          this.navData = adminData;
-        }
-        else if (res.userRole === "company") {
-          this.navData = empData;
-        }
-      })
+}
+ 
   }
 
   logout(): void {

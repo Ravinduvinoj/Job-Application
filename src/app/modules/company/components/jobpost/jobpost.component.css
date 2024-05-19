@@ -54,6 +54,154 @@
 }
 
 .head-tble1 {
+  margin-left: 200px;
+  width: 80%;
+  padding: 20px;
+}
+
+.post-item {
+  background-color: #f8f9fa;
+  border: solid 2px #28a745;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.4s, box-shadow 0.4s;
+  margin-bottom: 30px;
+  padding: 20px;
+}
+
+.post-item:hover {
+  background-color: #e9ecef;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.post-title ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+}
+
+.post-title h2 {
+  font-size: 24px;
+  font-weight: 550;
+  color: #212529;
+}
+
+.expiry-info {
+  font-size: 16px;
+  color: #6c757d;
+}
+
+.post-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.post-image {
+  flex: 1;
+  margin-right: 20px;
+}
+
+.post-image img {
+  margin-top: 15px;
+  width: 160px;
+  margin-left: 20px;
+  border-radius: 10px;
+}
+
+.post-details {
+  flex: 3;
+  margin-left: -180px;
+}
+
+.post-job-description h2 {
+  font-size: 20px;
+  font-weight: 500;
+  color: #343a40;
+}
+
+.post-job-description p {
+  font-size: 16px;
+  color: #495057;
+}
+
+.job-requirements p {
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #495057;
+}
+
+.job-requirements ul {
+  margin-left: 20px;
+  list-style-type: disc;
+}
+
+.post-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.job-location h3 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #212529;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.action-button1,
+.action-button2 {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 15px;
+  transition: background-color 0.4s, color 0.4s;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.action-button1 {
+  background-color: #17a2b8;
+  color: #fff;
+}
+
+.action-button2 {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.action-button1:hover {
+  background-color: #138496;
+}
+
+.action-button2:hover {
+  background-color: #218838;
+}
+
+@media (max-width: 768px) {
+  .post-content {
+    flex-direction: column;
+  }
+
+  .post-image,
+  .post-details {
+    flex: 1 1 100%;
+    margin-right: 0;
+  }
+
+  .post-image {
+    margin-bottom: 20px;
+  }
+}
+
+
+/* .head-tble1 {
     margin-left: 200px;
     width: 80%;
     padding: 20px;
@@ -84,7 +232,7 @@
 
   
   .post-details {
-    /* padding: -5px; */
+    
     margin-left: 50px;
   }
   
@@ -136,7 +284,7 @@
     display: inline-block;
     margin-right: 20px;
   }
-  
+   */
 
 /* table {
     
