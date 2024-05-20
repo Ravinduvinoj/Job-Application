@@ -35,6 +35,7 @@ export class JobpostComponent implements OnInit {
     Emitter.authEmitter.subscribe((auth: boolean) => {
       this.authenticated = auth;
     })
+    
 
     this.http.get('http://localhost:5000/api/user', {
       withCredentials: true,

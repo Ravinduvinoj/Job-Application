@@ -3,7 +3,7 @@
     <ul class="ul-cat">
       <li class="li-cat"></li>
   
-      <li class="li-cat1" style="margin-left: 20px; margin-right: 20px;"><button (click)="removeAdd()">Remove Advertisement</button></li>
+      <li class="li-cat1" style="margin-left: 20px; margin-right: 20px;"><button (click)="onPostDelete(post._id)">Remove Advertisement</button></li>
      
     </ul>
   </div>
@@ -20,11 +20,11 @@
       <div class="post-body">
         <p><strong>Job Description:</strong> {{ post.job_description }}</p>
         <p><strong>Position Summary:</strong> {{ post.position_summary }}</p>
-        <p><strong>City:</strong> {{ post.city }}</p>
-        <p><strong>Country:</strong> {{ post.country }}</p>
-        <p><strong>Ad Closing Date:</strong> {{ post.ad_closing_date | date }}</p>
-        <p><strong>Requirement 1:</strong> {{ post.requirement1 }}</p>
-        <p><strong>Requirement 2:</strong> {{ post.requirement2 }}</p>
+        <p><strong><i class="fad fa-city"></i>  City:</strong> {{ post.city }}</p>
+        <p><strong><i class="fad fa-flag"></i>  Country:</strong> {{ post.country }}</p>
+        <p><strong><i class="fad fa-clock"></i>  Ad Closing Date:</strong> {{ post.ad_closing_date | date }}</p>
+        <p><strong><i class="fad fa-hand-point-right"></i>  Requirement 1:</strong> {{ post.requirement1 }}</p>
+        <p><strong><i class="fad fa-hand-point-right"></i>  Requirement 2:</strong> {{ post.requirement2 }}</p>
       </div>
     </div>
   </div>

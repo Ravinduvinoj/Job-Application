@@ -48,6 +48,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { PostComponent } from './modules/company/components/jobpost/components/post/post.component';
 import { PostProfileComponent } from './modules/company/components/jobpost/components/post-profile/post-profile.component';
+import { AddDeleteComponent } from './modules/company/components/jobpost/components/add-delete/add-delete.component';
 
 
 
@@ -87,6 +88,7 @@ import { PostProfileComponent } from './modules/company/components/jobpost/compo
     NotFoundComponent,
     PostComponent,
     PostProfileComponent,
+    AddDeleteComponent,
 
 
 
