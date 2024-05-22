@@ -1,0 +1,98 @@
+.div-cat {
+    margin-left: 150px;
+    width: auto;
+    overflow: hidden;
+    
+}
+
+.div-cat ul {
+    list-style-type: none;
+    overflow: hidden;
+   
+    text-align: center;
+
+}
+
+.div-cat ul .li-cat {
+    float: left;
+    margin-left: 30px;
+   
+}
+
+.div-cat ul .li-cat1 {
+    float: right;
+  
+
+}
+
+.div-cat ul li h1 {
+    padding: 0px 10px;
+    display: block;
+    margin: 0;
+    
+}
+
+.div-cat ul li button {
+    padding: 10px 15px;
+    display: block;
+    border-radius: 7px;
+    border: transparent;
+    background-color: rgb(160, 12, 12);
+    color: #fff;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.div-cat ul li button:hover {
+    background-color: rgb(218, 56, 56);
+}
+
+.div-cat ul li input {
+    padding: 8px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+
+}
+
+.post-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .post-card {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .post-header {
+    background: #09af32;
+    color: white;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .post-header h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .post-body {
+    padding: 20px;
+  }
+  
+  .post-body p {
+    font-size: 25px;
+    margin: 30px 0;
+    margin-left: 35%;
+  }
+  
+  .post-body strong {
+    color: #333;
+  }
+  

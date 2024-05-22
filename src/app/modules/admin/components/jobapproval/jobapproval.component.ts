@@ -13,12 +13,15 @@ import { data } from 'jquery';
 })
 export class JobapprovalComponent implements OnInit {
   posts: any[];
+  onShow: boolean = true;
 
   constructor(
     private http: HttpClient,
     private snackBar: MatSnackBar,
     private Toast: NgToastService,
     private jobAp:JobapprovalService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
   ) {
 
   }
@@ -43,17 +46,18 @@ export class JobapprovalComponent implements OnInit {
           console.log(this.posts);
         }
     );
-
-
    }
-
-
 
   onAddEdit(_t16: any) {
 
   }
-  onShowMore(_t16: any) {
-
+  onShowMore(post: any): void {
+     this.jobAp.setJobData(post);
+    this.router.navigate(['/admin/jobapproval/pending-posts']);
   }
+  isPostProfileRoute(): boolean {
+    return this.router.url === '/admin/jobapproval/pending-posts';
+  }
+
 
 }

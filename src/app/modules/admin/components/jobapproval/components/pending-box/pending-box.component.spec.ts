@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PostComponent } from './post.component';
+import { PendingBoxComponent } from './pending-box.component';
 
-describe('PostComponent', () => {
-  let component: PostComponent;
-  let fixture: ComponentFixture<PostComponent>;
+describe('PendingBoxComponent', () => {
+  let component: PendingBoxComponent;
+  let fixture: ComponentFixture<PendingBoxComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PostComponent]
+      declarations: [PendingBoxComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(PostComponent);
+    fixture = TestBed.createComponent(PendingBoxComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

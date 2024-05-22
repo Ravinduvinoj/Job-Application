@@ -46,9 +46,11 @@ import { NavbarComponent } from './modules/navbar/navbar.component';
 import { SidenavComponent } from './modules/sidenav/sidenav.component';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import { PostComponent } from './modules/company/components/jobpost/components/post/post.component';
 import { PostProfileComponent } from './modules/company/components/jobpost/components/post-profile/post-profile.component';
 import { AddDeleteComponent } from './modules/company/components/jobpost/components/add-delete/add-delete.component';
+import { ApprovalProfileComponent } from './modules/admin/components/jobapproval/components/approval-profile/approval-profile.component';
+import { RemoveApprovalComponent } from './modules/admin/components/jobapproval/components/remove-approval/remove-approval.component';
+import { PendingBoxComponent } from './modules/admin/components/jobapproval/components/pending-box/pending-box.component';
 
 
 
@@ -86,9 +88,11 @@ import { AddDeleteComponent } from './modules/company/components/jobpost/compone
     UpdateSubCategoryComponent,
     AddPostComponent,
     NotFoundComponent,
-    PostComponent,
     PostProfileComponent,
     AddDeleteComponent,
+    ApprovalProfileComponent,
+    RemoveApprovalComponent,
+    PendingBoxComponent,
 
 
 

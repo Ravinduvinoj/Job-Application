@@ -45,7 +45,12 @@ export class UpdateCategoryComponent implements OnInit {
         verticalPosition: 'bottom',
         horizontalPosition: 'center'
       });
-      this._dialogRef.close();
+      setTimeout(() => {
+        window.location.href ='/admin/j-category';
+        this._dialogRef.close();
+       
+      }, 1000);
+      
     },
     (err) => {
       this.snackBar.open(err.message, 'Close', {

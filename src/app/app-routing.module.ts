@@ -16,7 +16,7 @@ import { CompanyComponent } from './modules/company/company.component';
 import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PostProfileComponent } from './modules/company/components/jobpost/components/post-profile/post-profile.component';
-import { PostComponent } from './modules/company/components/jobpost/components/post/post.component';
+import { ApprovalProfileComponent } from './modules/admin/components/jobapproval/components/approval-profile/approval-profile.component';
 
 
 
@@ -35,7 +35,12 @@ const routes: Routes = [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'j-category', component: JCategoryComponent },
       { path: 'accounts', component: AccountsComponent },
-      { path: 'jobapproval', component: JobapprovalComponent },
+      {
+        path: 'jobapproval', component: JobapprovalComponent, children: [
+          {path: "pending-posts", component: ApprovalProfileComponent}
+
+        ]
+      },
       { path: 'subscription', component: SubscriptionComponent },
 
     ]
@@ -48,8 +53,6 @@ const routes: Routes = [
       {
         path: 'jobpost', component: JobpostComponent, children: [
           { path: 'post-profile', component: PostProfileComponent },
-
-
         ]
       },
       { path: 'schedule', component: ScheduleComponent }]
