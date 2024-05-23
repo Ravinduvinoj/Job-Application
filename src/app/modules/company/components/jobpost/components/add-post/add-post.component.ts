@@ -206,8 +206,11 @@ export class AddPostComponent implements OnInit {
       })
         .subscribe(() => {
           this.Toast.success({ detail: "job posted", summary: 'sub category creation successfully', duration: 9000, position: 'botomCenter' })
-          this._dialogRef.close();
-          // swal('Hello world!')
+         
+         setTimeout(() => {
+              window.location.href ='/company/jobpost';
+              this._dialogRef.close();
+            }, 1000);
 
         },
           (err) => {
@@ -217,11 +220,6 @@ export class AddPostComponent implements OnInit {
               horizontalPosition: 'center'
             })
           })
-
-
-
-
-
     }
   }
 }

@@ -1,10 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { ActivatedRoute, Router } from '@angular/router';
-import { NgToastService } from 'ng-angular-popup';
+import { Router } from '@angular/router';
 import { JobapprovalService } from '../../../../services/jobapprove/jobapproval.service';
-import { data } from 'jquery';
 
 @Component({
   selector: 'app-jobapproval',
@@ -16,48 +13,36 @@ export class JobapprovalComponent implements OnInit {
   onShow: boolean = true;
 
   constructor(
-    private http: HttpClient,
-    private snackBar: MatSnackBar,
-    private Toast: NgToastService,
-    private jobAp:JobapprovalService,
+    private jobAp: JobapprovalService,
     private router: Router,
-    private activatedRoute: ActivatedRoute,
-  ) {
-
-  }
+  ) { }
 
   ngOnInit(): void {
-    const apiUrl = "http://localhost:5000/api/displayPost" // Update the API URL as per your backend route
 
-  //   this.http.get<any[]>(apiUrl).subscribe(
-  //     (data) => {
-  //       //this.SearchText
-  //       this.posts = data.;
-  //       console.log(this.posts);
-  //     },
-  //     (error) => {
-  //       console.error('Error fetching main category:', error);
-  //     }
-  //   );
-
+    // getting addvertiesment data form approval service
     this.jobAp.getjobpost().subscribe(
-        (data)=>{
-          this.posts=data.data;
-          console.log(this.posts);
-        }
+      (data) => {
+        this.posts = data.data;
+        console.log(this.posts);
+      }
     );
-   }
+  }
 
   onAddEdit(_t16: any) {
 
   }
+  //send data to jobapproval to selected row data
   onShowMore(post: any): void {
-     this.jobAp.setJobData(post);
-    this.router.navigate(['/admin/jobapproval/pending-posts']);
+    this.jobAp.setJobData(post);
+    this.router.navigate(['/admin/jobapproval/post-profile']); // navigating to profile
   }
   isPostProfileRoute(): boolean {
-    return this.router.url === '/admin/jobapproval/pending-posts';
+    return this.router.url === '/admin/jobapproval/post-profile';  // checking already stay in this route
   }
-
-
+  view_pending():void{
+    this.router.navigate(['/admin/jobapproval/pending']);// navigating to pending route
+  }
+  ispendingRoute(): boolean {
+    return this.router.url === '/admin/jobapproval/pending';  // checking already stay in this route
+  }
 }

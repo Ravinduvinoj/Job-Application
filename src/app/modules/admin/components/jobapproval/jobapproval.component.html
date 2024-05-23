@@ -1,25 +1,20 @@
 <router-outlet></router-outlet>
 
 
-<div *ngIf="onShow && !isPostProfileRoute()">
-<div class="div-cat">
+<div *ngIf="onShow && (!isPostProfileRoute()&& !ispendingRoute())">
+  <div class="div-cat">
     <ul class="ul-cat">
-        <li class="li-cat">
-            <h1>Job Approval</h1>
-        </li>
-        <li class="li-cat" style="margin-left: 30px;"><input type="text" id="search" name="search" placeholder="search company"></li>
-        <li class="li-cat" style="margin-left: 15px;"><button>Search</button></li>
-        <li class="li-cat1" style="margin-left: 20px; margin-right: 20px;"><button>View Job Approved</button></li>
-        <li class="li-cat1"><button>Create Post</button></li>
-
-
-
+      <li class="li-cat">
+        <h1>Job Approval</h1>
+      </li>
+      <li class="li-cat" style="margin-left: 30px;"><input type="text" id="search" name="search"
+          placeholder="search company"></li>
+      <li class="li-cat" style="margin-left: 15px;"><button>Search</button></li>
+      <li class="li-cat1" style="margin-left: 20px; margin-right: 20px;"><button (click)="view_pending()">Pending Advertiesments</button></li>
     </ul>
+  </div>
 
-
-</div>
-
-<div class="head-tble1">
+  <div class="head-tble1">
     <ng-container *ngFor="let post of posts; let i = index">
       <div class="post-item">
         <div class="post-title">
@@ -29,7 +24,8 @@
               <div class="job-main">
                 <h2>{{ i + 1 }}. {{ post.job_title }}</h2>
               </div>
-              <h4 style="margin-left: 1050px; margin-top: -50px;" class="expiry-info">Expires In <i class="fal fa-clock"></i>: {{ post.ad_closing_date }}</h4>
+              <h4 style="margin-left: 1050px; margin-top: -50px;" class="expiry-info">Expires In <i
+                  class="fal fa-clock"></i>: {{ post.ad_closing_date }}</h4>
             </li>
           </ul>
         </div>
@@ -45,8 +41,12 @@
             <div class="job-requirements">
               <p>Requirements:</p>
               <ul>
-                <li><p>{{ post.requirement1 }}</p></li>
-                <li><p>{{ post.requirement2 }}</p></li>
+                <li>
+                  <p>{{ post.requirement1 }}</p>
+                </li>
+                <li>
+                  <p>{{ post.requirement2 }}</p>
+                </li>
               </ul>
             </div>
             <div class="post-actions">
@@ -54,7 +54,8 @@
                 <h3>Location: {{ post.city }}, {{ post.country }}</h3>
               </div>
               <div class="action-buttons">
-                <button (click)="onShowMore(post)" class="action-button2">More <i class="fad fa-angle-double-right"></i></button>
+                <button (click)="onShowMore(post)" class="action-button2">More <i
+                    class="fad fa-angle-double-right"></i></button>
                 <button (click)="onAddEdit(post)" class="action-button1"><i class="fad fa-user-edit"></i>Edit</button>
               </div>
             </div>
@@ -63,4 +64,4 @@
       </div>
     </ng-container>
   </div>
-  </div>
+</div>

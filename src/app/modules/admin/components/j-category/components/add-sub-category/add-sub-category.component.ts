@@ -89,8 +89,12 @@ export class AddSubCategoryComponent implements OnInit {
       })
         .subscribe(() => {
           this.Toast.success({ detail: "category Created", summary: 'sub category creation successfully', duration: 9000, position: 'botomCenter' })
-          this._dialogRef.close();
-          // swal('Hello world!')
+          setTimeout(() => {
+            window.location.href ='/admin/j-category';
+            this._dialogRef.close();
+           
+          }, 1000);
+          
 
         },
           (err) => {

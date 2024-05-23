@@ -44,26 +44,23 @@ export class EdituserComponent implements OnInit {
   ngOnInit(): void {
     this.form.patchValue(this.data)
     this.emailFormControl.patchValue(this.data.email)
-
-
   }
+  
   onFormSubmit() {
     const userUpdateData = this.form.value;
-
     this.http.put<any>('http://localhost:5000/api/update-user/' + this.data.email, userUpdateData)
       .subscribe(
         (response) => {
-
           this.snackBar.open('User updated successfully', 'Close', {
             duration: 3000,
             verticalPosition: 'bottom',
             horizontalPosition: 'center'
           });
-
-
+          setTimeout(() => {
+            window.location.href ='/admin/accounts';
+            this._dialogRef.close();
+          }, 1000);
           this._dialogRef.close();
-         
-
         },
         (error) => {
           this.snackBar.open('Failed to update user', 'Close', {
@@ -74,9 +71,6 @@ export class EdituserComponent implements OnInit {
           console.error('Error updating user:', error);
         }
       );
-   
   }
-
-
 }
 

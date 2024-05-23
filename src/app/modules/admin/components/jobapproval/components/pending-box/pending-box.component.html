@@ -1,1 +1,59 @@
-<p>pending-box works!</p>
+<!-- <div *ngIf="onShow && (!isPostProfileRoute()&& !ispendingRoute())"> -->
+    <div class="div-cat">
+      <ul class="ul-cat">
+        <li class="li-cat">
+          <h1>Job pendings</h1>
+        </li>
+        <li class="li-cat" style="margin-left: 30px;"><input type="text" id="search" name="search"
+            placeholder="search company"></li>
+        <li class="li-cat" style="margin-left: 15px;"><button>Search</button></li>
+       
+      </ul>
+    </div>
+  <div style="border: solid 2px green; margin-left: 10%; width: 85%; align-items: center; margin-top: 20px; background: rgb(213, 240, 216);border-radius: 30px;">
+    <h1 style="margin-left: 150px;margin-top: 20px; font-size: 30px;font-family: 500; ">Pending :</h1>
+
+    <div class="head-tble1">
+      <ng-container *ngFor="let post of posts; let i = index">
+        <div class="post-item">
+          <div class="post-title">
+            <ul>
+              <li></li>
+              <li>
+                <div class="job-main">
+                  <h2>{{ i + 1 }}. {{ post.job_title }}</h2>
+                </div>
+                <h4 style="margin-left: 1000px; margin-top: -50px;" class="expiry-info">Expires In <i
+                    class="fal fa-clock"></i>: {{post.ad_closing_date}} </h4>
+              </li>
+            </ul>
+          </div>
+          <div class="post-content">
+            <div class="post-image">
+              <img src="http://localhost:5000/{{ post.image }}" alt="Job Image">
+            </div>
+            <div class="post-details">
+              <div class="post-job-description">
+                <h2><i class="fad fa-angle-double-right"></i> {{ post.job_description }}</h2>
+                <p>{{ post.position_summary }}</p>
+              </div>
+        
+              <div class="post-actions">
+                <div class="job-location">
+                  <h3>Location: {{ post.city }}, {{ post.country }}</h3>
+                </div>
+                <div class="action-buttons">
+                  <button (click)="onShowMore(post)" class="action-button2">view <i
+                      class="fad fa-angle-double-right"></i></button>
+                      <button class="action-button3" (click)="onShowMore(post)" ><i class="fas fa-minus-circle"></i></button>
+                      <button class="action-button1"(click)="postapprove(post)" >Approve</button>
+                
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+    </div>
+  <!-- </div> -->

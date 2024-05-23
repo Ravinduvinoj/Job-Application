@@ -17,6 +17,7 @@ import { HomeComponent } from './home/home.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { PostProfileComponent } from './modules/company/components/jobpost/components/post-profile/post-profile.component';
 import { ApprovalProfileComponent } from './modules/admin/components/jobapproval/components/approval-profile/approval-profile.component';
+import { PendingBoxComponent } from './modules/admin/components/jobapproval/components/pending-box/pending-box.component';
 
 
 
@@ -37,7 +38,8 @@ const routes: Routes = [
       { path: 'accounts', component: AccountsComponent },
       {
         path: 'jobapproval', component: JobapprovalComponent, children: [
-          {path: "pending-posts", component: ApprovalProfileComponent}
+          { path: "post-profile", component: ApprovalProfileComponent },
+          { path: "pending", component: PendingBoxComponent }
 
         ]
       },
