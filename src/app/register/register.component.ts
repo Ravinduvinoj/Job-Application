@@ -20,8 +20,6 @@ export class RegisterComponent implements OnInit {
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
 
 
-  pending: any;
-
   form: FormGroup
 
   constructor(
