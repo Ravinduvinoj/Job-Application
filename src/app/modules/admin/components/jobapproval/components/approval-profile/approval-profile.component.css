@@ -62,7 +62,7 @@
   }
   
   .post-card {
-    background: #ffffff;
+    background: #ccffc5;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -84,12 +84,13 @@
   
   .post-body {
     padding: 20px;
+
   }
   
   .post-body p {
     font-size: 25px;
     margin: 30px 0;
-    margin-left: 35%;
+    margin-left: 20%;
   }
   
   .post-body strong {

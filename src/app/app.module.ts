@@ -51,8 +51,10 @@ import { AddDeleteComponent } from './modules/company/components/jobpost/compone
 import { ApprovalProfileComponent } from './modules/admin/components/jobapproval/components/approval-profile/approval-profile.component';
 import { RemoveApprovalComponent } from './modules/admin/components/jobapproval/components/remove-approval/remove-approval.component';
 import { PendingBoxComponent } from './modules/admin/components/jobapproval/components/pending-box/pending-box.component';
-
-
+import {MatMenuModule} from '@angular/material/menu';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { PlanComponent } from './modules/company/components/plan/plan.component';
 
 
 @NgModule({
@@ -93,6 +95,7 @@ import { PendingBoxComponent } from './modules/admin/components/jobapproval/comp
     ApprovalProfileComponent,
     RemoveApprovalComponent,
     PendingBoxComponent,
+    PlanComponent,
 
 
 
@@ -116,7 +119,10 @@ import { PendingBoxComponent } from './modules/admin/components/jobapproval/comp
     MatSelectModule,
     MatSelectCountryModule.forRoot('de'),
     MatTabsModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatMenuModule,
+    MatCardModule,
+    MatGridListModule,
 
   ],
   providers: [

@@ -45,3 +45,78 @@
     font-size: 14px;
     border-radius: 5px;
 }
+
+.subscription-container {
+    text-align: center;
+    margin: 50px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+  }
+  
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .plans {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  
+  .plan {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    width: 300px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+  }
+  
+  .plan:hover {
+    transform: scale(1.05);
+  }
+  
+  .plan h2 {
+    font-size: 1.8em;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  .price {
+    font-size: 2em;
+    margin: 10px 0;
+    color: #2196F3;
+  }
+  
+  ul {
+    margin-left: 10px;
+    /* list-style: none; */
+    padding: 0;
+    text-align: left;
+  }
+  
+  li {
+    margin: 10px 0;
+    font-size: 1em;
+    color: #666;
+  }
+  
+  .subscribe-btn {
+    background: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .subscribe-btn:hover {
+    background: #1e87db;
+  }
+  
