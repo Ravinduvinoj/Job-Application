@@ -55,6 +55,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { PlanComponent } from './modules/company/components/plan/plan.component';
+import { ViewListningsComponent } from './modules/company/components/joblistnings/components/view-listnings/view-listnings.component';
 
 
 @NgModule({
@@ -96,6 +97,7 @@ import { PlanComponent } from './modules/company/components/plan/plan.component'
     RemoveApprovalComponent,
     PendingBoxComponent,
     PlanComponent,
+    ViewListningsComponent,
 
 
 

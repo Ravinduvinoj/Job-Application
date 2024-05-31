@@ -19,6 +19,7 @@ import { PostProfileComponent } from './modules/company/components/jobpost/compo
 import { ApprovalProfileComponent } from './modules/admin/components/jobapproval/components/approval-profile/approval-profile.component';
 import { PendingBoxComponent } from './modules/admin/components/jobapproval/components/pending-box/pending-box.component';
 import { PlanComponent } from './modules/company/components/plan/plan.component';
+import { ViewListningsComponent } from './modules/company/components/joblistnings/components/view-listnings/view-listnings.component';
 
 
 
@@ -52,7 +53,9 @@ const routes: Routes = [
     path: 'company', component: CompanyComponent, children: [
       { path: '', redirectTo: '/company/emp-dashboard', pathMatch: 'full' },
       { path: 'emp-dashboard', component: EmpDashboardComponent },
-      { path: 'joblistnings', component: JoblistningsComponent },
+      { path: 'joblistnings', component: JoblistningsComponent,children:[
+        {path:'view-listning',component:ViewListningsComponent}
+      ] },
       {
         path: 'jobpost', component: JobpostComponent, children: [
           { path: 'post-profile', component: PostProfileComponent },
