@@ -16,9 +16,7 @@ export class JoblistningsComponent implements OnInit {
 onAddEdit(_t14: any) {
 
 }
-onShowMore(_t14: any) {
 
-}
 
   onShow: boolean = true;
   posts: any[];
@@ -77,5 +75,14 @@ onShowMore(_t14: any) {
 
       })
     // this.fetchposts(this.loginID);
+  }
+
+  onShowMore(postdata: any) {
+    this.post_prof.setJobData(postdata);
+    this.router.navigate(['/company/joblistnings/view-listning']);
+  }
+
+  isViewListningsRoute(): boolean {
+    return this.router.url === '/company/joblistnings/view-listning';
   }
 }
