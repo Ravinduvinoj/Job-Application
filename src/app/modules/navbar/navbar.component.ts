@@ -1,7 +1,8 @@
-import { Component, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Output, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { Emitter } from '../../emitter/emitter';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import {MatMenuTrigger, MatMenuModule} from '@angular/material/menu';
 
 interface navToggle {
   screenWidth: number;
@@ -13,6 +14,11 @@ interface navToggle {
   styleUrl: './navbar.component.css'
 })
 export class NavbarComponent implements OnInit {
+  @ViewChild('menuTrigger') menuTrigger: MatMenuTrigger;
+
+openDialog() {
+
+}
   title = 'Navbar';
 
   @Output() onTogglenav: EventEmitter<navToggle> = new EventEmitter();

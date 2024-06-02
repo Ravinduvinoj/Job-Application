@@ -129,6 +129,7 @@
     border: 1px solid rgb(0, 90, 0);
     text-decoration: none;
     font-size: 15px;
+    color: black;
 }
 
 .applied-status h3 button:hover {
@@ -140,7 +141,7 @@
 }
 
 .view-listings {
-    background-color: #007bff;
+    background-color: #04a704;
     color: #ffffff;
     border: none;
     padding: 10px 20px;
@@ -150,9 +151,21 @@
 }
 
 .view-listings:hover {
-    background-color: #0056b3;
+    background-color: #077203;
 }
-
+.reject {
+    background-color: red;
+    color: #ffffff;
+    border: none;
+    margin-left: 1000px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s;  
+}
+.reject:hover{
+    background: rgb(177, 7, 7);
+}
 .fad {
     margin-left: 5px;
 }

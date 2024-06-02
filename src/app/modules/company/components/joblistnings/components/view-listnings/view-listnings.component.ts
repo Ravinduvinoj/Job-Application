@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ListningsService } from '../../../../../../services/listnings/listnings.service';
 import { saveAs } from 'file-saver';
 import { HttpClient } from '@angular/common/http';
+import { ApprovalComponent } from '../approval/approval.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 @Component({
@@ -12,9 +14,10 @@ import { HttpClient } from '@angular/common/http';
 export class ViewListningsComponent implements OnInit{
 
   posts :any;//any type for array
-
+title: String;
 constructor(private viewapp:ListningsService,
-  private http: HttpClient){}
+  private http: HttpClient,
+  public dialog: MatDialog){}
 
   ngOnInit(): void {
      //load data applications for advertiesment
@@ -24,6 +27,9 @@ constructor(private viewapp:ListningsService,
         console.log(this.posts);
       }
     );
+    const data =this.viewapp.getPostInfo()
+    this.title= data.job_title;
+    
   }
   
 
@@ -37,7 +43,7 @@ constructor(private viewapp:ListningsService,
     });
   }
 
-  view(id:any) {
-
+  setapprove(application:any) {
+    const dialogRef= this.dialog.open(ApprovalComponent, { data: application });
   }
 }

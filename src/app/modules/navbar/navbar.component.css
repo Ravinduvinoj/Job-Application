@@ -20,8 +20,12 @@
 }
 .dash-list1 {
     float: right;
-    margin-right: 20px;
+    margin-right: 30px;
     cursor: pointer;
+}
+.dash-list1 a i {
+    width: 40px;
+    font-size: 30px;
 }
 .dash-img {
     margin-left: 50px;

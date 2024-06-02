@@ -56,7 +56,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { PlanComponent } from './modules/company/components/plan/plan.component';
 import { ViewListningsComponent } from './modules/company/components/joblistnings/components/view-listnings/view-listnings.component';
-
+import { ApprovalComponent } from './modules/company/components/joblistnings/components/approval/approval.component';
+import {MatMenuTrigger} from '@angular/material/menu';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -98,6 +100,7 @@ import { ViewListningsComponent } from './modules/company/components/joblistning
     PendingBoxComponent,
     PlanComponent,
     ViewListningsComponent,
+    ApprovalComponent,
 
 
 
@@ -125,6 +128,8 @@ import { ViewListningsComponent } from './modules/company/components/joblistning
     MatMenuModule,
     MatCardModule,
     MatGridListModule,
+    MatMenuTrigger,
+    MatNativeDateModule,
 
   ],
   providers: [

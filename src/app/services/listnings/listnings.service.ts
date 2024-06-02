@@ -18,8 +18,9 @@ export class ListningsService {
   setJobData(data: any) {
     this.appData = data;
   }
-  
-
+  getPostInfo() {
+    return this.appData;
+  }
 }
 
 

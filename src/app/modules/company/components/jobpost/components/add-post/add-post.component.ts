@@ -25,12 +25,14 @@ export class AddPostComponent implements OnInit {
   selectedFile: File;
   authenticated: boolean;
   loginID: '';
+  minDate: Date;
   constructor(
     private _fb: FormBuilder,
     private http: HttpClient,
     private snackBar: MatSnackBar,
     private Toast: NgToastService,
     private _dialogRef: MatDialogRef<AddPostComponent>) {
+      this.minDate = new Date();
     this.get_user()
     this.fetchCategories();
   }

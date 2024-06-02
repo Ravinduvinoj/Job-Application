@@ -65,8 +65,10 @@
         <div class="row">
             <mat-form-field appearance="fill">
                 <mat-label>Advertiesment closing date</mat-label>
-                <input formControlName="ad_closing_date" matInput type="date">
-            </mat-form-field>
+                <input matInput [matDatepicker]="picker"  [min]="minDate" formControlName="ad_closing_date">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
             &nbsp; &nbsp; &nbsp; &nbsp;
         </div>
         <div class="row">

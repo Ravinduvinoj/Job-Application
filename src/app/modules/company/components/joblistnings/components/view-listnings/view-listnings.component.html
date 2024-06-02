@@ -1,11 +1,19 @@
 <div class="div-cat">
     <ul class="ul-cat">
         <li class="li-cat">
-            <h1>Job Listnings:</h1>
+            <h1>{{title}}:</h1>
         </li>
-        <li class="li-cat" style="margin-left: 30px;"><input type="text" id="search" name="search"></li>
-        <li class="li-cat" style="margin-left: 15px;"><button>Search</button></li>
-        <li class="li-cat1" style="margin-left: 20px; margin-right: 20px;"><button>View All</button></li>
+        <!-- <li class="li-cat" style="margin-left: 30px;"><input type="text" id="search" name="search"></li>
+        <li class="li-cat" style="margin-left: 15px;"><button>Search</button></li> -->
+        <li class="li-cat1" style="margin-left: 20px; margin-right: 20px;"><button>View actions</button></li>
+    </ul>
+</div>
+<div class="div-cat">
+    <ul class="ul-cat" style="margin-top: 20px;margin-left: 40px;">
+        <li class="li-cat">
+            <h1>Applications</h1>
+        </li>
+      
     </ul>
 </div>
 <div class="post-container">
@@ -45,7 +53,10 @@
                             <button (click)="downloadCV(post.cvFile)">Download</button>
                         </h3>
                     </div>
-                    <button class="view-listings" (click)="view(post)">
+                    <button class="reject" (click)="setapprove(post)">
+                        Reject <i class="fad fa-angle-double-right"></i>
+                     </button>
+                    <button class="view-listings" (click)="setapprove(post)">
                        Approve <i class="fad fa-angle-double-right"></i>
                     </button>
                 </div>
