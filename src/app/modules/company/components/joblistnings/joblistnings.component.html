@@ -1,3 +1,5 @@
+<router-outlet></router-outlet>
+
 <div *ngIf="onShow && !isViewListningsRoute()">
 <div class="div-cat">
     <ul class="ul-cat">
@@ -30,7 +32,7 @@
               
               <div class="action-buttons">
                 <div style="margin-top: -40px; margin-left: 100px;">
-                  <h3>Applied <i class="fad fa-check-double"></i> : 00</h3>
+                  <h3>Applied <i class="fad fa-check-double"></i> : {{post.applications_count}}</h3>
                 </div>
                 <button style="margin-top: 100px;" (click)="onShowMore(post)" class="action-button2">
                   View Listings <i class="fad fa-angle-double-right"></i>

@@ -1,1 +1,55 @@
-<p>view-listnings works!</p>
+<div class="div-cat">
+    <ul class="ul-cat">
+        <li class="li-cat">
+            <h1>Job Listnings:</h1>
+        </li>
+        <li class="li-cat" style="margin-left: 30px;"><input type="text" id="search" name="search"></li>
+        <li class="li-cat" style="margin-left: 15px;"><button>Search</button></li>
+        <li class="li-cat1" style="margin-left: 20px; margin-right: 20px;"><button>View All</button></li>
+    </ul>
+</div>
+<div class="post-container">
+    <ng-container *ngFor="let post of posts; let i = index">
+        <div class="post-item">
+            <div class="post-header">
+                <div class="header-content">
+                    <h2>{{ i + 1 }}. {{ post.name }}</h2>
+                    <h2 class="email">Email: {{ post.jobseeker.email }}</h2>
+                </div>
+            </div>
+            <div class="post-body">
+                <div class="post-details">
+                    <div class="detail-item">
+                        <h3>Address: {{ post.address }}</h3>
+                    </div>
+                    <div class="detail-item">
+                        <h3>City: {{ post.city }}</h3>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Contact: {{ post.contact }}</h3>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Date of Birth: {{ post.dob }}</h3>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Applied Date: {{ post.Submission_date }}</h3>
+                    </div>
+                    <div class="detail-item">
+                        <h3>Gender: {{ post.gender }}</h3>
+                    </div>
+                </div>
+                <div class="post-actions">
+                    <div class="applied-status">
+                        <h3>CV: 
+                            <a [href]="post.cvFile" target="_blank">Open</a>&nbsp;&nbsp;
+                            <button (click)="downloadCV(post.cvFile)">Download</button>
+                        </h3>
+                    </div>
+                    <button class="view-listings" (click)="view(post)">
+                       Approve <i class="fad fa-angle-double-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

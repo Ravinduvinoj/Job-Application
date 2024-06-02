@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgToastService } from 'ng-angular-popup';
 import { MatDialog } from '@angular/material/dialog';
+import { ListningsService } from '../../../../services/listnings/listnings.service';
 
 @Component({
   selector: 'app-joblistnings',
@@ -23,7 +24,7 @@ onAddEdit(_t14: any) {
   authenticated: boolean;
   loginID: string;
   constructor(
-    private post_prof: PostProfileServiceService,
+    private jobapp:ListningsService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private http: HttpClient,
@@ -78,7 +79,7 @@ onAddEdit(_t14: any) {
   }
 
   onShowMore(postdata: any) {
-    this.post_prof.setJobData(postdata);
+    this.jobapp.setJobData(postdata)
     this.router.navigate(['/company/joblistnings/view-listning']);
   }
 
