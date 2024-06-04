@@ -59,6 +59,7 @@ import { ViewListningsComponent } from './modules/company/components/joblistning
 import { ApprovalComponent } from './modules/company/components/joblistnings/components/approval/approval.component';
 import {MatMenuTrigger} from '@angular/material/menu';
 import { MatNativeDateModule } from '@angular/material/core';
+import { RejectDialogComponent } from './modules/company/components/joblistnings/components/reject-dialog/reject-dialog.component';
 
 @NgModule({
   declarations: [
@@ -101,6 +102,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     PlanComponent,
     ViewListningsComponent,
     ApprovalComponent,
+    RejectDialogComponent,
 
 
 

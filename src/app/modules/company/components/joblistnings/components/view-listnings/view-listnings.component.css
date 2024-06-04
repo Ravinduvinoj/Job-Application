@@ -67,9 +67,24 @@
 .post-item:hover {
     transform: translateY(-5px);
 }
-
 .post-header {
     background-color: #28a745;
+    color: #ffffff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.post-header1 {
+    background-color: #28a745;
+    color: #ffffff;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.post-header2 {
+    background-color: #a72828;
     color: #ffffff;
     padding: 15px;
     display: flex;
@@ -168,4 +183,13 @@
 }
 .fad {
     margin-left: 5px;
+}
+.approved {
+    background-color: rgb(171, 255, 171);
+    color: rgb(17, 2, 2);
+}
+
+.rejected {
+    background-color: rgb(255, 160, 160);
+    color: rgb(0, 0, 0);
 }
