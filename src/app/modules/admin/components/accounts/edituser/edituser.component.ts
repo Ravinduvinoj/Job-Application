@@ -1,12 +1,10 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { NgToastService } from 'ng-angular-popup';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
-
 import { AccountsComponent } from '../accounts.component';
-import { ChangeDetectorRef } from '@angular/core';
+
 @Component({
   selector: 'app-edituser',
   templateUrl: './edituser.component.html',
@@ -15,17 +13,13 @@ import { ChangeDetectorRef } from '@angular/core';
 export class EdituserComponent implements OnInit {
   @Input() com: (AccountsComponent);
   form: FormGroup
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  emailFormControl = new FormControl('', [Validators.required, Validators.email]);//validate email
 
   constructor(
-    private cdr: ChangeDetectorRef,
     private _fb: FormBuilder,
     private http: HttpClient,
     private snackBar: MatSnackBar,
-    private Toast: NgToastService,
- 
     private _dialogRef: MatDialogRef<EdituserComponent>,
-   
     @Inject(MAT_DIALOG_DATA) public data: any) {
 
     this.form = this._fb.group({
@@ -38,14 +32,15 @@ export class EdituserComponent implements OnInit {
       userRole: "company",
       city: "",
       address: ""
-
     })
   }
+
   ngOnInit(): void {
     this.form.patchValue(this.data)
     this.emailFormControl.patchValue(this.data.email)
   }
-  
+
+  //update user data
   onFormSubmit() {
     const userUpdateData = this.form.value;
     this.http.put<any>('http://localhost:5000/api/update-user/' + this.data.email, userUpdateData)
@@ -57,7 +52,7 @@ export class EdituserComponent implements OnInit {
             horizontalPosition: 'center'
           });
           setTimeout(() => {
-            window.location.href ='/admin/accounts';
+            window.location.href = '/admin/accounts';
             this._dialogRef.close();
           }, 1000);
           this._dialogRef.close();

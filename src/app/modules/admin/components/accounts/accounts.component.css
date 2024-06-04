@@ -10,7 +10,6 @@
     overflow: hidden;
     /* Clear floats */
     text-align: center;
-
 }
 
 .div-cat ul .li-cat {
@@ -51,7 +50,6 @@
     padding: 8px 10px;
     border-radius: 5px;
     font-size: 14px;
-
 }
 
 /* temp-user-list.component.css */
@@ -71,9 +69,7 @@
 }
 
 table {
-
     border-collapse: collapse;
-    
     border: solid 2px rgb(32, 131, 49);
 }
 
@@ -91,8 +87,6 @@ table th {
 table tr {
     border: solid 3px green;
     border-radius: 5px;
-    
-    
 }
 
 table tr:hover {
@@ -105,7 +99,6 @@ table td button {
     border-radius: 5px;
     transition: .4s;
     cursor: pointer;
-    
 }
 
 table td .action-button1 {

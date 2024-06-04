@@ -24,7 +24,6 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { provideHttpClient, withFetch } from "@angular/common/http";
 import { NgToastModule } from 'ng-angular-popup';
 import { HomeComponent } from './home/home.component';
-import { AccountbodyComponent } from './modules/admin/components/accounts/accountbody/accountbody.component';
 import { DataTablesModule } from 'angular-datatables';
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatInputModule } from '@angular/material/input';
@@ -44,22 +43,23 @@ import { MatSelectCountryModule } from '@angular-material-extensions/select-coun
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NavbarComponent } from './modules/navbar/navbar.component';
 import { SidenavComponent } from './modules/sidenav/sidenav.component';
-import {MatTabsModule} from '@angular/material/tabs';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { PostProfileComponent } from './modules/company/components/jobpost/components/post-profile/post-profile.component';
 import { AddDeleteComponent } from './modules/company/components/jobpost/components/add-delete/add-delete.component';
 import { ApprovalProfileComponent } from './modules/admin/components/jobapproval/components/approval-profile/approval-profile.component';
 import { RemoveApprovalComponent } from './modules/admin/components/jobapproval/components/remove-approval/remove-approval.component';
 import { PendingBoxComponent } from './modules/admin/components/jobapproval/components/pending-box/pending-box.component';
-import {MatMenuModule} from '@angular/material/menu';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { PlanComponent } from './modules/company/components/plan/plan.component';
 import { ViewListningsComponent } from './modules/company/components/joblistnings/components/view-listnings/view-listnings.component';
 import { ApprovalComponent } from './modules/company/components/joblistnings/components/approval/approval.component';
-import {MatMenuTrigger} from '@angular/material/menu';
+import { MatMenuTrigger } from '@angular/material/menu';
 import { MatNativeDateModule } from '@angular/material/core';
 import { RejectDialogComponent } from './modules/company/components/joblistnings/components/reject-dialog/reject-dialog.component';
+import { ProfileComponent } from './modules/navbar/components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +82,6 @@ import { RejectDialogComponent } from './modules/company/components/joblistnings
     AdminComponent,
     CompanyComponent,
     HomeComponent,
-    AccountbodyComponent,
     MessageComponent,
     EdituserComponent,
     UserRegisterComponent,
@@ -103,12 +102,7 @@ import { RejectDialogComponent } from './modules/company/components/joblistnings
     ViewListningsComponent,
     ApprovalComponent,
     RejectDialogComponent,
-
-
-
-
-
-
+    ProfileComponent,
 
   ],
   imports: [

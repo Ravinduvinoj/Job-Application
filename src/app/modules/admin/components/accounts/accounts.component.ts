@@ -20,30 +20,30 @@ import { response } from 'express';
 export class AccountsComponent implements OnInit {
   [x: string]: any;
   SearchText: any;
+  tempUsers: any[] = []; // Initialize as an empty array
   userAccounts: any[];
-  clickEventSubscription:Subscription;
+  clickEventSubscription: Subscription;
+  showTable: boolean = false;
+  activTable: boolean = true;
 
   constructor(
     private http: HttpClient,
     private snackBar: MatSnackBar,
     private Toast: NgToastService,
     public dialog: MatDialog,
-    
-  ) {
-    
+
+  ) { }
+
+  ngOnInit(): void {
     this.fetchTempUsers();
     this.fetchUserAccounts();
   }
-
+  //delete selected user
   onUserDelete(User: any): void {
     if (User.userRole == 'admin') {
-      this.snackBar.open("you can't delete", 'Close', {
-        duration: 3000,
-        verticalPosition: 'bottom',
-        horizontalPosition: 'center'
-      })
+      this.snackBar.open("you can't delete", 'Close', { duration: 3000, verticalPosition: 'bottom', horizontalPosition: 'center' })
     } else {
-      const dialogRef = this.dialog.open(MessageComponent);
+      const dialogRef = this.dialog.open(MessageComponent);//top up dialog
       dialogRef.afterClosed().subscribe(result => {
         if (result) {
           this.http.get<any[]>(`http://localhost:5000/api/delete-useracc/${User.email}`).subscribe({
@@ -62,7 +62,7 @@ export class AccountsComponent implements OnInit {
     }
 
   }
-
+  //approve tempary accounts of new registerd
   onApprove(tempUser: any): void {
     this.http.get<any[]>(`http://localhost:5000/api/approve-tempacc/${tempUser.email}`).subscribe({
       next: (data) => {
@@ -76,27 +76,24 @@ export class AccountsComponent implements OnInit {
       }
     });
   }
+
+  //admin direct register the company through the site
   onCompanyRegister() {
     this.dialog.open(UserRegisterComponent)
     this.fetchUserAccounts();
   }
+
+  //on company edit
   onUserEdit(user: any) {
     if (user.userRole == 'admin') {
-      this.snackBar.open("you can't edit", 'Close', {
-        duration: 3000,
-        verticalPosition: 'bottom',
-        horizontalPosition: 'center'
-      })
+      this.snackBar.open("you can't edit", 'Close', { duration: 3000, verticalPosition: 'bottom', horizontalPosition: 'center' })
     } else {
-     const dialogRef= this.dialog.open(EdituserComponent, { data: user });
+      const dialogRef = this.dialog.open(EdituserComponent, { data: user });
       console.log(user);
-
-      
     }
-
   }
 
-
+  //deleting user when approval view
   onTempDelete(tempUser: any): void {
     const dialogRef = this.dialog.open(MessageComponent);
     dialogRef.afterClosed().subscribe(result => {
@@ -115,8 +112,7 @@ export class AccountsComponent implements OnInit {
     });
   }
 
-  tempUsers: any[] = []; // Initialize as an empty array
-
+  //display colums
   displayedColumns: string[] = [
     'index',
     'company',
@@ -128,14 +124,8 @@ export class AccountsComponent implements OnInit {
     'userRole',
     'actions'
   ];
-  showTable: boolean = false;
 
-  activTable: boolean = true;
-
-  ngOnInit(): void {
-    this.fetchTempUsers();
-    this.fetchUserAccounts();
-  }
+  //switching user table to temp account table
   toggleTable(): void {
     this.showTable = !this.showTable; // Toggle table visibility
     if (this.showTable) {
@@ -147,6 +137,7 @@ export class AccountsComponent implements OnInit {
     }
   }
 
+  //fetching temp user accounts
   fetchTempUsers(): void {
     this.http.get<any[]>('http://localhost:5000/api/getalltempuser').subscribe({
       next: (data) => {
@@ -157,19 +148,18 @@ export class AccountsComponent implements OnInit {
       }
     });
   }
+
+  //fetching all users approved
   public fetchUserAccounts(): void {
     const apiUrl = 'http://localhost:5000/api/user-accounts'; // Update the API URL as per your backend route
-
     this.http.get<any[]>(apiUrl).subscribe(
       (data) => {
         this.SearchText
         this.userAccounts = data;
-
       },
       (error) => {
         console.error('Error fetching user accounts:', error);
       }
     );
   }
-
 }

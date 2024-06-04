@@ -1,5 +1,5 @@
 
-export const adminData = [
+export const adminData = [//load all admin components
      {
           routeLink: 'dashboard',
           icon: 'fas fa-home',
@@ -24,15 +24,15 @@ export const adminData = [
 
      }
      ,
-     {
-          routeLink: 'subscription',
-          icon: 'far fa-gem',
-          Label: 'Subscription'
+     // {
+     //      routeLink: 'subscription',
+     //      icon: 'far fa-gem',
+     //      Label: 'Subscription'
 
-     }
+     // }
 ]
 
-export const empData = [
+export const empData = [// load all comapny7 componenets
      {
           routeLink: 'emp-dashboard',
           icon: 'fas fa-home',

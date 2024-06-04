@@ -3,14 +3,13 @@
         <li class="li-cat">
             <h1>Accounts:</h1>
         </li>
-        <li class="li-cat" style="margin-left: 30px;"><input matInput placeholder="Search text" type="text" id="search" name="search" [(ngModel)]="SearchText"></li>
-
-        <li class="li-cat1" style="margin-left: 20px; margin-right: 20px;"><button (click)="onCompanyRegister()">Create Company</button></li>
+        <li class="li-cat" style="margin-left: 30px;"><input matInput placeholder="Search text" type="text" id="search"
+                name="search" [(ngModel)]="SearchText"></li>
+        <li class="li-cat1" style="margin-left: 20px; margin-right: 20px;"><button (click)="onCompanyRegister()">Create
+                Company</button></li>
         <li class="li-cat1" style="margin-left: 20px; margin-right: 20px;"><button (click)="toggleTable()">Pending
                 Accounts</button></li>
-
     </ul>
-
 </div>
 
 <div class="head-tble" *ngIf="activTable && userAccounts && userAccounts.length ">
@@ -64,18 +63,12 @@
                 <!-- Your action buttons (if needed) -->
             </td>
         </ng-container>
-
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
 </div>
 
-
-
-
 <!-- temp-user-list.component.html -->
-
-
 <div class="mat-elevation-z8" *ngIf="showTable && tempUsers && tempUsers.length">
     <table mat-table [dataSource]="tempUsers">
         <ng-container matColumnDef="index">
@@ -87,13 +80,11 @@
             <th mat-header-cell *matHeaderCellDef> Company </th>
             <td mat-cell *matCellDef="let tempUser"> {{tempUser.company}} </td>
         </ng-container>
-
         <!-- Contact Column -->
         <ng-container matColumnDef="contact">
             <th mat-header-cell *matHeaderCellDef> Contact </th>
             <td mat-cell *matCellDef="let tempUser"> {{tempUser.contact}} </td>
         </ng-container>
-
         <!-- Email Column -->
         <ng-container matColumnDef="email">
             <th mat-header-cell *matHeaderCellDef> Email </th>
@@ -111,7 +102,6 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Website </th>
             <td mat-cell *matCellDef="let tempUser"> {{ tempUser.companyurl }} </td>
         </ng-container>
-
         <!-- UserRole Column -->
         <ng-container matColumnDef="userRole">
             <th mat-header-cell *matHeaderCellDef> User Role </th>
@@ -126,7 +116,6 @@
                         class="fas fa-user-check"></i>&nbsp;&nbsp; Approve</button>
             </td>
         </ng-container>
-
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
