@@ -7,9 +7,10 @@ import { NgToastService } from 'ng-angular-popup';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SearchUserPipe } from './search-user.pipe'
 import { UserRegisterComponent } from './user-register/user-register.component';
-
+import html2canvas from 'html2canvas';
+import * as XLSX from 'xlsx';
 import { Subscription } from 'rxjs';
-import { response } from 'express';
+import jsPDF from 'jspdf';
 
 
 @Component({
@@ -25,6 +26,7 @@ export class AccountsComponent implements OnInit {
   clickEventSubscription: Subscription;
   showTable: boolean = false;
   activTable: boolean = true;
+  pdfTable:any
 
   constructor(
     private http: HttpClient,
@@ -162,4 +164,31 @@ export class AccountsComponent implements OnInit {
       }
     );
   }
+  public openPDF(): void {
+    let DATA: any = document.getElementById('pdfTable');
+
+    html2canvas(DATA).then((canvas) => {
+      let fileWidth = 208;
+      let fileHeight = (canvas.height * fileWidth) / canvas.width;
+
+      const FILEURI = canvas.toDataURL('image/png');
+      let PDF = new jsPDF('p', 'mm', 'a4');
+      let position = 0;
+      PDF.addImage(FILEURI, 'PNG', 0, position, fileWidth, fileHeight);
+
+      PDF.save('users.pdf');
+    });
+  }
+  filename = 'ExcelSheet.xlsx';
+exportExcel() {
+  const data = document.getElementById('table-data');
+  if (data) {
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(data);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    XLSX.writeFile(wb, this.filename);
+  } else {
+    console.error('Element with ID "table-data" not found.');
+  }
 }
+  }

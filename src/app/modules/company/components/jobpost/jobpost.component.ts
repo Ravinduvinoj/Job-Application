@@ -7,6 +7,7 @@ import { AddPostComponent } from './components/add-post/add-post.component';
 import { Emitter } from '../../../../emitter/emitter';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PostProfileServiceService } from '../../../../services/post-profile/post-profile-service.service';
+import * as XLSX from 'xlsx'
 
 
 @Component({
@@ -101,6 +102,26 @@ export class JobpostComponent implements OnInit {
 
   onAddEdit(data: any) {
 
+  }
+
+  filename = 'allAdvertiesments.xlsx';
+  exportExcel(): void {
+    const data = this.posts.map((post, index) => ({
+      'No': index + 1,
+      'Job Title': post.job_title,
+      'Expiration Date': post.ad_closing_date,
+      'Job Description': post.job_description,
+      'Position Summary': post.position_summary,
+      'Requirement 1': post.requirement1,
+      'Requirement 2': post.requirement2,
+      'Location': `${post.city}, ${post.country}`
+    }));
+
+    const ws: XLSX.WorkSheet = XLSX.utils.json_to_sheet(data);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+
+    XLSX.writeFile(wb, this.filename);
   }
 
   createJob(): void {

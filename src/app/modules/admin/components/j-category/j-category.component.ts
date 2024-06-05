@@ -7,7 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { DeletecategoryComponent } from './components/deletecategory/deletecategory.component';
 import { UpdateCategoryComponent } from './components/update-category/update-category.component';
 import { AddSubCategoryComponent } from './components/add-sub-category/add-sub-category.component';
-import { error } from 'console';
+import * as XLSX from 'xlsx';
 import { UpdateSubCategoryComponent } from './components/update-sub-category/update-sub-category.component';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 
@@ -131,5 +131,18 @@ if(this.mainActivTable){
         console.error('Error fetching main category:', error);
       }
     );
+  }
+
+  filename = 'ExcelSheet.xlsx';
+  exportExcel() {
+    const data = document.getElementById('table-data');
+    if (data) {
+      const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(data);
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+      XLSX.writeFile(wb, this.filename);
+    } else {
+      console.error('Element with ID "table-data" not found.');
+    }
   }
 }

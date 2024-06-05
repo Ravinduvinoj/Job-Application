@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgToastService } from 'ng-angular-popup';
-import { Emitter } from '../../../../emitter/emitter';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-schedule',
@@ -72,6 +72,19 @@ fetchSchedules(): void {
       console.error('Error fetching user info:', error);
     }
   );
+}
+
+filename = 'ExcelSheet.xlsx';
+exportExcel() {
+  const data = document.getElementById('table-data');
+  if (data) {
+    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(data);
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    XLSX.writeFile(wb, this.filename);
+  } else {
+    console.error('Element with ID "table-data" not found.');
+  }
 }
 }
 

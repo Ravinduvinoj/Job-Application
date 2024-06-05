@@ -116,5 +116,32 @@ table td .action-button2:hover {
     background: rgb(17, 145, 12);
     color: #fff;
 }
-
+.hh{
+    margin-top: 30px;
+    float: right;
+    margin-right: 15px;
+    padding: 14px 21px;
+    border-radius: 10px;
+    background: rgb(4, 185, 4);
+    color: white;
+    border: transparent;
+    cursor: pointer;
+}
+.hh:hover{
+    background: green;
+}
+.hh1{
+    margin-top: 30px;
+    float: right;
+    margin-right: 45px;
+    padding: 14px 21px;
+    border-radius: 10px;
+    background: rgb(4, 185, 4);
+    color: white;
+    border: transparent;
+    cursor: pointer;
+}
+.hh1:hover{
+    background: green;
+}
 

@@ -18,8 +18,10 @@
 <div class="div-table">
     <div class="main-table"  *ngIf="mainActivTable">
         <h2>Main Job categories</h2> 
+
 <div class="head-tble">
-    <table mat-table [dataSource]="mainCategory" matSort>
+    <div> <button class="hh1" style="float: right;"  (click)="exportExcel()">Export To Exel</button></div>
+    <table mat-table [dataSource]="mainCategory" matSort  id="table-data">
         <ng-container matColumnDef="index">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> No </th>
             <td  mat-cell *matCellDef="let cat; let i = index" > {{ i + 1 }} </td>
@@ -46,8 +48,9 @@
 </div>
 <div class="sub-table"  *ngIf="subActivTable">
     <h2>Sub Job categories</h2> 
+    <div> <button class="hh1" style="float: right;" (click)="exportExcel()">Export To Exel</button></div>
 <div class="head-tble2" >
-    <table mat-table [dataSource]="subCategory" matSort>
+    <table mat-table [dataSource]="subCategory" matSort  id="table-data">
         <ng-container matColumnDef="index">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> No </th>
             <td mat-cell *matCellDef="let sub; let i = index"> {{ i + 1 }} </td>

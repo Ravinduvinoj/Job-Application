@@ -22,7 +22,7 @@ export class EdituserComponent implements OnInit {
     private _dialogRef: MatDialogRef<EdituserComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
 
-    this.form = this._fb.group({
+    this.form = this._fb.group({//geting user input data
       company: "",
       contact: "",
       email: "",
@@ -46,11 +46,7 @@ export class EdituserComponent implements OnInit {
     this.http.put<any>('http://localhost:5000/api/update-user/' + this.data.email, userUpdateData)
       .subscribe(
         (response) => {
-          this.snackBar.open('User updated successfully', 'Close', {
-            duration: 3000,
-            verticalPosition: 'bottom',
-            horizontalPosition: 'center'
-          });
+          this.snackBar.open('User updated successfully', 'Close', { duration: 3000, verticalPosition: 'bottom', horizontalPosition: 'center' });
           setTimeout(() => {
             window.location.href = '/admin/accounts';
             this._dialogRef.close();
@@ -58,11 +54,7 @@ export class EdituserComponent implements OnInit {
           this._dialogRef.close();
         },
         (error) => {
-          this.snackBar.open('Failed to update user', 'Close', {
-            duration: 3000,
-            verticalPosition: 'bottom',
-            horizontalPosition: 'center'
-          });
+          this.snackBar.open('Failed to update user', 'Close', { duration: 3000, verticalPosition: 'bottom', horizontalPosition: 'center' });
           console.error('Error updating user:', error);
         }
       );

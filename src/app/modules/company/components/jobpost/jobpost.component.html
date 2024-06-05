@@ -6,12 +6,13 @@
       <li class="li-cat"><h1>Post Job:</h1></li>
       <li class="li-cat" style="margin-left: 30px;"><input type="text" id="search" name="search"></li>
       <li class="li-cat" style="margin-left: 15px;"><button>Search</button></li>
+      <li class="li-cat1" style="margin-left: 20px; margin-right: 60px;"><button  (click)="exportExcel()">Export Exel Report </button></li>
       <li class="li-cat1" style="margin-left: 20px; margin-right: 20px;"><button (click)="createJob()">Create Advertisement</button></li>
     </ul>
   </div>
 
   <div class="head-tble1">
-    <ng-container *ngFor="let post of posts; let i = index">
+    <ng-container *ngFor="let post of posts; let i = index" id="table-data">
       <div class="post-item">
         <div class="post-title">
           <ul>
@@ -53,5 +54,7 @@
         </div>
       </div>
     </ng-container>
+   
   </div>
+
 </div>

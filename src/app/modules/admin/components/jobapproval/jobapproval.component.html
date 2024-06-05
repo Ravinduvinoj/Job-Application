@@ -15,6 +15,7 @@
   </div>
 
   <div class="head-tble1">
+    <div id="pdfTable" #pdfTable>
     <ng-container *ngFor="let post of posts; let i = index">
       <div class="post-item">
         <div class="post-title">
@@ -63,5 +64,7 @@
         </div>
       </div>
     </ng-container>
+  </div>
+  <div> <button class="hh" (click)="openPDF()">Export To PDF</button></div>
   </div>
 </div>
