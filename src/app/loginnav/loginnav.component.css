@@ -6,9 +6,11 @@
     border-radius: 5px;
     overflow: hidden;
 }
+
 .dash-ul li {
     float: left;
 }
+
 .dash-ul li a {
     margin-top: 18px;
     display: block;
@@ -18,19 +20,15 @@
     text-decoration: none;
     font-size: 23px;
 }
+
 .dash-list1 {
     float: right;
     margin-right: 20px;
 }
+
 .dash-img {
     margin-left: 50px;
     text-align: center;
     width: 140px;
     padding: 12px 0px;
 }
-
-
-
-
-
-

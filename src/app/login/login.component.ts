@@ -19,9 +19,10 @@ export class LoginComponent implements OnInit {
     private http: HttpClient,
     private router: Router,
     private Toast: NgToastService,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
+    //get form data
     this.form = this.formbuilder.group({
       email: "",
       password: "",
@@ -41,6 +42,7 @@ export class LoginComponent implements OnInit {
 
 
   submit(): void {
+    //getting raw value in the form
     let user = this.form.getRawValue()
     user.email = this.emailFormControl.value; //asign email compenent assigned value
     console.log(user);
@@ -57,6 +59,7 @@ export class LoginComponent implements OnInit {
         withCredentials: true
       }).subscribe(
         (res: any) => {
+          //check role base
           if (res.userRole === "admin") {
             this.router.navigate(['/admin']);
           } else if (res.userRole === "company") {

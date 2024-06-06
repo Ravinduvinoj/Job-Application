@@ -6,5 +6,4 @@ import { Component, Input, input } from '@angular/core';
   styleUrl: './loginnav.component.css'
 })
 export class LoginnavComponent {
-
 }

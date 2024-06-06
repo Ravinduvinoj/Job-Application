@@ -70,7 +70,8 @@ form .user-details .input-box1 {
   margin-bottom: 15px;
 }
 
-.left, .right {
+.left,
+.right {
   width: 48%;
 }
 

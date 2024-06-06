@@ -7,15 +7,15 @@
 
         <div class="row">
             <mat-form-field appearance="outline">
-                
-                    <mat-label>Job category</mat-label>
-                    <mat-select  (selectionChange)="onCategorySelectionChange($event)" >
-                        <mat-option *ngFor="let category of mainCategory;let i = index" [value]="category._id">
-                            {{ i + 1 }}.{{ category.jobcategory }}
-                        </mat-option>
-                      </mat-select>
-                  </mat-form-field>
-    
+
+                <mat-label>Job category</mat-label>
+                <mat-select (selectionChange)="onCategorySelectionChange($event)">
+                    <mat-option *ngFor="let category of mainCategory;let i = index" [value]="category._id">
+                        {{ i + 1 }}.{{ category.jobcategory }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+
             <mat-form-field appearance="outline">
                 <mat-label>Sub category name</mat-label>
                 <input formControlName="SubCategory" matInput type="text">

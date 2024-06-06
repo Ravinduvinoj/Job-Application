@@ -181,7 +181,7 @@ export class AccountsComponent implements OnInit {
     });
   }
 
- // export file
+  // export file
   filename = 'ExcelSheet.xlsx';
   exportExcel() {
     const data = document.getElementById('table-data');

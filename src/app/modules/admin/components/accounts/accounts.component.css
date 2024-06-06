@@ -61,7 +61,8 @@
     border-radius: 4px;
     overflow-x: auto;
 }
-.head-tble{
+
+.head-tble {
     width: 90%;
     margin-left: 150px;
     margin-top: 50px;
@@ -73,7 +74,7 @@ table {
     border: solid 2px rgb(32, 131, 49);
 }
 
- table td {
+table td {
     margin-left: 40px;
     padding: 8px;
     text-align: left;
@@ -82,8 +83,9 @@ table {
 
 table th {
     background: #c4ebc6;
-   margin-left: 20px;
+    margin-left: 20px;
 }
+
 table tr {
     border: solid 3px green;
     border-radius: 5px;
@@ -105,18 +107,22 @@ table td .action-button1 {
     color: white;
     background: rgb(223, 83, 83);
 }
-table td .action-button2{
+
+table td .action-button2 {
     background: rgb(125, 209, 125);
     margin-left: 20px;
 }
+
 table td .action-button1:hover {
     background: red;
 }
+
 table td .action-button2:hover {
     background: rgb(17, 145, 12);
     color: #fff;
 }
-.hh{
+
+.hh {
     margin-top: 30px;
     float: right;
     margin-right: 15px;
@@ -127,10 +133,12 @@ table td .action-button2:hover {
     border: transparent;
     cursor: pointer;
 }
-.hh:hover{
+
+.hh:hover {
     background: green;
 }
-.hh1{
+
+.hh1 {
     margin-top: 30px;
     float: right;
     margin-right: 45px;
@@ -141,7 +149,7 @@ table td .action-button2:hover {
     border: transparent;
     cursor: pointer;
 }
-.hh1:hover{
+
+.hh1:hover {
     background: green;
 }
-

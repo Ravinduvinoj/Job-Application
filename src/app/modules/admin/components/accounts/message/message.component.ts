@@ -10,7 +10,7 @@ export class MessageComponent {
   constructor(
     public dialogRef: MatDialogRef<MessageComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
-  ) {}
+  ) { }
 
   onNoClick(): void {
     this.dialogRef.close(false);

@@ -1,72 +1,72 @@
-.dash-b{
-    margin-left: 150px;
+.dash-b {
+  margin-left: 150px;
 }
-.main-path{
-    margin-left: 160px;
-    background: none;
+
+.main-path {
+  margin-left: 160px;
+  background: none;
 }
 
 
-   .dashboard-cards {
-    display: flex;
-    width: 95%;
-    justify-content: space-around;
-    padding: 50px;
-    background: #68e05849;
-    border-radius: 15px;
-  }
-  
-  .dashboard-card {
-    width: 280px;
-    height: 200px;
-    border-radius: 20px;
-    padding: 20px;
-    color: #4a4a4a;
-    background: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    transition: transform 0.3s ease;
-  }
-  
-  .dashboard-card:hover {
-    transform: translateY(-20px);
-  }
-  
-  .icon {
-    font-size: 50px;
-  }
-  
-  .dashboard-card p {
-    margin: 0;
-    font-size: 14px;
-    text-align: center;
-  }
-  
-  .dashboard-card span {
-    font-size: 40px;
-    font-weight: bold;
-  }
-  
-  .card1 {
-    background-color: #e0f7fa;
-    border-top: 15px solid #00bcd4;
-  }
-  
-  .card2 {
-    background-color: #fff3e0;
-    border-top: 15px solid #ff9800;
-  }
-  
-  .card3 {
-    background-color: #e8f5e9;
-    border-top: 15px solid #4caf50;
-  }
-  
-  .card4 {
-    background-color: #e3f2fd;
-    border-top: 15px solid #2196f3;
-  }
-  
+.dashboard-cards {
+  display: flex;
+  width: 95%;
+  justify-content: space-around;
+  padding: 50px;
+  background: #68e05849;
+  border-radius: 15px;
+}
+
+.dashboard-card {
+  width: 280px;
+  height: 200px;
+  border-radius: 20px;
+  padding: 20px;
+  color: #4a4a4a;
+  background: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-20px);
+}
+
+.icon {
+  font-size: 50px;
+}
+
+.dashboard-card p {
+  margin: 0;
+  font-size: 14px;
+  text-align: center;
+}
+
+.dashboard-card span {
+  font-size: 40px;
+  font-weight: bold;
+}
+
+.card1 {
+  background-color: #e0f7fa;
+  border-top: 15px solid #00bcd4;
+}
+
+.card2 {
+  background-color: #fff3e0;
+  border-top: 15px solid #ff9800;
+}
+
+.card3 {
+  background-color: #e8f5e9;
+  border-top: 15px solid #4caf50;
+}
+
+.card4 {
+  background-color: #e3f2fd;
+  border-top: 15px solid #2196f3;
+}

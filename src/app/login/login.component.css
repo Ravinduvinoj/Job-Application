@@ -12,14 +12,17 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* Ensures the video is behind the content */
-  object-fit: cover; /* Ensures the video covers the entire viewport */
+  z-index: -1;
+  /* Ensures the video is behind the content */
+  object-fit: cover;
+  /* Ensures the video covers the entire viewport */
 }
 
 /* Container for the overlay content */
 .bacimg {
   position: relative;
-  height: 100vh; /* Full height */
+  height: 100vh;
+  /* Full height */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -30,7 +33,8 @@ body {
 
 /* Container for the form */
 .reg-form {
-  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  background: rgba(0, 0, 0, 0.7);
+  /* Semi-transparent background */
   padding: 40px;
   border-radius: 10px;
   color: white;

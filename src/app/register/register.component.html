@@ -1,81 +1,84 @@
 <app-loginnav></app-loginnav>
 <video autoplay muted loop id="myVideo">
-  <source src="../../assets/videos/3205624-hd_1920_1080_25fps.mp4" type="video/mp4">
-  Your browser does not support HTML5 video.
+    <source src="../../assets/videos/3205624-hd_1920_1080_25fps.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
 </video>
-<div class="bacimg" >
-  <div class="loginf">
-    <div class="reg-form">
-      <div class="container-new">
-        <div class="title">Company Registration</div>
-        <div class="content">
-          <form [formGroup]="form" (submit)="submit()">
-            <div class="user-details">
-              <div class="input-box1 left">
-                <mat-form-field class="reg-form-field">
-                  <mat-label>Company</mat-label>
-                  <input formControlName="company" matInput type="text">
-                </mat-form-field>
-              </div>
-              <div class="input-box1 right">
-                <mat-form-field class="reg-form-field">
-                  <mat-label>Email</mat-label>
-                  <input type="email" matInput [formControl]="emailFormControl" placeholder="Ex. pat@example.com">
-                  <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-                    Please enter a valid email address
-                  </mat-error>
-                  <mat-error *ngIf="emailFormControl.hasError('required')">
-                    Email is <strong>required</strong>
-                  </mat-error>
-                </mat-form-field>
-              </div>
-              <div class="input-box1 left">
-                <mat-form-field class="reg-form-field">
-                  <mat-label>Password</mat-label>
-                  <input formControlName="password" matInput type="password">
-                </mat-form-field>
-              </div>
-              <div class="input-box1 right">
-                <mat-form-field class="reg-form-field">
-                  <mat-label>Contact</mat-label>
-                  <span matTextPrefix>+94 &nbsp;</span>
-                  <input formControlName="contact" type="tel" matInput placeholder="XXX XXX XXXX">
-                </mat-form-field>
-              </div>
-              <div class="input-box1 left">
-                <mat-form-field class="reg-form-field">
-                  <mat-label>Confirm password</mat-label>
-                  <input formControlName="con_password" matInput type="password">
-                </mat-form-field>
-              </div>
-              <div class="input-box1 right">
-                <mat-form-field class="reg-form-field">
-                  <mat-label>City</mat-label>
-                  <input formControlName="city" matInput type="text">
-                </mat-form-field>
-              </div>
-              <div class="input-box1 left">
-                <mat-form-field class="reg-form-field">
-                  <mat-label>Address</mat-label>
-                  <textarea matInput placeholder="" formControlName="address"></textarea>
-                </mat-form-field>
-              </div>
-              <div class="input-box1 right">
-                <mat-form-field class="reg-form-field">
-                  <mat-label>Company Website</mat-label>
-                  <textarea type="url" matInput placeholder="Enter company website URL" formControlName="companyurl"></textarea>
-                </mat-form-field>
-              </div>
+<div class="bacimg">
+    <div class="loginf">
+        <div class="reg-form">
+            <div class="container-new">
+                <div class="title">Company Registration</div>
+                <div class="content">
+                    <form [formGroup]="form" (submit)="submit()">
+                        <div class="user-details">
+                            <div class="input-box1 left">
+                                <mat-form-field class="reg-form-field">
+                                    <mat-label>Company</mat-label>
+                                    <input formControlName="company" matInput type="text">
+                                </mat-form-field>
+                            </div>
+                            <div class="input-box1 right">
+                                <mat-form-field class="reg-form-field">
+                                    <mat-label>Email</mat-label>
+                                    <input type="email" matInput [formControl]="emailFormControl"
+                                        placeholder="Ex. pat@example.com">
+                                    <mat-error
+                                        *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+                                        Please enter a valid email address
+                                    </mat-error>
+                                    <mat-error *ngIf="emailFormControl.hasError('required')">
+                                        Email is <strong>required</strong>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="input-box1 left">
+                                <mat-form-field class="reg-form-field">
+                                    <mat-label>Password</mat-label>
+                                    <input formControlName="password" matInput type="password">
+                                </mat-form-field>
+                            </div>
+                            <div class="input-box1 right">
+                                <mat-form-field class="reg-form-field">
+                                    <mat-label>Contact</mat-label>
+                                    <span matTextPrefix>+94 &nbsp;</span>
+                                    <input formControlName="contact" type="tel" matInput placeholder="XXX XXX XXXX">
+                                </mat-form-field>
+                            </div>
+                            <div class="input-box1 left">
+                                <mat-form-field class="reg-form-field">
+                                    <mat-label>Confirm password</mat-label>
+                                    <input formControlName="con_password" matInput type="password">
+                                </mat-form-field>
+                            </div>
+                            <div class="input-box1 right">
+                                <mat-form-field class="reg-form-field">
+                                    <mat-label>City</mat-label>
+                                    <input formControlName="city" matInput type="text">
+                                </mat-form-field>
+                            </div>
+                            <div class="input-box1 left">
+                                <mat-form-field class="reg-form-field">
+                                    <mat-label>Address</mat-label>
+                                    <textarea matInput placeholder="" formControlName="address"></textarea>
+                                </mat-form-field>
+                            </div>
+                            <div class="input-box1 right">
+                                <mat-form-field class="reg-form-field">
+                                    <mat-label>Company Website</mat-label>
+                                    <textarea type="url" matInput placeholder="Enter company website URL"
+                                        formControlName="companyurl"></textarea>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="btnon">
+                            <input type="submit" value="Register">
+                        </div>
+                        <div>
+                            You have already an account <a class="reg-now" routerLink="/login">Login now</a>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div class="btnon">
-              <input type="submit" value="Register">
-            </div>
-            <div>
-              You have already an account <a class="reg-now" routerLink="/login">Login now</a>
-            </div>
-          </form>
         </div>
-      </div>
     </div>
-  </div>
 </div>

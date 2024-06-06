@@ -17,7 +17,7 @@ export class BotComponent {
   ) { }
 
   ngOnInit() {
-    this.chatService.loadChatData().subscribe(() => {
+    this.chatService.loadChatData().subscribe(() => {//loading from jason
       this.isDataLoaded = true;
     });
 
@@ -26,6 +26,7 @@ export class BotComponent {
   onMessageclose(){
 this.dialog.closeAll()
   }
+  //response
   sendMessage() {
     if (this.userInput.trim() !== '' && this.isDataLoaded) {
       this.messages.push({ text: this.userInput, user: true });

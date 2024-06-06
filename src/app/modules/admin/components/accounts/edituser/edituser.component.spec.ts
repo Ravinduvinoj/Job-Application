@@ -10,8 +10,8 @@ describe('EdituserComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [EdituserComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(EdituserComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -10,25 +10,18 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
 
-
-
-
   constructor(public dialog: MatDialog,
     private router: Router
   ) { }
 
 
-
   onLogin() {
     this.router.navigate(['/login']); // Navigate to login page
   }
-
   onRegister() {
     this.router.navigate(['/register']); // Navigate to register page
   }
-
-  onSendMessage() {
+  onSendMessage() {//bot
     this.dialog.open(BotComponent)
-
   }
 }
