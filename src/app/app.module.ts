@@ -60,6 +60,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import { MatNativeDateModule } from '@angular/material/core';
 import { RejectDialogComponent } from './modules/company/components/joblistnings/components/reject-dialog/reject-dialog.component';
 import { ProfileComponent } from './modules/navbar/components/profile/profile.component';
+import { BotComponent } from './bot/bot.component';
 
 @NgModule({
   declarations: [
@@ -103,6 +104,7 @@ import { ProfileComponent } from './modules/navbar/components/profile/profile.co
     ApprovalComponent,
     RejectDialogComponent,
     ProfileComponent,
+    BotComponent,
 
   ],
   imports: [

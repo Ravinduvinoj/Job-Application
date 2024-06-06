@@ -1,0 +1,243 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi",
+                "Hello",
+                "Hey",
+                "Good morning",
+                "Good afternoon",
+                "Good evening",
+                "Hi there",
+                "Hello there"
+            ],
+            "responses": [
+                "Hello! How can I assist you with your job search today?",
+                "Hi there! How can I help you find your dream job?",
+                "Hey! Looking for a new job opportunity?",
+                "Good day! How can I support your job hunt?",
+                "Hello! How can I help you today?",
+                "Hi! What can I do for you regarding our job portal?",
+                "Hey there! Need help with job applications?",
+                "Hello! What job are you looking for today?"
+            ]
+        },
+        {
+            "tag": "farewell",
+            "patterns": [
+                "Bye",
+                "Goodbye",
+                "See you later",
+                "Take care",
+                "Farewell",
+                "Catch you later",
+                "Talk to you later"
+            ],
+            "responses": [
+                "Goodbye! Have a great day!",
+                "See you later! Let us know if you need any more job search help!",
+                "Bye! Don't hesitate to ask if you need more information.",
+                "Take care! Come back soon for more job opportunities!",
+                "Farewell! Have a wonderful day!",
+                "Catch you later! We're here if you need more assistance.",
+                "Talk to you later! Feel free to reach out anytime."
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": [
+                "Thank you",
+                "Thanks",
+                "I appreciate it",
+                "Thank you so much",
+                "Thanks a lot",
+                "Many thanks",
+                "Thank you very much"
+            ],
+            "responses": [
+                "You're welcome!",
+                "No problem! Happy to help with your job search.",
+                "You're welcome! Is there anything else you need?",
+                "Glad to assist! Let me know if you have more questions.",
+                "You're welcome! Anytime you need help, I'm here.",
+                "No worries! I'm here to help.",
+                "You're welcome! Do you need help with anything else?"
+            ]
+        },
+        {
+            "tag": "company_registration",
+            "patterns": [
+                "How do I register my company?",
+                "Can I register my company on this portal?",
+                "Company registration process",
+                "How to sign up as a company?",
+                "Registering my company",
+                "Company sign up"
+            ],
+            "responses": [
+                "To register your company, go to the registration page and fill out the necessary details. Once submitted, your registration will be reviewed and approved by the admin.",
+                "You can register your company by clicking on 'Register' and selecting 'Company Registration'. Fill out the form with your company details and submit for approval.",
+                "Visit the registration page, select 'Company', and provide the required information. Your registration will be processed and approved by the admin.",
+                "To sign up as a company, navigate to the registration section, choose 'Company', and enter your details. The admin will approve your registration shortly.",
+                "Registering your company is easy. Go to the 'Register' page, select 'Company', fill in the details, and submit. The admin will review and approve your registration."
+            ]
+        },
+        {
+            "tag": "company_login",
+            "patterns": [
+                "How do I log in as a company?",
+                "Company login",
+                "Log in to my company account",
+                "Access company dashboard",
+                "Company account login"
+            ],
+            "responses": [
+                "To log in as a company, go to the login page and enter your company credentials.",
+                "You can access your company account by clicking on 'Login' and entering your company username and password.",
+                "Log in to your company account through the 'Login' page using your registered email and password.",
+                "To access the company dashboard, visit the login page and enter your company login details.",
+                "Enter your company credentials on the login page to access your company account."
+            ]
+        },
+        {
+            "tag": "post_job",
+            "patterns": [
+                "How do I post a job?",
+                "Can I post a job listing?",
+                "I want to add a job",
+                "Job posting process",
+                "Adding a job listing"
+            ],
+            "responses": [
+                "To post a job, go to the 'Employer Dashboard' and click 'Post a Job'. Fill in the job details and submit.",
+                "You can add a job listing by visiting the 'Employer' section and selecting 'Post a Job'. Complete the form and publish your job listing.",
+                "Go to 'Post a Job' in the employer dashboard, enter the job information, and submit your listing.",
+                "To post a job, log in to your employer account, navigate to 'Post Job', fill out the required fields, and submit.",
+                "Visit the 'Employer Dashboard', click 'Add Job', provide the job details, and post your listing."
+            ]
+        },
+        {
+            "tag": "manage_applications",
+            "patterns": [
+                "How do I manage job applications?",
+                "Viewing job applications",
+                "Manage applications",
+                "Check job applications",
+                "Reviewing job applications"
+            ],
+            "responses": [
+                "To manage job applications, go to the 'Employer Dashboard' and click on 'Manage Applications'. You can view and review all applications received.",
+                "You can view and manage job applications by navigating to 'Manage Applications' in the employer section.",
+                "To check job applications, visit the 'Employer Dashboard' and select 'Applications'. Review and manage the applications received.",
+                "Log in to your employer account, go to 'Applications', and you can view, review, and manage all job applications.",
+                "Visit the 'Manage Applications' section in the employer dashboard to review and manage applications for your job listings."
+            ]
+        },
+        {
+            "tag": "schedule_interview",
+            "patterns": [
+                "How do I schedule an interview?",
+                "Scheduling an interview",
+                "Can I schedule an interview?",
+                "Interview scheduling process",
+                "Set up an interview"
+            ],
+            "responses": [
+                "To schedule an interview, go to the 'Manage Applications' section, select an application, and click 'Schedule Interview'. Enter the date, time, and location, and send the invitation.",
+                "You can schedule an interview by selecting a job application in the 'Applications' section and clicking 'Schedule Interview'. Fill in the interview details and send the invite.",
+                "Go to the 'Manage Applications' page, choose an applicant, and click 'Schedule Interview'. Enter the interview details and send the invitation.",
+                "To set up an interview, navigate to the 'Applications' section, select an applicant, and click 'Schedule Interview'. Provide the interview details and send the invite.",
+                "Log in to your employer account, go to 'Manage Applications', select an application, and click 'Schedule Interview'. Enter the necessary details and send the interview invitation."
+            ]
+        },
+        {
+            "tag": "view_applications",
+            "patterns": [
+                "How do I view job applications?",
+                "Viewing applications",
+                "Check job applications",
+                "View received applications",
+                "See job applications"
+            ],
+            "responses": [
+                "To view job applications, go to the 'Employer Dashboard' and click on 'Manage Applications'. You can see all the applications received.",
+                "You can view job applications by navigating to the 'Applications' section in the employer dashboard.",
+                "To check job applications, visit the 'Employer Dashboard' and select 'Manage Applications'. Review the received applications there.",
+                "Log in to your employer account, go to 'Applications', and you can view all job applications received for your listings.",
+                "Visit the 'Manage Applications' section in the employer dashboard to view and review applications for your job listings."
+            ]
+        },
+        {
+            "tag": "profile_management",
+            "patterns": [
+                "How do I update my profile?",
+                "Can I edit my profile information?",
+                "Updating my account details",
+                "Edit profile",
+                "Profile update"
+            ],
+            "responses": [
+                "To update your profile, go to the 'My Profile' section and click 'Edit'.",
+                "You can edit your profile information by navigating to 'Account Settings' and selecting 'Edit Profile'.",
+                "Update your account details in the 'Profile' section under settings.",
+                "Go to 'My Profile' and click 'Edit' to update your information.",
+                "For profile updates, visit the 'Account Settings' and choose 'Edit Profile'."
+            ]
+        },
+        {
+            "tag": "subscription_info",
+            "patterns": [
+                "Tell me about subscription plans",
+                "What are the subscription options?",
+                "Do you have subscription plans?",
+                "Subscription details",
+                "Membership plans"
+            ],
+            "responses": [
+                "We offer various subscription plans including monthly, and yearly options.",
+                "Yes, we have subscription plans. You can choose between monthly, and annual memberships.",
+                "Our subscription options include monthly, and yearly plans with different benefits.",
+                "Subscription plans are available on a monthly, and yearly basis. Each plan comes with specific features.",
+                "We provide different membership plans: monthly, and yearly. Each plan has its own benefits."
+            ]
+        },
+        {
+            "tag": "generate_reports",
+            "patterns": [
+                "How do I generate a report?",
+                "Generating reports",
+                "Can I create a report?",
+                "Report generation process",
+                "Create a report"
+            ],
+            "responses": [
+                "To generate a report, go to the 'Reports' section in the employer dashboard, select the type of report you need, and click 'Generate'.",
+                "You can create a report by visiting the 'Reports' section, selecting the desired report type, and clicking 'Generate'.",
+                "To generate a report, navigate to the 'Reports' section in your employer dashboard and choose the report you want to create.",
+                "Go to the 'Reports' section, select the type of report, and click 'Generate' to create a new report.",
+                "Log in to your employer account, visit the 'Reports' section, and generate the required report by following the prompts."
+            ]
+        },
+        {
+            "tag": "job_search",
+            "patterns": [
+                "Find me a job",
+                "Show me jobs",
+                "I am looking for a job",
+                "Can you help me find a job?",
+                "What job opportunities do you have?",
+                "I need a job",
+                "Job search",
+                "Looking for jobs"
+            ],
+            "responses": [
+                "Sure, what type of job are you looking for?",
+                "What industry or position are you interested in?",
+                "Can you specify the job title or field you are interested in?",
+                "I can help with that! What kind of job are you searching for?",
+                "Let's find a job for you. What are your preferences?"
+            ]
+        }
+    ]
+}

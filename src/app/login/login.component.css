@@ -1,232 +1,95 @@
-@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap");
-.reg-form {
-    display: flex;
-    justify-content: center;
-    margin-top: 200px;
-
-    .container-new {
-        max-width: 500px;
-        width: 100%;
-        background-color: #d0ebdae0;
-        padding: 25px 30px;
-        border-radius: 10px;
-        box-shadow: 0 5px 10px rgba(103, 153, 102, 0.15);
-    }
-    .container-new .title {
-        font-size: 25px;
-        font-weight: 500;
-        position: relative;
-    }
-    .btnon  {
-        margin-left: 160px;
-        margin-bottom: 15px;
-    }
-    .btnon input{
-        padding: 10px 40px;
-        border-radius: 5px;
-        cursor: pointer;
-        border: 1px solid #ccc;
-        background-color: rgb(32, 131, 49);
-        color: #fff;
-    }
-    .reg-now {
-        /* text-decoration: none; */
-        /* color: green; */
-        font-weight: 500;
-    }
-    .container-new .title::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        height: 3px;
-        width: 30px;
-        border-radius: 15px;
-    }
-
-    .content form .user-details {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        margin: 20px 0 12px 0;
-    }
-
-    form .user-details .input-box1 {
-        margin-bottom: 15px;
-        width: calc(100% - 20px);
-    }
-
-    form .input-box1 span.details {
-        display: block;
-        font-weight: 500;
-        margin-bottom: 5px;
-    }
-
-    .user-details .input-box1 input {
-        height: 45px;
-        width: 100%;
-        outline: none;
-
-        font-size: 16px;
-        border-radius: 10px;
-        padding-left: 15px;
-    
-        border-bottom-width: 2px;
-        transition: all 0.4s ease;
-    }
-}
-.reg-full-width {
-    margin-left: 20px;
-    width: 400px;
-  }
-  .reg-form-field {
-    margin-left: 20px;
-    width: 400px;
-  }
-  #myVideo {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    min-width: 100%;
-    min-height: 100%;
-}
-.bacimg{
-    background: transparent;
-    width: 100%;
-    height: 100%;
+/* General styling for the body */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
-
-
- 
-.parent {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: #111;
+/* Styling for the video background */
+#myVideo {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  overflow: hidden;
-}
-.ring {
-  position: relative;
-  width: 550px;
-  height: 550px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.ring i {
-  position: absolute;
-  inset: 0;
-  border: 1px solid #fff;
-  transition: 0.5s;
-}
-.ring i:nth-child(1) {
-  border-radius: 30% 90% 30% 90% /30% 90% 30% 90%;
-  animation: animate 24s linear infinite;
-}
-.ring i:nth-child(2) {
-  border-radius: 30% 90% 30% 90% /30% 90% 30% 90%;
-  animation: animate 26s linear infinite;
-}
-.ring i:nth-child(3) {
-  border-radius: 30% 90% 30% 90% /30% 90% 30% 90%;
-  animation: animate2 28s linear infinite;
-}
-.ring i:nth-child(4) {
-    border-radius: 30% 90% 30% 90% /30% 90% 30% 90%;
-    animation: animate 5s linear infinite;
-  }
-  .ring i:nth-child(5) {
-    border-radius: 30% 90% 30% 90% /30% 90% 30% 90%;
-    animation: animate 6s linear infinite;
-  }
-  .ring i:nth-child(6) {
-    border-radius: 30% 90% 30% 90% /30% 90% 30% 90%;
-    animation: animate2 8s linear infinite;
-  }
-  .ring i:nth-child(7) {
-    border-radius: 30% 90% 30% 90% /30% 90% 30% 90%;
-    animation: animate 10s linear infinite;
-  }
-  .ring i:nth-child(8) {
-    border-radius:30% 90% 30% 90% /30% 90% 30% 90%;
-    animation: animate 12s linear infinite;
-  }
-  .ring i:nth-child(9) {
-    border-radius: 30% 90% 30% 90% /30% 90% 30% 90%;
-    animation: animate2 14s linear infinite;
-  }
-.ring:hover i {
-  border: 2px solid var(--clr);
-  filter: drop-shadow(0 0 20px var(--clr));
-}
-@keyframes animate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes animate2 {
-  0% {
-    transform: rotate(360deg);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-.login {
-  position: absolute;
-  width: 300px;
   height: 100%;
+  z-index: -1; /* Ensures the video is behind the content */
+  object-fit: cover; /* Ensures the video covers the entire viewport */
+}
+
+/* Container for the overlay content */
+.bacimg {
+  position: relative;
+  height: 100vh; /* Full height */
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  gap: 20px;
+  /* background-image: url('../../assets/img/13416124_5228748.jpg'); */
+  background-size: cover;
+  background-position: center;
 }
-.login h2 {
+
+/* Container for the form */
+.reg-form {
+  background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  padding: 40px;
+  border-radius: 10px;
+  color: white;
+  max-width: 500px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Title styling */
+.title {
   font-size: 2em;
-  color: #fff;
+  margin-bottom: 20px;
+  text-align: center;
 }
-.login .inputBx {
-  position: relative;
-  width: 100%;
-}
-.login .inputBx input {
-  position: relative;
-  width: 100%;
-  padding: 12px 20px;
-  background: transparent;
-  border: 2px solid #fff;
-  border-radius: 40px;
-  font-size: 1.2em;
-  color: #fff;
-  box-shadow: none;
-  outline: none;
-}
-.login .inputBx input[type="submit"] {
-  width: 100%;
-  background: #0078ff;
-  background: linear-gradient(45deg, #ff357a, #fff172);
-  border: none;
-  cursor: pointer;
-}
-.login .inputBx input::placeholder {
-  color: rgba(255, 255, 255, 0.75);
-}
-.login .links {
-  position: relative;
-  width: 100%;
+
+/* Form content styling */
+.content {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
+  flex-direction: column;
 }
-.login .links a {
-  color: #fff;
+
+/* Input box styling */
+.input-box1 {
+  margin-bottom: 20px;
+}
+
+/* Mat form field full width */
+.reg-full-width {
+  width: 100%;
+}
+
+/* Button styling */
+.btnon input[type="submit"] {
+  width: 100%;
+  padding: 15px;
+  border-radius: 5px;
+  border: none;
+  background-color: #007bff;
+  color: white;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btnon input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Register link styling */
+.register-link {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.register-link a {
+  color: #007bff;
   text-decoration: none;
+}
+
+.register-link a:hover {
+  text-decoration: underline;
 }

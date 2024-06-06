@@ -26,7 +26,7 @@ export class AccountsComponent implements OnInit {
   clickEventSubscription: Subscription;
   showTable: boolean = false;
   activTable: boolean = true;
-  pdfTable:any
+  pdfTable: any
 
   constructor(
     private http: HttpClient,
@@ -164,6 +164,7 @@ export class AccountsComponent implements OnInit {
       }
     );
   }
+  //export pdf
   public openPDF(): void {
     let DATA: any = document.getElementById('pdfTable');
 
@@ -179,16 +180,18 @@ export class AccountsComponent implements OnInit {
       PDF.save('users.pdf');
     });
   }
+
+ // export file
   filename = 'ExcelSheet.xlsx';
-exportExcel() {
-  const data = document.getElementById('table-data');
-  if (data) {
-    const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(data);
-    const wb: XLSX.WorkBook = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
-    XLSX.writeFile(wb, this.filename);
-  } else {
-    console.error('Element with ID "table-data" not found.');
+  exportExcel() {
+    const data = document.getElementById('table-data');
+    if (data) {
+      const ws: XLSX.WorkSheet = XLSX.utils.table_to_sheet(data);
+      const wb: XLSX.WorkBook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+      XLSX.writeFile(wb, this.filename);
+    } else {
+      console.error('Element with ID "table-data" not found.');
+    }
   }
 }
-  }

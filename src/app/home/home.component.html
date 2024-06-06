@@ -1,11 +1,41 @@
 <app-loginnav></app-loginnav>
-<div><!--load a video from asstes-->
+<div class="new">
+    <!-- Background video -->
     <video autoplay muted loop id="myVideo">
-        <source src="../../assets/videos/6037550_Office_Interior_Person_1920x1080.mp4" type="video/mp4">
+        <source src="../../assets/videos/3205624-hd_1920_1080_25fps.mp4" type="video/mp4">
         Your browser does not support HTML5 video.
     </video>
+    
+    <!-- Overlay content -->
+    <div class="content">
+        <h1>Welcome to Green Jobs</h1>
+        <p>Your partner in finding the best talent. Here’s what we offer:</p>
+        
+        <div class="services">
+            <div class="service">
+                <h2>Post Advertisements</h2>
+                <p>Reach the right candidates by posting job advertisements on our platform. Our extensive network ensures your openings get the visibility they deserve.</p>
+            </div>
+            <div class="service">
+                <h2>Call for Applications</h2>
+                <p>Streamline your hiring process with our call for applications feature. Easily manage and track applications from a single, user-friendly interface.</p>
+            </div>
+            <div class="service">
+                <h2>Schedule Interviews</h2>
+                <p>Effortlessly schedule and manage interviews with our integrated scheduling tool. Coordinate with candidates and your team without the hassle.</p>
+            </div>
+        </div>
 
-  
-
+        <!-- Login and Register buttons -->
+        <div class="btn-group">
+            <button (click)="onLogin()">Login</button>
+            <button (click)="onRegister()">Register</button>
+        </div>
+    </div>
+    
+    <!-- Chat button -->
+    <div class="btn-service">
+        <button (click)="onSendMessage()">Chat</button>
+    </div>
 </div>
 
