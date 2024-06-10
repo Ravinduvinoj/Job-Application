@@ -14,9 +14,9 @@ import { ListningsService } from '../../../../services/listnings/listnings.servi
   styleUrl: './joblistnings.component.css'
 })
 export class JoblistningsComponent implements OnInit {
-onAddEdit(_t14: any) {
+  onAddEdit(_t14: any) {
 
-}
+  }
 
 
   onShow: boolean = true;
@@ -24,7 +24,7 @@ onAddEdit(_t14: any) {
   authenticated: boolean;
   loginID: string;
   constructor(
-    private jobapp:ListningsService,
+    private jobapp: ListningsService,
     private router: Router,
     private activatedRoute: ActivatedRoute,
     private http: HttpClient,
