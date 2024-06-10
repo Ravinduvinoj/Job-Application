@@ -14,7 +14,7 @@ export class DashboardService {
 
   apiurlc1 = "http://localhost:5000/api/post/showcount";
   apiurlc2 = "http://localhost:5000/api/appCountApproval";
-  apiurlc3 = "http://localhost:5000/api/appCount";
+  apiurlc3 = "http://localhost:5000/api/TotalappCount";
   constructor(private http: HttpClient) { }
 //this shows admin
   getAllCompanies(): Observable<any> {
@@ -36,5 +36,8 @@ export class DashboardService {
 }
 getlisting(data:any): Observable<any> {
   return this.http.get<any>(`${this.apiurlc2}/${data}`);
+}
+getapplications(data:any): Observable<any> {
+  return this.http.get<any>(`${this.apiurlc3}/${data}`);
 }
 }
