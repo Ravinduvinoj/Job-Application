@@ -29,7 +29,7 @@
        
         <ng-container matColumnDef="category">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Category Name </th>
-            <td mat-cell *matCellDef="let cat" > {{ cat.jobcategory }} </td>
+            <td mat-cell *matCellDef="let cat" > {{ cat?.jobcategory }} </td>
         </ng-container>
 
         <!-- Column definitions for action buttons (if needed) -->
@@ -58,11 +58,11 @@
        
         <ng-container matColumnDef="category">
             <th mat-header-cell *matHeaderCellDef mat-sort-header> Category Name </th>
-            <td mat-cell *matCellDef="let sub"> {{ sub.JobCategory.jobcategory }} </td>
+            <td mat-cell *matCellDef="let sub"> {{ sub?.JobCategory?.jobcategory }} </td>
         </ng-container>
         <ng-container matColumnDef="Subcategory">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>  sub Category Name </th>
-            <td mat-cell *matCellDef="let sub "> {{ sub.jobsubcategory }} </td>
+            <td mat-cell *matCellDef="let sub "> {{ sub?.jobsubcategory }} </td>
         </ng-container>
 
         <!-- Column definitions for action buttons (if needed) -->
