@@ -24,37 +24,37 @@
             <!-- Company Column -->
             <ng-container matColumnDef="company">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Company </th>
-                <td mat-cell *matCellDef="let user"> {{ user.company }} </td>
+                <td mat-cell *matCellDef="let user"> {{ user?.company }} </td>
             </ng-container>
 
             <!-- Contact Column -->
             <ng-container matColumnDef="contact">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Contact </th>
-                <td mat-cell *matCellDef="let user"> {{ user.contact }} </td>
+                <td mat-cell *matCellDef="let user"> {{ user?.contact }} </td>
             </ng-container>
 
             <!-- Email Column -->
             <ng-container matColumnDef="email">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
-                <td mat-cell *matCellDef="let user"> {{ user.email }} </td>
+                <td mat-cell *matCellDef="let user"> {{ user?.email }} </td>
             </ng-container>
             <ng-container matColumnDef="city">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
-                <td mat-cell *matCellDef="let user"> {{ user.city }} </td>
+                <td mat-cell *matCellDef="let user"> {{ user?.city }} </td>
             </ng-container>
             <ng-container matColumnDef="address">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
-                <td mat-cell *matCellDef="let user"> {{ user.address }} </td>
+                <td mat-cell *matCellDef="let user"> {{ user?.address }} </td>
             </ng-container>
             <ng-container matColumnDef="companyurl">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Website </th>
-                <td mat-cell *matCellDef="let user"> {{ user.companyurl }} </td>
+                <td mat-cell *matCellDef="let user"> {{ user?.companyurl }} </td>
             </ng-container>
 
             <!-- UserRole Column -->
             <ng-container matColumnDef="userRole">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> User Role </th>
-                <td mat-cell *matCellDef="let user"> {{ user.userRole }} </td>
+                <td mat-cell *matCellDef="let user"> {{ user?.userRole }} </td>
             </ng-container>
 
             <!-- Column definitions for action buttons (if needed) -->
@@ -87,34 +87,34 @@
             <!-- Company Column -->
             <ng-container matColumnDef="company">
                 <th mat-header-cell *matHeaderCellDef> Company </th>
-                <td mat-cell *matCellDef="let tempUser"> {{tempUser.company}} </td>
+                <td mat-cell *matCellDef="let tempUser"> {{tempUser?.company}} </td>
             </ng-container>
             <!-- Contact Column -->
             <ng-container matColumnDef="contact">
                 <th mat-header-cell *matHeaderCellDef> Contact </th>
-                <td mat-cell *matCellDef="let tempUser"> {{tempUser.contact}} </td>
+                <td mat-cell *matCellDef="let tempUser"> {{tempUser?.contact}} </td>
             </ng-container>
             <!-- Email Column -->
             <ng-container matColumnDef="email">
                 <th mat-header-cell *matHeaderCellDef> Email </th>
-                <td mat-cell *matCellDef="let tempUser"> {{tempUser.email}} </td>
+                <td mat-cell *matCellDef="let tempUser"> {{tempUser?.email}} </td>
             </ng-container>
             <ng-container matColumnDef="city">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
-                <td mat-cell *matCellDef="let tempUser"> {{ tempUser.city }} </td>
+                <td mat-cell *matCellDef="let tempUser"> {{ tempUser?.city }} </td>
             </ng-container>
             <ng-container matColumnDef="address">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Address </th>
-                <td mat-cell *matCellDef="let tempUser"> {{ tempUser.address }} </td>
+                <td mat-cell *matCellDef="let tempUser"> {{ tempUser?.address }} </td>
             </ng-container>
             <ng-container matColumnDef="companyurl">
                 <th mat-header-cell *matHeaderCellDef mat-sort-header> Website </th>
-                <td mat-cell *matCellDef="let tempUser"> {{ tempUser.companyurl }} </td>
+                <td mat-cell *matCellDef="let tempUser"> {{ tempUser?.companyurl }} </td>
             </ng-container>
             <!-- UserRole Column -->
             <ng-container matColumnDef="userRole">
                 <th mat-header-cell *matHeaderCellDef> User Role </th>
-                <td mat-cell *matCellDef="let tempUser"> {{tempUser.userRole}} </td>
+                <td mat-cell *matCellDef="let tempUser"> {{tempUser?.userRole}} </td>
             </ng-container>
             <ng-container matColumnDef="actions" class="action-con">
                 <th mat-header-cell *matHeaderCellDef> Actions </th>
