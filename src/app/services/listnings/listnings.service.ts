@@ -9,8 +9,8 @@ export class ListningsService {
 
    private appData: any;
 
-  apiurl = "http://localhost:5000/api/get-application";
-  apiurl2 = "http://localhost:5000/api/get/status";
+   private apiurl = "http://localhost:5000/api/get-application";
+   private apiurl2 = "http://localhost:5000/api/get/status";
   constructor(private http: HttpClient) { }
 
   getjobapp(): Observable<any> {

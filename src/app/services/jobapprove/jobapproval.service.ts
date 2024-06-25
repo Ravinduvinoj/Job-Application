@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class JobapprovalService {
   private jobData: any;
 
-  apiurl = "http://localhost:5000/api/displayPost";
+  private apiurl = "http://localhost:5000/api/displayPost";
   constructor(private http: HttpClient) { }
 
   getjobpost(): Observable<any> {

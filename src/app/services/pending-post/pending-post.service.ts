@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class PendingPostService {
   private jobData: any;
 
-  apiurl = "http://localhost:5000/api/temp/advertiesment";
+  private apiurl = "http://localhost:5000/api/temp/advertiesment";
   constructor(private http: HttpClient) { }
 
   getjobpost(): Observable<any> {

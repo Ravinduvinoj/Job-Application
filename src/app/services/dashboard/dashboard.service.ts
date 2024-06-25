@@ -7,14 +7,14 @@ import { Observable } from 'rxjs';
 })
 export class DashboardService {
 
-  apiurl = "http://localhost:5000/api/companycount";
-  apiurl2 = "http://localhost:5000/api/adCount";
-  apiurl3 = "http://localhost:5000/api/appCount";
-  apiurl4 = "http://localhost:5000/api/Jobseeker-Count";
+  private apiurl = "http://localhost:5000/api/companycount";
+  private apiurl2 = "http://localhost:5000/api/adCount";
+  private apiurl3 = "http://localhost:5000/api/appCount";
+  private apiurl4 = "http://localhost:5000/api/Jobseeker-Count";
 
-  apiurlc1 = "http://localhost:5000/api/post/showcount";
-  apiurlc2 = "http://localhost:5000/api/appCountApproval";
-  apiurlc3 = "http://localhost:5000/api/TotalappCount";
+  private apiurlc1 = "http://localhost:5000/api/post/showcount";
+  private apiurlc2 = "http://localhost:5000/api/appCountApproval";
+  private apiurlc3 = "http://localhost:5000/api/TotalappCount";
   constructor(private http: HttpClient) { }
 //this shows admin
   getAllCompanies(): Observable<any> {
