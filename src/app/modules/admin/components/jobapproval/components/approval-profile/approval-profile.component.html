@@ -3,30 +3,30 @@
         <ul class="ul-cat">
           <li class="li-cat"></li>
       
-          <li class="li-cat1" style="margin-left: 20px; margin-right: 20px;"><button (click)="onPostDelete(post._id)">Remove Advertisement</button></li>
+          <li class="li-cat1" style="margin-left: 20px; margin-right: 20px;"><button (click)="onPostDelete(post?._id)">Remove Advertisement</button></li>
          
         </ul>
       </div>
       <div class="post-container">
         <div class="post-card">
           <div class="post-header">
-            <h1>{{ post.job_title }}</h1>
+            <h1>{{ post?.job_title }}</h1>
           </div>
           <div> <img style="width: 500px; margin-left: 27%;margin-top:20px;border-radius: 15px;" src="http://localhost:5000/{{ post.image }}" alt="Job Image"></div>
           <div class="post-body">
-            <p><strong>Job Description:</strong> {{ post.job_description }}</p>
-            <p><strong>Position Summary:</strong> {{ post.position_summary }}</p>
-            <p><strong><i class="fad fa-city"></i>  City:</strong> {{ post.city }}</p>
-            <p><strong><i class="fad fa-flag"></i>  Country:</strong> {{ post.country }}</p>
-            <p><strong><i class="fad fa-clock"></i>  Ad Closing Date:</strong> {{ post.ad_closing_date | date }}</p>
-            <p><strong><i class="fad fa-hand-point-right"></i>  Requirement 1:</strong> {{ post.requirement1 }}</p>
-            <p><strong><i class="fad fa-hand-point-right"></i>  Requirement 2:</strong> {{ post.requirement2 }}</p>
+            <p><strong>Job Description:</strong> {{ post?.job_description }}</p>
+            <p><strong>Position Summary:</strong> {{ post?.position_summary }}</p>
+            <p><strong><i class="fad fa-city"></i>  City:</strong> {{ post?.city }}</p>
+            <p><strong><i class="fad fa-flag"></i>  Country:</strong> {{ post?.country }}</p>
+            <p><strong><i class="fad fa-clock"></i>  Ad Closing Date:</strong> {{ post?.ad_closing_date | date }}</p>
+            <p><strong><i class="fad fa-hand-point-right"></i>  Requirement 1:</strong> {{ post?.requirement1 }}</p>
+            <p><strong><i class="fad fa-hand-point-right"></i>  Requirement 2:</strong> {{ post?.requirement2 }}</p>
           </div>
         </div>
       </div>
       
       <div *ngIf="!post">
-        <p>Loading...</p>
+        <p style="margin-left: 500px;">Loading...</p>
       </div>
     </div>
       
