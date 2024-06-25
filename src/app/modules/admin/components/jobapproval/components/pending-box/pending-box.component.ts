@@ -30,14 +30,14 @@ fetch_Ad():void {
     // getting addvertiesment data form pending service
     this.getpend.getjobpost().subscribe(
       (data) => {
-        this.posts = data.data;
+        this.posts = data?.data;
         console.log(this.posts);
       }
     );
 }
 postapprove(data:any){
 console.log(data._id)
-this.http.get<any[]>(`http://localhost:5000/api/temp/approve/${data._id}`).subscribe({
+this.http.get<any[]>(`http://localhost:5000/api/temp/approve/${data?._id}`).subscribe({
       next: (data) => {
         console.log('ad approved and moved to advertiesment collection successfully');
         this.Toast.success({ detail: "advertiesment has been posted", summary: 'advertiesment approved successfully', duration: 7000, position: 'botomCenter' })

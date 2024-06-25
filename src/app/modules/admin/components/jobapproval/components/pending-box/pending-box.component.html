@@ -21,26 +21,26 @@
               <li></li>
               <li>
                 <div class="job-main">
-                  <h2>{{ i + 1 }}. {{ post.job_title }}</h2>
+                  <h2>{{ i + 1 }}. {{ post?.job_title }}</h2>
                 </div>
                 <h4 style="margin-left: 1000px; margin-top: -50px;" class="expiry-info">Expires In <i
-                    class="fal fa-clock"></i>: {{post.ad_closing_date}} </h4>
+                    class="fal fa-clock"></i>: {{post?.ad_closing_date}} </h4>
               </li>
             </ul>
           </div>
           <div class="post-content">
             <div class="post-image">
-              <img src="http://localhost:5000/{{ post.image }}" alt="Job Image">
+              <img src="http://localhost:5000/{{ post?.image }}" alt="Job Image">
             </div>
             <div class="post-details">
               <div class="post-job-description">
-                <h2><i class="fad fa-angle-double-right"></i> {{ post.job_description }}</h2>
-                <p>{{ post.position_summary }}</p>
+                <h2><i class="fad fa-angle-double-right"></i> {{ post?.job_description }}</h2>
+                <p>{{ post?.position_summary }}</p>
               </div>
         
               <div class="post-actions">
                 <div class="job-location">
-                  <h3>Location: {{ post.city }}, {{ post.country }}</h3>
+                  <h3>Location: {{ post?.city }}, {{ post?.country }}</h3>
                 </div>
                 <div class="action-buttons">
                   <button (click)="onShowMore(post)" class="action-button2">view <i
