@@ -24,7 +24,7 @@ export class JobapprovalComponent implements OnInit {
     // getting addvertiesment data form approval service
     this.jobAp.getjobpost().subscribe(
       (data) => {
-        this.posts = data.data;
+        this.posts = data?.data;
         console.log(this.posts);
       }
     );

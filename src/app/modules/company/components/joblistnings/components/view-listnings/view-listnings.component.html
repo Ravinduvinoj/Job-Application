@@ -27,36 +27,36 @@
                 <div class="post-item">
                     <div class="post-header">
                         <div class="header-content">
-                            <h2>{{ i + 1 }}. {{ post.name }}</h2>
-                            <h2 class="email">Email: {{ post.jobseeker.email }}</h2>
+                            <h2>{{ i + 1 }}. {{ post?.name }}</h2>
+                            <h2 class="email">Email: {{ post?.jobseeker?.email }}</h2>
                         </div>
                     </div>
                     <div class="post-body">
                         <div class="post-details">
                             <div class="detail-item">
-                                <h3>Address: {{ post.address }}</h3>
+                                <h3>Address: {{ post?.address }}</h3>
                             </div>
                             <div class="detail-item">
-                                <h3>City: {{ post.city }}</h3>
+                                <h3>City: {{ post?.city }}</h3>
                             </div>
                             <div class="detail-item">
-                                <h3>Contact: {{ post.contact }}</h3>
+                                <h3>Contact: {{ post?.contact }}</h3>
                             </div>
                             <div class="detail-item">
-                                <h3>Date of Birth: {{ post.dob }}</h3>
+                                <h3>Date of Birth: {{ post?.dob }}</h3>
                             </div>
                             <div class="detail-item">
-                                <h3>Applied Date: {{ post.Submission_date }}</h3>
+                                <h3>Applied Date: {{ post?.Submission_date }}</h3>
                             </div>
                             <div class="detail-item">
-                                <h3>Gender: {{ post.gender }}</h3>
+                                <h3>Gender: {{ post?.gender }}</h3>
                             </div>
                         </div>
                         <div class="post-actions">
                             <div class="applied-status">
                                 <h3>CV:
-                                    <a [href]="post.cvFile" target="_blank">Open</a>&nbsp;&nbsp;
-                                    <button (click)="downloadCV(post.cvFile)">Download</button>
+                                    <a [href]="post?.cvFile" target="_blank">Open</a>&nbsp;&nbsp;
+                                    <button (click)="downloadCV(post?.cvFile)">Download</button>
                                 </h3>
                             </div>
                             <button class="reject" (click)="onReject(post)">
@@ -75,40 +75,40 @@
         <h2 style="margin-left: 200px;font-size: 80px; margin-top: 40px;"><i class="fad fa-history"></i> History</h2>
         <div class="post-container">
             <ng-container *ngFor="let post of History; let i = index">
-                <div class="post-item" [ngClass]="{'approved': post.status === 'approved', 'rejected': post.status === 'rejected'}">
-                    <div class="post-header"[ngClass]="{'post-header1': post.status === 'approved', 'post-header2': post.status === 'rejected'}">
+                <div class="post-item" [ngClass]="{'approved': post?.status === 'approved', 'rejected': post?.status === 'rejected'}">
+                    <div class="post-header"[ngClass]="{'post-header1': post?.status === 'approved', 'post-header2': post?.status === 'rejected'}">
                         <div class="header-content">
-                            <h2>{{ i + 1 }}. {{ post.name }}</h2>
-                            <h2 class="email">status: {{ post.status }}</h2>
-                            <h2 class="email">Email: {{ post.jobseeker?.email }}</h2>
+                            <h2>{{ i + 1 }}. {{ post?.name }}</h2>
+                            <h2 class="email">status: {{ post?.status }}</h2>
+                            <h2 class="email">Email: {{ post?.jobseeker?.email }}</h2>
                         </div>
                     </div>
                     <div class="post-body">
                         <div class="post-details">
                             <div class="detail-item">
-                                <h3>Address: {{ post.address }}</h3>
+                                <h3>Address: {{ post?.address }}</h3>
                             </div>
                             <div class="detail-item">
-                                <h3>City: {{ post.city }}</h3>
+                                <h3>City: {{ post?.city }}</h3>
                             </div>
                             <div class="detail-item">
-                                <h3>Contact: {{ post.contact }}</h3>
+                                <h3>Contact: {{ post?.contact }}</h3>
                             </div>
                             <div class="detail-item">
-                                <h3>Date of Birth: {{ post.dob | date }}</h3>
+                                <h3>Date of Birth: {{ post?.dob | date }}</h3>
                             </div>
                             <div class="detail-item">
-                                <h3>Applied Date: {{ post.Submission_date | date }}</h3>
+                                <h3>Applied Date: {{ post?.Submission_date | date }}</h3>
                             </div>
                             <div class="detail-item">
-                                <h3>Gender: {{ post.gender }}</h3>
+                                <h3>Gender: {{ post?.gender }}</h3>
                             </div>
                         </div>
                         <div class="post-actions">
                             <div class="applied-status">
                                 <h3>CV:
-                                    <a [href]="post.cvFile" target="_blank">Open</a>&nbsp;&nbsp;
-                                    <button (click)="downloadCV(post.cvFile)">Download</button>
+                                    <a [href]="post?.cvFile" target="_blank">Open</a>&nbsp;&nbsp;
+                                    <button (click)="downloadCV(post?.cvFile)">Download</button>
                                 </h3>
                             </div>
                         </div>

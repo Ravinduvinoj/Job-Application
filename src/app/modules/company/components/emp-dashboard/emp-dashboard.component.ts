@@ -23,13 +23,13 @@ export class EmpDashboardComponent implements OnInit {
       withCredentials: true,
     }).subscribe(
       (res: any) => {
-        this.loginId = res._id
+        this.loginId = res?._id
         console.log(this.loginId)
 
         // count all ad for company
         this.dashService.getcompanyAd(this.loginId).subscribe(
           (data) => {
-            this.ad = data.count;
+            this.ad = data?.count;
             console.log(this.ad);
           }
         );
@@ -38,14 +38,14 @@ export class EmpDashboardComponent implements OnInit {
     //count all ad for approved
     this.dashService.getlisting(this.loginId).subscribe(
       (data) => {
-        this.approved = data.count;
+        this.approved = data?.count;
         console.log(this.approved);
       }
     );
       //count all ads for applixations
       this.dashService.getapplications(this.loginId).subscribe(
         (data) => {
-          this.totalApp = data.count;
+          this.totalApp = data?.count;
           console.log(this.totalApp);
         }
       );
