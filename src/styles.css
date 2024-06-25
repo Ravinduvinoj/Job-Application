@@ -1,33 +1,22 @@
-/* src/styles.css */
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
 
-/* Ensure the import statement is at the top */
+
+
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-@font-face {
-     font-family: 'Poppins';
-     font-style: normal;
-     font-weight: 100;
-     src: url('assets/fonts/Poppins-100.woff2') format('woff2'),
-          url('assets/fonts/Poppins-100.woff') format('woff');
-   }
-   
-@font-face {
-     font-family: 'Poppins';
-     font-style: normal;
-     font-weight: 200;
-     src: url('assets/fonts/Poppins-200.woff2') format('woff2'),
-          url('assets/fonts/Poppins-200.woff') format('woff');
-   }
-   
-/* Repeat for all required weights and styles */
 
 *{
      margin: 0;
      padding: 0;
      box-sizing: border-box;
 }
-body {
-     font-family: 'Poppins', sans-serif;
+body{
+     position: relative;
+     font-family: 'Poppins',sans-serif;
 }
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
