@@ -53,10 +53,10 @@ try {
     withCredentials: true,
   }).subscribe(
     (res: any) => {
-      if (res.userRole === "admin") {
+      if (res?.userRole === "admin") {
         this.navData = adminData;
       }
-      else if (res.userRole === "company") {
+      else if (res?.userRole === "company") {
         this.navData = empData;
       }
     })

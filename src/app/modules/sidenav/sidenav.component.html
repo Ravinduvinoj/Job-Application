@@ -10,10 +10,10 @@
     </div>
     <ul class="sidenav-nav">
         <li class="sidenav-nav-item" *ngFor="let data1 of navData">
-            <a class="sidenav-nav-link" [routerLink]="[data1.routeLink]" routerLinkActive="active"
+            <a class="sidenav-nav-link" [routerLink]="[data1?.routeLink]" routerLinkActive="active"
                 [routerLinkActiveOptions]="{exact: true}">
-                <i class="sidenav-link-icon" [class]="data1.icon"></i>
-                <span class="sidenav-link-text" *ngIf="collapsed">{{data1.Label}} </span>
+                <i class="sidenav-link-icon" [class]="data1?.icon"></i>
+                <span class="sidenav-link-text" *ngIf="collapsed">{{data1?.Label}} </span>
             </a>
         </li>
         <div class="logout-func">

@@ -45,9 +45,9 @@ openDialog() {
         withCredentials: true,
       }).subscribe(
         (res: any) => {
-          this.message = `${res.company}`;
+          this.message = `${res?.company}`;
           Emitter.authEmitter.emit(true)
-          this.type = res.userRole;
+          this.type = res?.userRole;
           if (this.type === 'admin') {
             this.dashboard = 'Admin panel';
           } else {
