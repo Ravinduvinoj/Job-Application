@@ -1,6 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,26 +18,52 @@ export class DashboardService {
   constructor(private http: HttpClient) { }
 //this shows admin
   getAllCompanies(): Observable<any> {
-    return this.http.get<any>(this.apiurl);
+    return this.http.get<any>(this.apiurl).pipe(
+      catchError(this.handleError)
+    );
   }
   getallAd(): Observable<any> {
-    return this.http.get<any>(this.apiurl2);
+    return this.http.get<any>(this.apiurl2).pipe(
+      catchError(this.handleError)
+    );
   }
   getAllApp(): Observable<any> {
-    return this.http.get<any>(this.apiurl3);
+    return this.http.get<any>(this.apiurl3).pipe(
+      catchError(this.handleError)
+    );
   }
   getAllSeekers(): Observable<any> {
-    return this.http.get<any>(this.apiurl4);
+    return this.http.get<any>(this.apiurl4).pipe(
+      catchError(this.handleError)
+    );
   }
 
  // this shows company
  getcompanyAd(data:any): Observable<any> {
-  return this.http.get<any>(`${this.apiurlc1}/${data}`);
+  return this.http.get<any>(`${this.apiurlc1}/${data}`).pipe(
+    catchError(this.handleError)
+  );
 }
 getlisting(data:any): Observable<any> {
-  return this.http.get<any>(`${this.apiurlc2}/${data}`);
+  return this.http.get<any>(`${this.apiurlc2}/${data}`).pipe(
+    catchError(this.handleError)
+  );
 }
 getapplications(data:any): Observable<any> {
-  return this.http.get<any>(`${this.apiurlc3}/${data}`);
+  return this.http.get<any>(`${this.apiurlc3}/${data}`).pipe(
+    catchError(this.handleError)
+  );
+}
+private handleError(error: HttpErrorResponse) {
+  let errorMessage = 'Unknown error!';
+  if (error.error instanceof ErrorEvent) {
+    // Client-side errors
+    errorMessage = `Error: ${error.error.message}`;
+  } else {
+    // Server-side errors
+    errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+  }
+  console.error(errorMessage);
+  return throwError(errorMessage);
 }
 }
