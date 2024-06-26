@@ -1,7 +1,7 @@
 import { Component, Output, EventEmitter, OnInit, } from '@angular/core';
 import { adminData, empData } from './side-data';
 import { HttpClient } from '@angular/common/http';
-// import { Emitter } from '../../emitter/emitter';
+import { Emitter } from '../../emitter/emitter';
 
 interface SidenavToggle {
   screenWidth: number;
@@ -41,31 +41,31 @@ export class SidenavComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    // this.get_user()
+    this.get_user()
   }
 
-//   get_user(): void {
-//     Emitter.authEmitter.subscribe((auth: boolean) => {
-//       this.authenticated = auth;
-//     })
-// try {
-//   this.http.get('http://localhost:5000/api/user', {
-//     withCredentials: true,
-//   }).subscribe(
-//     (res: any) => {
-//       if (res?.userRole === "admin") {
-//         this.navData = adminData;
-//       }
-//       else if (res?.userRole === "company") {
-//         this.navData = empData;
-//       }
-//     })
-// }catch(e){
-//   console.log(e)
+  get_user(): void {
+    Emitter.authEmitter.subscribe((auth: boolean) => {
+      this.authenticated = auth;
+    })
+try {
+  this.http.get('http://localhost:5000/api/user', {
+    withCredentials: true,
+  }).subscribe(
+    (res: any) => {
+      if (res?.userRole === "admin") {
+        this.navData = adminData;
+      }
+      else if (res?.userRole === "company") {
+        this.navData = empData;
+      }
+    })
+}catch(e){
+  console.log(e)
 
-// }
+}
  
-//   }
+  }
 
   logout(): void {
     this.http.post('http://localhost:5000/api/logout', {},

@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter, OnInit, ViewChild } from '@angular/core';
-// import { Emitter } from '../../emitter/emitter';
+import { Emitter } from '../../emitter/emitter';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {MatMenuTrigger, MatMenuModule} from '@angular/material/menu';
@@ -46,7 +46,7 @@ openDialog() {
       }).subscribe(
         (res: any) => {
           this.message = `${res?.company}`;
-          // Emitter.authEmitter.emit(true)
+          Emitter.authEmitter.emit(true)
           this.type = res?.userRole;
           if (this.type === 'admin') {
             this.dashboard = 'Admin panel';
@@ -58,7 +58,7 @@ openDialog() {
         },
         (err) => {
           this.message = "you are not logged"
-          // Emitter.authEmitter.emit(false)
+          Emitter.authEmitter.emit(false)
         }
       );
     } catch (e) {

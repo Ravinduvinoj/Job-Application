@@ -5,7 +5,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgToastService } from 'ng-angular-popup';
 import { ViewListningsComponent } from '../view-listnings/view-listnings.component';
-// import { Emitter } from '../../../../../../emitter/emitter';
+import { Emitter } from '../../../../../../emitter/emitter';
 
 @Component({
   selector: 'app-approval',
@@ -61,9 +61,9 @@ import { ViewListningsComponent } from '../view-listnings/view-listnings.compone
 
     
   get_user(): void {
-    // Emitter.authEmitter.subscribe((auth: boolean) => {
-    //   this.authenticated = auth;
-    // })
+    Emitter.authEmitter.subscribe((auth: boolean) => {
+      this.authenticated = auth;
+    })
     try {
       this.http.get('http://localhost:5000/api/user', {
         withCredentials: true,
