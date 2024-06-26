@@ -73,7 +73,7 @@ export class RegisterComponent implements OnInit {
 
   // submit form data with validate data
   submit(): void {
-    let user = this.form.getRawValue()
+     let user = this.form.getRawValue()
     user.email = this.emailFormControl.value;
     if (user.company == "" || user.contact == "" || this.emailFormControl.value == "" || user.contact == '' || user.city == '' || user.address == '' || user.password == "" || user.con_password == "" || user.companyurl == "") {
       this.snackBar.open("please  enter all the fields", 'Close', {
@@ -103,7 +103,18 @@ export class RegisterComponent implements OnInit {
         horizontalPosition: 'center'
       })
     } else {
-      this.http.post("http://localhost:5000/api/temp-register", user, {
+      const formData = new FormData();
+      formData.append('company', this.form.get('company')?.value);
+      formData.append('contact', this.form.get('contact')?.value);
+      formData.append('email', this.form.get('email')?.value);
+      formData.append('password', this.form.get('password')?.value);
+      formData.append('companyurl', this.form.get('companyurl')?.value);
+      formData.append('userRole', this.form.get('userRole')?.value);
+      formData.append('city', this.form.get('city')?.value);
+      formData.append('address', this.form.get('address')?.value);
+     
+
+      this.http.post("http://localhost:5000/api/temp-register", formData, {
         withCredentials: true
       })
         .subscribe(() => {
