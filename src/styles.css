@@ -113,10 +113,9 @@
      padding: 0;
      box-sizing: border-box;
 }
-body{
-     position: relative;
-     font-family: 'Poppins',sans-serif;
-}
+body {
+     font-family: 'CustomFont', sans-serif;
+ }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
