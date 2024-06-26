@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Emitter } from '../../../../emitter/emitter';
+// import { Emitter } from '../../../../emitter/emitter';
 import { PostProfileServiceService } from '../../../../services/post-profile/post-profile-service.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
@@ -38,9 +38,9 @@ export class JoblistningsComponent implements OnInit {
   ngOnInit(): void {
 
 
-    Emitter.authEmitter.subscribe((auth: boolean) => {
-      this.authenticated = auth;
-    })
+    // Emitter.authEmitter.subscribe((auth: boolean) => {
+    //   this.authenticated = auth;
+    // })
     this.updatetbl();
 
   }

@@ -4,7 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { NgToastService } from 'ng-angular-popup';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AddPostComponent } from './components/add-post/add-post.component';
-import { Emitter } from '../../../../emitter/emitter';
+// import { Emitter } from '../../../../emitter/emitter';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PostProfileServiceService } from '../../../../services/post-profile/post-profile-service.service';
 import * as XLSX from 'xlsx'
@@ -34,9 +34,9 @@ export class JobpostComponent implements OnInit {
   ngOnInit(): void {
 
 
-    Emitter.authEmitter.subscribe((auth: boolean) => {
-      this.authenticated = auth;
-    })
+    // Emitter.authEmitter.subscribe((auth: boolean) => {
+    //   this.authenticated = auth;
+    // })
     this.updatetbl();
 
   }

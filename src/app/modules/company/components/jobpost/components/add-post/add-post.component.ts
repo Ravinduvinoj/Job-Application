@@ -5,7 +5,7 @@ import { NgToastService } from 'ng-angular-popup';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HttpClient } from '@angular/common/http';
 import { add_data } from '../../adddata';
-import { Emitter } from '../../../../../../emitter/emitter';
+// import { Emitter } from '../../../../../../emitter/emitter';
 
 @Component({
   selector: 'app-add-post',
@@ -116,9 +116,9 @@ export class AddPostComponent implements OnInit {
 
   }
   get_user(): void {
-    Emitter.authEmitter.subscribe((auth: boolean) => {
-      this.authenticated = auth;
-    })
+    // Emitter.authEmitter.subscribe((auth: boolean) => {
+    //   this.authenticated = auth;
+    // })
     try {
       this.http.get('http://localhost:5000/api/user', {
         withCredentials: true,
