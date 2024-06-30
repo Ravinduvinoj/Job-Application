@@ -10,6 +10,7 @@ import { AddSubCategoryComponent } from './components/add-sub-category/add-sub-c
 import * as XLSX from 'xlsx';
 import { UpdateSubCategoryComponent } from './components/update-sub-category/update-sub-category.component';
 import { MatTabChangeEvent } from '@angular/material/tabs';
+import { CategoriesService } from '../../../../services/category/categories.service';
 
 @Component({
   selector: 'app-j-category',
@@ -30,7 +31,8 @@ selectedTabIndex: any;
   constructor(private http: HttpClient,
     private snackBar: MatSnackBar,
     private Toast: NgToastService,
-    public dialog: MatDialog) {
+    public dialog: MatDialog,
+  private categoryService : CategoriesService) {
 
   }
   ngOnInit(): void {
@@ -107,9 +109,7 @@ if(this.mainActivTable){
   ];
 
   public fetchSubCategories():void {
-    const apiURL = 'http://localhost:5000/api/get-all-Sub-Categories';
-
-    this.http.get<any[]>(apiURL).subscribe(
+    this.categoryService.loadjobsubcate().subscribe(
       (data)=>{
         this.subCategory= data
       },
