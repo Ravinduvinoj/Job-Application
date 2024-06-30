@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgToastService } from 'ng-angular-popup';
 import { MatDialog } from '@angular/material/dialog';
 import { ListningsService } from '../../../../services/listnings/listnings.service';
+import { UsersService } from '../../../../services/users/users.service';
 
 @Component({
   selector: 'app-joblistnings',
@@ -30,6 +31,7 @@ export class JoblistningsComponent implements OnInit {
     private http: HttpClient,
     private snackBar: MatSnackBar,
     private Toast: NgToastService,
+    private currentUser: UsersService
 
   ) {
 
@@ -46,9 +48,7 @@ export class JoblistningsComponent implements OnInit {
   }
   updatetbl(): void {
 
-    this.http.get('http://localhost:5000/api/user', {
-      withCredentials: true,
-    }).subscribe(
+    this.currentUser.loadcurrentuser().subscribe(
       (res: any) => {
         this.loginID = res._id
         console.log('login Id is ' + this.loginID)

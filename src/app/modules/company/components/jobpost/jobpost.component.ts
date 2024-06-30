@@ -8,6 +8,7 @@ import { Emitter } from '../../../../emitter/emitter';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PostProfileServiceService } from '../../../../services/post-profile/post-profile-service.service';
 import * as XLSX from 'xlsx'
+import { UsersService } from '../../../../services/users/users.service';
 
 
 @Component({
@@ -28,6 +29,7 @@ export class JobpostComponent implements OnInit {
     private snackBar: MatSnackBar,
     private Toast: NgToastService,
     public dialog: MatDialog,
+    private currentUser: UsersService
   ) {
 
   }
@@ -42,9 +44,7 @@ export class JobpostComponent implements OnInit {
   }
   updatetbl(): void {
 
-    this.http.get('http://localhost:5000/api/user', {
-      withCredentials: true,
-    }).subscribe(
+    this.currentUser.loadcurrentuser().subscribe(
       (res: any) => {
         this.loginID = res._id
         console.log('login Id is ' + this.loginID)

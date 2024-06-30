@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { NgToastService } from 'ng-angular-popup';
 import * as XLSX from 'xlsx';
+import { UsersService } from '../../../../services/users/users.service';
 
 @Component({
   selector: 'app-schedule',
@@ -18,6 +19,7 @@ export class ScheduleComponent implements OnInit {
     private snackBar: MatSnackBar,
     private Toast: NgToastService,
     public dialog: MatDialog,
+    private currentUser: UsersService
   ) { }
   ngOnInit(): void {
     this.fetchSchedules();
@@ -37,9 +39,7 @@ export class ScheduleComponent implements OnInit {
   //get interview schedule for current company
   fetchSchedules(): void {
     //get current user
-    this.http.get('http://localhost:5000/api/user', {
-      withCredentials: true,
-    }).subscribe(
+    this.currentUser.loadcurrentuser().subscribe(
       (res: any) => {
         this.loginID = res._id;
         console.log('Login ID is ' + this.loginID);

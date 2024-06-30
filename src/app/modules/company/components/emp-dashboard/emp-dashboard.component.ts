@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { DashboardService } from '../../../../services/dashboard/dashboard.service';
+import { UsersService } from '../../../../services/users/users.service';
 
 @Component({
   selector: 'app-emp-dashboard',
@@ -14,14 +15,13 @@ export class EmpDashboardComponent implements OnInit {
   approved: String
   totalApp :String
   constructor(private http: HttpClient,
-    private dashService: DashboardService
+    private dashService: DashboardService,
+    private currentUser: UsersService
   ) {
 
   }
   ngOnInit(): void {
-    this.http.get('http://localhost:5000/api/user', {
-      withCredentials: true,
-    }).subscribe(
+    this.currentUser.loadcurrentuser().subscribe(
       (res: any) => {
         this.loginId = res?._id
         console.log(this.loginId)
