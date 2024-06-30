@@ -2,6 +2,8 @@ import { Component, Output, EventEmitter, OnInit, } from '@angular/core';
 import { adminData, empData } from './side-data';
 import { HttpClient } from '@angular/common/http';
 import { Emitter } from '../../emitter/emitter';
+import { UsersService } from '../../services/users/users.service';
+
 
 interface SidenavToggle {
   screenWidth: number;
@@ -37,7 +39,9 @@ export class SidenavComponent implements OnInit {
   authenticated: boolean;
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient,
+    private currentUser: UsersService
+  ) {
 
   }
   ngOnInit(): void {
@@ -48,10 +52,8 @@ export class SidenavComponent implements OnInit {
     Emitter.authEmitter.subscribe((auth: boolean) => {
       this.authenticated = auth;
     })
-try {
-  this.http.get('http://localhost:5000/api/user', {
-    withCredentials: true,
-  }).subscribe(
+
+  this.currentUser.loadcurrentuser().subscribe(
     (res: any) => {
       if (res?.userRole === "admin") {
         this.navData = adminData;
@@ -60,10 +62,6 @@ try {
         this.navData = empData;
       }
     })
-}catch(e){
-  console.log(e)
-
-}
  
   }
 

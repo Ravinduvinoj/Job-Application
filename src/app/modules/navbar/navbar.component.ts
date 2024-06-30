@@ -3,6 +3,7 @@ import { Emitter } from '../../emitter/emitter';
 import { HttpClient } from '@angular/common/http';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import {MatMenuTrigger, MatMenuModule} from '@angular/material/menu';
+import { UsersService } from '../../services/users/users.service';
 
 interface navToggle {
   screenWidth: number;
@@ -31,6 +32,7 @@ openDialog() {
 
   constructor(private http: HttpClient,
     private snackBar: MatSnackBar,
+    private currentUser: UsersService
   ) {
 
   }
@@ -40,10 +42,7 @@ openDialog() {
   }
   get_user(): void {
 
-    try {
-      this.http.get('http://localhost:5000/api/user', {
-        withCredentials: true,
-      }).subscribe(
+   this.currentUser.loadcurrentuser().subscribe(
         (res: any) => {
           this.message = `${res?.company}`;
           Emitter.authEmitter.emit(true)
@@ -61,9 +60,7 @@ openDialog() {
           Emitter.authEmitter.emit(false)
         }
       );
-    } catch (e) {
-      console.log(e)
-    }
+ 
 
 
   }

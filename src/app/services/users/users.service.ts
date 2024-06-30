@@ -8,6 +8,7 @@ import { Observable, catchError, throwError } from 'rxjs';
 export class UsersService {
   private  apiurl = 'http://localhost:5000/api/getalltempuser';
    private  apiurl2 = 'http://localhost:5000/api/user-accounts';
+   private  apiurl3 = 'http://localhost:5000/api/user';
   constructor(private http: HttpClient) { }
 
   loadtempUsers(): Observable<any> {
@@ -18,6 +19,12 @@ export class UsersService {
   }
   loadallusers(): Observable<any> {
     return this.http.get<any>(this.apiurl2).pipe(
+      catchError(this.handleError)
+    )
+    
+  }
+  loadcurrentuser(): Observable<any> {
+    return this.http.get<any>(this.apiurl3,{withCredentials:true}).pipe(
       catchError(this.handleError)
     )
     
