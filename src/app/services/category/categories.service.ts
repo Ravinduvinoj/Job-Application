@@ -10,14 +10,21 @@ export class CategoriesService {
 
 
   private  apiurl = 'http://localhost:5000/api/get-all-Sub-Categories';
+  private  apiurl2 = 'http://localhost:5000/api/get-all-category';
   constructor(private http: HttpClient) { }
 
   loadjobsubcate(): Observable<any> {
     return this.http.get<any>(this.apiurl).pipe(
       catchError(this.handleError)
     )
+    
   }
- 
+  loadjobmaincate(): Observable<any> {
+    return this.http.get<any>(this.apiurl2).pipe(
+      catchError(this.handleError)
+    )
+    
+  }
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {

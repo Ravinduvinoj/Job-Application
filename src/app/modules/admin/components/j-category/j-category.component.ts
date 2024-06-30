@@ -119,9 +119,8 @@ if(this.mainActivTable){
   }
 
   public fetchCategories(): void {
-    const apiUrl = 'http://localhost:5000/api/get-all-category'; // Update the API URL as per your backend route
-
-    this.http.get<any[]>(apiUrl).subscribe(
+    
+    this.categoryService.loadjobmaincate().subscribe(
       (data) => {
         //this.SearchText
         this.mainCategory = data;
