@@ -11,6 +11,7 @@ import html2canvas from 'html2canvas';
 import * as XLSX from 'xlsx';
 import { Subscription } from 'rxjs';
 import jsPDF from 'jspdf';
+import { UsersService } from '../../../../services/users/users.service';
 
 
 @Component({
@@ -33,6 +34,7 @@ export class AccountsComponent implements OnInit {
     private snackBar: MatSnackBar,
     private Toast: NgToastService,
     public dialog: MatDialog,
+    private loadusers: UsersService
 
   ) { }
 
@@ -141,7 +143,7 @@ export class AccountsComponent implements OnInit {
 
   //fetching temp user accounts
   fetchTempUsers(): void {
-    this.http.get<any[]>('http://localhost:5000/api/getalltempuser').subscribe({
+    this.loadusers.loadtempUsers().subscribe({
       next: (data) => {
         this.tempUsers = data;
       },
@@ -153,8 +155,8 @@ export class AccountsComponent implements OnInit {
 
   //fetching all users approved
   public fetchUserAccounts(): void {
-    const apiUrl = 'http://localhost:5000/api/user-accounts'; // Update the API URL as per your backend route
-    this.http.get<any[]>(apiUrl).subscribe(
+  
+    this.loadusers.loadallusers().subscribe(
       (data) => {
         this.SearchText
         this.userAccounts = data;
