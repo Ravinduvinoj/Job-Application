@@ -42,34 +42,28 @@ export class LoginComponent implements OnInit {
 
 
   submit(): void {
-    //getting raw value in the form
-    let user = this.form.getRawValue()
-    user.email = this.emailFormControl.value; //asign email compenent assigned value
+    const user = this.form.getRawValue();
+    user.email = this.emailFormControl.value;
     console.log(user);
 
-    //check email & password is empty
-    if (user.email == "" || user.password == "") {
-      this.Toast.warning({ detail: "please  enter all the fields", summary: 'you have to fill all the fields and try again', duration: 4000, position: 'bottomRight' })
-
-    } else if (!this.ValidateEmail(this.emailFormControl.value)) {//check login email is validation
-      this.Toast.warning({ detail: "please  enter valid email", duration: 4000, position: 'bottomRight' })
-
+    if (!user.email || !user.password) {
+      this.Toast.warning({ detail: "Please enter all the fields", summary: 'You have to fill all the fields and try again', duration: 4000, position: 'bottomRight' });
+    } else if (!this.ValidateEmail(user.email)) {
+      this.Toast.warning({ detail: "Please enter a valid email", duration: 4000, position: 'bottomRight' });
     } else {
-      this.http.post("http://localhost:5000/api/login", user, {//set login data to login api
-        withCredentials: true
-      }).subscribe(
-        (res: any) => {
-          //check role base
-          if (res.userRole === "admin") {
-            this.router.navigate(['/admin']);
-          } else if (res.userRole === "company") {
-            this.router.navigate(['/company']);
+      this.http.post("http://localhost:5000/api/login", user, { withCredentials: true })
+        .subscribe(
+          (res: any) => {
+            if (res.userRole === "admin" || res.userRole === "company") {
+              localStorage.setItem('authToken', res.token);
+              console.log('Login successful, token stored');
+              this.router.navigate([`/${res.userRole}`]);
+            }
+          },
+          (err) => {
+            this.Toast.error({ detail: err.error.message, duration: 4000, position: 'bottomRight' });
           }
-        },
-        (err) => {
-          this.Toast.error({ detail: err.error.message, duration: 4000, position: 'bottomRight' })
-        }
-      )
+        );
     }
   }
 
