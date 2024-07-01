@@ -19,7 +19,7 @@ import { BodyComponent } from './modules/body/body.component';
 import { AdminComponent } from './modules/admin/admin.component';
 import { CompanyComponent } from './modules/company/company.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { provideHttpClient, withFetch } from "@angular/common/http";
 import { NgToastModule } from 'ng-angular-popup';
@@ -61,7 +61,6 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { RejectDialogComponent } from './modules/company/components/joblistnings/components/reject-dialog/reject-dialog.component';
 import { ProfileComponent } from './modules/navbar/components/profile/profile.component';
 import { BotComponent } from './bot/bot.component';
-import { AuthInterceptor } from './auth/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -134,8 +133,7 @@ import { AuthInterceptor } from './auth/auth.interceptor';
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
-    provideHttpClient(withFetch()),
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })
