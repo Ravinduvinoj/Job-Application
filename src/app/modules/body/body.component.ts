@@ -19,7 +19,6 @@ export class BodyComponent {
   isSideNavCollapsed = false;
 
 
-
   onToggleSideNav(data: SidenavToggle): void {
     this.isSideNavCollapsed = data.collapsed;
 }
